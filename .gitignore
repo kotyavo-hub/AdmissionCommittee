@@ -1,0 +1,5 @@
+/mysql/data/*
+/source/vendor
+/source/composer.lock
+/source/docker-compose.yml
+/README.md

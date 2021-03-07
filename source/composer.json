@@ -1,0 +1,24 @@
+{
+  "name": "ilya/admission-committee",
+  "description": "",
+  "authors": [
+    {
+      "name": "Илья Чупилин",
+      "email": "chupik071@mail.ru"
+    }
+  ],
+  "require": {
+    "nikic/fast-route": "^1.3",
+    "twig/twig": "1.*",
+    "php-di/php-di": "^6.3",
+    "myclabs/php-enum": "^1.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "AC\\": "src/"
+    },
+    "files": [
+      "src/bootstrap.php"
+    ]
+  }
+}

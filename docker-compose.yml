@@ -1,0 +1,49 @@
+version: "3.8"
+services:
+  apache:
+    container_name: ac_apache
+    build: './apache/'
+    ports:
+      - ${HOST_MACHINE_PORT}:80
+    volumes:
+      - ${DOC_ROOT}:/var/www/html/
+  php:
+    container_name: ac_php
+    build: './php/'
+    depends_on:
+      - apache
+      - mysql
+    volumes:
+      - ${DOC_ROOT}:/var/www/html/
+  mysql:
+    container_name: ac_mysql
+    build: './mysql/'
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+  composer:
+    image: composer:latest
+    container_name: ac_composer
+    volumes:
+      - ${DOC_ROOT}:/var/www/html/
+    working_dir: /var/www/html
+    depends_on:
+      - php
+  phpmyadmin:
+    container_name: ac_pma
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - mysql
+    ports:
+      - 8181:80
+    environment:
+      PMA_HOST: mysql
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+  mailhog:
+    container_name: ac_mailhog
+    image: mailhog/mailhog
+    ports:
+      - "9002:8025"

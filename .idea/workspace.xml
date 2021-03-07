@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9cd3d094-4ee6-4b67-bb92-1b92a54310e8" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable path="composer" />
+    </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1pORnTGxfu5f4yFm19oZIi2877D" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql&#10;mariadb" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/source/src/Controllers" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/src/Controllers" />
+      <recent name="$PROJECT_DIR$/source/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/src/Controllers/Page" />
+      <recent name="$PROJECT_DIR$/source/assets" />
+      <recent name="$PROJECT_DIR$/source" />
+      <recent name="$PROJECT_DIR$/public_html/source" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9cd3d094-4ee6-4b67-bb92-1b92a54310e8" name="Default Changelist" comment="" />
+      <created>1615052318497</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1615052318497</updated>
+      <workItem from="1615052319687" duration="322000" />
+      <workItem from="1615052774934" duration="20911000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="928" y="184" width="800" height="594" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615054058403">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="928" y="184" width="800" height="594" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615054058403" />
+    <state x="678" y="325" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1615053904622">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="678" y="325" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1615053904622" />
+    <state x="698" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1615068627441">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="698" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615068627441" />
+    <state x="488" y="81" key="CommitChangelistDialog2" timestamp="1615123781432">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="488" y="81" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1615123781432" />
+    <state x="637" y="418" key="ComposerInitDialogKey" timestamp="1615054349746">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="637" y="418" key="ComposerInitDialogKey/0.0.1920.1080@0.0.1920.1080" timestamp="1615054349746" />
+    <state x="121" y="77" key="DiffContextDialog" timestamp="1615123780321">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="121" y="77" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615123780321" />
+    <state x="748" y="267" key="FileChooserDialogImpl" timestamp="1615065101380">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="748" y="267" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1615065101380" />
+    <state width="235" height="500" key="HiddenNamespacesPopup" timestamp="1615053974044">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="235" height="500" key="HiddenNamespacesPopup/0.0.1920.1080@0.0.1920.1080" timestamp="1615053974044" />
+    <state x="769" y="435" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1615123661897">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="769" y="435" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615123661897" />
+    <state x="690" y="437" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1615070413227">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="690" y="437" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615070413227" />
+  </component>
+</project>
