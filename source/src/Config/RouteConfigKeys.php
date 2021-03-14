@@ -2,13 +2,15 @@
 
 namespace AC\Config;
 
-abstract class RouteConfigKeys
+use MyCLabs\Enum\Enum;
+
+class RouteConfigKeys extends Enum
 {
-    const GROUP_ROUTES = 'groupRoutes';
-    const GROUP_BASE = 'groupBase';
-    const GROUP_ITEMS = 'groupItems';
-    const ROUTE = 'route';
-    const HTTP_METHOD = 'httpMethod';
-    const CONTROLLER = 'controller';
-    const CONTROLLER_ACTION = 'controllerAction';
+    public const GROUP_ROUTES = 'groupRoutes';
+    public const GROUP_BASE = 'groupBase';
+    public const GROUP_ITEMS = 'groupItems';
+    public const ROUTE = 'route';
+    public const HTTP_METHOD = 'httpMethod';
+    public const CONTROLLER = 'controller';
+    public const CONTROLLER_ACTION = 'controllerAction';
 }

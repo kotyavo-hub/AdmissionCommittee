@@ -16,19 +16,83 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cd3d094-4ee6-4b67-bb92-1b92a54310e8" name="Default Changelist" comment="" />
+    <list default="true" id="9cd3d094-4ee6-4b67-bb92-1b92a54310e8" name="Default Changelist" comment="добавил .idea">
+      <change afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Config/Mail/MailConfig.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Config/Mail/MailConfigKeys.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Config/Mail/mail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Config/Validation/ValidationConfig.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Config/Validation/ValidationConfigKeys.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Config/Validation/validation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Config/container.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Config/database.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Enum/ResponseEnum.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Enum/StatusEnum.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Interfaces/iController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Interfaces/iPageController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Page/AuthPageController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Page/BasePageController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Page/IndexPageController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Page/RegistrationPageController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Controllers/User/UserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Models/DataAccessObject.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Models/User/UserDao.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Service/Mail/Mailer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/View/authTemplate.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/View/baseTemplate.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/View/confirmEmailTemplate.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/View/indexTemplate.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/View/registrationTemplate.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/php/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/source/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Config/RouteConfigKeys.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Config/RouteConfigKeys.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Config/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Controllers/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/BaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Controllers/Page/IndexController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Core/route.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Service/Http/Request.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/Http/Request.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Service/Http/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/Http/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/bootstrap.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
+    <pharConfigPath>$PROJECT_DIR$/source/composer.json</pharConfigPath>
     <execution>
       <executable path="composer" />
     </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/source/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/source/vendor/composer" />
+      <path value="$PROJECT_DIR$/source/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/source/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/source/vendor/nikic/fast-route" />
+      <path value="$PROJECT_DIR$/source/vendor/php-di/phpdoc-reader" />
+      <path value="$PROJECT_DIR$/source/vendor/php-di/php-di" />
+      <path value="$PROJECT_DIR$/source/vendor/php-di/invoker" />
+      <path value="$PROJECT_DIR$/source/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/source/vendor/opis/closure" />
+      <path value="$PROJECT_DIR$/source/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/source/vendor/rakit/validation" />
+      <path value="$PROJECT_DIR$/source/vendor/paragonie/corner" />
+      <path value="$PROJECT_DIR$/source/vendor/paragonie/easydb" />
+      <path value="$PROJECT_DIR$/source/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/source/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/source/vendor/doctrine/annotations" />
+    </include_path>
   </component>
   <component name="ProjectId" id="1pORnTGxfu5f4yFm19oZIi2877D" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -37,10 +101,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="mysql&#10;mariadb" />
+    <property name="DatabaseDriversLRU" value="mariadb&#10;mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/source/src/Controllers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../new.etudesite.ru" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -48,19 +112,43 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/src/Config/Mail" />
+      <recent name="$PROJECT_DIR$/source/src/Controllers" />
+      <recent name="$PROJECT_DIR$/source/src/Controllers/Page" />
+      <recent name="$PROJECT_DIR$/source/assets" />
+      <recent name="$PROJECT_DIR$/source" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/source/src/Controllers" />
       <recent name="$PROJECT_DIR$/source/src" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/source/src/Controllers/Page" />
-      <recent name="$PROJECT_DIR$/source/assets" />
-      <recent name="$PROJECT_DIR$/source" />
-      <recent name="$PROJECT_DIR$/public_html/source" />
-    </key>
+  </component>
+  <component name="RunManager" selected="Docker.php/Dockerfile">
+    <configuration name="start" type="DockDockBuildRunConfiguration" factoryName="DockDockBuild" temporary="true">
+      <dockDockBuild makefileFilePath="$PROJECT_DIR$/makefile" dockerfileDir="$PROJECT_DIR$/docker" dockerImageUrl="" isDockerImage="" isDockerfile="" target="start" envScriptPath="" arguments="">
+        <envs />
+      </dockDockBuild>
+      <method v="2" />
+    </configuration>
+    <configuration name="php/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="php/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.php/Dockerfile" />
+        <item itemvalue="DockDockBuild.start" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -71,8 +159,32 @@
       <option name="presentableId" value="Default" />
       <updated>1615052318497</updated>
       <workItem from="1615052319687" duration="322000" />
-      <workItem from="1615052774934" duration="20911000" />
+      <workItem from="1615052774934" duration="32820000" />
+      <workItem from="1615163042544" duration="608000" />
+      <workItem from="1615235232414" duration="182000" />
+      <workItem from="1615317220040" duration="215000" />
+      <workItem from="1615671191380" duration="47844000" />
+      <workItem from="1615740428403" duration="1761000" />
+      <workItem from="1615745688094" duration="57000" />
+      <workItem from="1615745807060" duration="710000" />
+      <workItem from="1615746634901" duration="2202000" />
+      <workItem from="1615749024420" duration="16208000" />
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1615123820376</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1615123820377</updated>
+    </task>
+    <task id="LOCAL-00002" summary="добавил .idea в исключения">
+      <created>1615124118977</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1615124118977</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,47 +212,109 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <MESSAGE value="добавил .idea в исключения" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил .idea в исключения" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="928" y="184" width="800" height="594" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615054058403">
+    <state x="332" y="407" key="#SQL_Dialects" timestamp="1615689103894">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="928" y="184" width="800" height="594" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615054058403" />
-    <state x="678" y="325" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1615053904622">
+    <state x="332" y="407" key="#SQL_Dialects/0.0.1920.1080@0.0.1920.1080" timestamp="1615689103894" />
+    <state x="929" y="202" width="800" height="647" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615748657016">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="678" y="325" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1615053904622" />
-    <state x="698" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1615068627441">
+    <state x="929" y="202" width="800" height="647" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615748657016" />
+    <state x="678" y="325" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1615685627880">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="698" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615068627441" />
-    <state x="488" y="81" key="CommitChangelistDialog2" timestamp="1615123781432">
+    <state x="678" y="325" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1615685627880" />
+    <state x="773" y="273" key="#com.intellij.ide.util.MemberChooser" timestamp="1615702149756">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="488" y="81" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1615123781432" />
+    <state x="773" y="273" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1615702149756" />
+    <state x="577" y="0" width="766" height="1061" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1615692239779">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="577" y="0" width="766" height="1061" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615692239779" />
+    <state x="698" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1615751194915">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="698" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615751194915" />
+    <state x="919" y="135" key="CommitChangelistDialog2" timestamp="1615124118837">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="919" y="135" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1615124118837" />
     <state x="637" y="418" key="ComposerInitDialogKey" timestamp="1615054349746">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="637" y="418" key="ComposerInitDialogKey/0.0.1920.1080@0.0.1920.1080" timestamp="1615054349746" />
-    <state x="121" y="77" key="DiffContextDialog" timestamp="1615123780321">
+    <state x="121" y="77" key="DiffContextDialog" timestamp="1615124092334">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="121" y="77" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615123780321" />
-    <state x="748" y="267" key="FileChooserDialogImpl" timestamp="1615065101380">
+    <state x="121" y="77" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615124092334" />
+    <state x="748" y="267" key="FileChooserDialogImpl" timestamp="1615749104162">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="748" y="267" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1615065101380" />
+    <state x="748" y="267" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1615749104162" />
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1615739940567">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1615739940567" />
+    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1615739940561">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="275" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1615739940561" />
+    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1615739940553">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="275" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1615739940553" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1615739940564">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="275" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1615739940564" />
     <state width="235" height="500" key="HiddenNamespacesPopup" timestamp="1615053974044">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="235" height="500" key="HiddenNamespacesPopup/0.0.1920.1080@0.0.1920.1080" timestamp="1615053974044" />
+    <state x="633" y="275" key="NewPhpClassDialog" timestamp="1615749458328">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="633" y="275" key="NewPhpClassDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615749458328" />
+    <state x="782" y="480" key="NewPhpFileDialog" timestamp="1615685650115">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="782" y="480" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615685650115" />
+    <state x="734" y="230" key="RollbackChangesDialog" timestamp="1615731258205">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="734" y="230" key="RollbackChangesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615731258205" />
+    <state x="461" y="181" key="SettingsEditor" timestamp="1615746829657">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="461" y="181" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1615746829657" />
+    <state x="560" y="259" key="Vcs.Push.Dialog.v2" timestamp="1615123828850">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="560" y="259" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1615123828850" />
+    <state x="664" y="140" width="592" height="783" key="find.popup" timestamp="1615753415810">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="664" y="140" width="592" height="783" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1615753415810" />
     <state x="769" y="435" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1615123661897">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="769" y="435" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615123661897" />
-    <state x="690" y="437" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1615070413227">
+    <state x="623" y="254" width="672" height="678" key="search.everywhere.popup" timestamp="1615692706805">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="690" y="437" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615070413227" />
+    <state x="623" y="254" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1615692706805" />
+    <state x="690" y="437" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1615739439459">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="690" y="437" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615739439459" />
   </component>
 </project>

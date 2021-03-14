@@ -61,7 +61,7 @@ class Request implements RequestInterface
      * @param string $parameter
      * @return null|string
      */
-    private function getParamFromGetVar(string $parameter)
+    public function getParamFromGetVar(string $parameter)
     {
         return $this->getParamFromVar($parameter, $_GET);
     }
@@ -70,7 +70,7 @@ class Request implements RequestInterface
      * @param string $parameter
      * @return null|string
      */
-    private function getParamFromPostVar(string $parameter)
+    public function getParamFromPostVar(string $parameter)
     {
         return $this->getParamFromVar($parameter, $_POST);
     }
@@ -80,7 +80,7 @@ class Request implements RequestInterface
      * @param array $var
      * @return string|null
      */
-    private function getParamFromVar(string $parameter, array $var)
+    public function getParamFromVar(string $parameter, array $var)
     {
         if (array_key_exists($parameter, $var)) {
             return $var[$parameter];
@@ -89,7 +89,7 @@ class Request implements RequestInterface
         return null;
     }
 
-    private function getServerProtocol()
+    public function getServerProtocol()
     {
         return $_SERVER[static::SERVER_PROTOCOL];
     }

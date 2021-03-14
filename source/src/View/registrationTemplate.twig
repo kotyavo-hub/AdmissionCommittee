@@ -1,0 +1,100 @@
+{% extends "baseTemplate.twig" %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+<div class="registration-block">
+    <div class="registration-block__inner">
+        <h1 class="text-center">Регистрация</h1>
+        <form class="registration-form" action="/registration/" method="POST">
+            <fieldset>
+                <div class="form-group">
+                    <label for="login">Логин*:</label>
+                    <input type="text"
+                           class="form-control {% if errors.login and data %} is-invalid {% elseif data %} is-valid {% endif %}"
+                           id="login" name="login"
+                           aria-describedby="loginHelp"
+                           autofocus
+                           placeholder="login"
+                           required
+                           minlength="2"
+                           pattern="[a-z0-9]+"
+                           {% if data.login  %} value="{{ data.login }}" {% endif %}
+                    >
+                    {% if errors.login %}
+                        <small class="invalid-feedback">
+                            {{ errors.login }}
+                        </small>
+                    {% elseif not data %}
+                        <small id="loginHelp" class="form-text text-muted">
+                            Минимальная длинна логина должна составлять 2 символа
+                        </small>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="email">Email*:</label>
+                    <input type="email"
+                           class="form-control {% if errors.email and data %} is-invalid {% elseif data %} is-valid {% endif %}"
+                           id="email" name="email"
+                           aria-describedby="emailHelp"
+                           placeholder="emailHelp"
+                           required
+                            {% if data.email  %} value="{{ data.email }}" {% endif %}
+                    >
+                    {% if errors.email %}
+                        <div class="invalid-feedback">
+                            {{ errors.email }}
+                        </div>
+                    {% elseif not data %}
+                        <small id="emailHelp" class="form-text text-muted">
+                            Введите свой почтовый ящик, на него придет ссылка для подтверджения регистрации.
+                        </small>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль*:</label>
+                    <input type="password"
+                           class="form-control {% if errors.password and data %} is-invalid {% elseif data %} is-valid {% endif %}"
+                           id="password"
+                           name="password"
+                           aria-describedby="passwordHelp"
+                           placeholder="password"
+                           required
+                           minlength="6"
+                    >
+                    {% if errors.password %}
+                        <div class="invalid-feedback">
+                            {{ errors.password }}
+                        </div>
+                    {% elseif not data %}
+                        <small id="passwordHelp" class="form-text text-muted">
+                            Придумайте пароль. Длинна пороля должна составлять от 6 символов.
+                        </small>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Повторите пароль*:</label>
+                    <input type="password"
+                           class="form-control {% if errors.confirmPassword and data %} is-invalid {% elseif data %} is-valid {% endif %}"
+                           id="confirmPassword"
+                           name="confirmPassword"
+                           aria-describedby="confirmPasswordHelp"
+                           placeholder="password"
+                           required minlength="6"
+                    >
+                    {% if errors.confirmPassword%}
+                        <div class="invalid-feedback">
+                            {{ errors.confirmPassword }}
+                        </div>
+                    {% elseif not data %}
+                        <small id="confirmPasswordHelp" class="form-text text-muted">
+                            Повторите ранее введенный пароль.
+                        </small>
+                    {% endif %}
+                </div>
+            </fieldset>
+            <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

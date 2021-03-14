@@ -4,3 +4,4 @@
 /source/docker-compose.yml
 /README.md
 /.idea/
+/source/src/Config/Mail/mail.php

@@ -3,7 +3,6 @@
 namespace AC\Service\Http;
 
 use AC\Config\RoutesConfigInterface;
-use AC\Controllers\Page\IndexController;
 use DI\Container;
 use DI\Definition\Exception\InvalidDefinition;
 use DI\DependencyException;
@@ -30,27 +29,19 @@ class Router
     private $container;
 
     /**
-     * @var IndexController
-     */
-    private $index;
-
-    /**
      * @param RoutesConfigInterface $routesConfig
      * @param RequestInterface $request
      * @param Container $container
-     * @param IndexController $index
      */
     public function __construct(
         RoutesConfigInterface $routesConfig,
         RequestInterface $request,
-        Container $container,
-        IndexController $index
+        Container $container
     )
     {
         $this->routesConfig = $routesConfig;
         $this->request = $request;
         $this->container = $container;
-        $this->index = $index;
     }
 
     /**
@@ -75,7 +66,7 @@ class Router
 
     public function sendErrorResponse($message, $httpCode)
     {
-        http_response_code($httpCode);
+        http_response_code((int)$httpCode);
         echo $message;
     }
 
@@ -99,7 +90,6 @@ class Router
                 $this->getRequest()->sendMethodNotAllowedHeader();
                 break;
             case Dispatcher::FOUND:
-                echo 'test1';
                 list($state, $handler, $vars) = $routeInfo;
                 list($class, $method) = explode(static::HANDLER_DELIMITER, $handler, 2);
                 $controller = $this->getContainer()->get($class);
