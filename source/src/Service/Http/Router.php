@@ -4,9 +4,9 @@ namespace AC\Service\Http;
 
 use AC\Config\RoutesConfigInterface;
 use DI\Container;
-use DI\Definition\Exception\InvalidDefinition;
 use DI\DependencyException;
 use DI\NotFoundException;
+use Exception;
 use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
 
@@ -16,17 +16,17 @@ class Router
     /**
      * @var RoutesConfigInterface
      */
-    private $routesConfig;
+    private RoutesConfigInterface $routesConfig;
 
     /**
      * @var RequestInterface
      */
-    private $request;
+    private RequestInterface $request;
 
     /**
      * @var Container
      */
-    private $container;
+    private Container $container;
 
     /**
      * @param RoutesConfigInterface $routesConfig
@@ -64,10 +64,13 @@ class Router
         $this->dispatch($requestMethod, $requestUri, $dispatcher);
     }
 
-    public function sendErrorResponse($message, $httpCode)
+    public function sendErrorResponse(Exception $ex)
     {
-        http_response_code((int)$httpCode);
-        echo $message;
+        http_response_code((int)$ex->getCode());
+        echo '['.$ex->getCode().']'.$ex->getMessage();
+        echo '<pre>';
+        echo $ex->getTraceAsString();
+        echo '</pre>';
     }
 
     /**
@@ -76,7 +79,6 @@ class Router
      * @param Dispatcher $dispatcher
      * @throws DependencyException
      * @throws NotFoundException
-     * @throws InvalidDefinition
      */
     private function dispatch(string $requestMethod, string $requestUri, Dispatcher $dispatcher)
     {

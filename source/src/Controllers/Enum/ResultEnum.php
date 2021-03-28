@@ -4,7 +4,7 @@ namespace AC\Controllers\Enum;
 
 use MyCLabs\Enum\Enum;
 
-class ResponseEnum extends Enum
+class ResultEnum extends Enum
 {
     public const STATUS = 'status';
     public const ERRORS = 'errors';

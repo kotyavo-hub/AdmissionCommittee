@@ -13,4 +13,28 @@ interface ResponseInterface
      * @param string $value
      */
     public function renderString(string $value);
+
+    /**
+     * @param $key
+     * @param $param
+     * @return mixed
+     */
+    public function setParamFromSessionVar($key, $param);
+
+    /**
+     * @param string $template
+     * @param array $data
+     */
+    public function display(string $template, array $data);
+
+    /**
+     * @param string $url
+     * @return mixed
+     */
+    public function redirect(string $url);
+
+    /**
+     * @return mixed
+     */
+    public function destroySession();
 }

@@ -6,8 +6,16 @@
     <div class="registration-block">
         <div class="registration-block__inner">
             <h1 class="text-center">Регистрация</h1>
-            <p>Вы успешно прошли регистрацию, на вашу почту отправленно письмо для завершения регистрации.</p>
-            <a class="text_center" href="/">Вернуться на главную страницу</a>
+            {% if not data.confirmEmail %}
+                <p>Вы успешно прошли регистрацию, на вашу почту отправленно письмо для завершения регистрации.</p>
+                <a class="text_center" href="/">Вернуться на главную страницу</a>
+            {% elseif status == 1 %}
+                <p>Регистрация успешно завершена, теперь вы можете войти в аккаунт.</p>
+                <a class="text_center" href="/auth/">Войти</a>
+            {% elseif status == 2 %}
+                <p>Не удалось подтвердить почту. Обратитесь к администратору проекта за помощью.</p>
+                <a class="text_center" href="/auth/">Вернуться на главную страницу</a>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

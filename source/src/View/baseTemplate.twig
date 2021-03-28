@@ -23,11 +23,21 @@
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav" id="elem_menu">
-                {% for link in menu %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/applying/">Подача заявления<span class="sr-only">(current)</span></a>
+                </li>
+                {% if not user %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ link.href }}">{{ link.name }}<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/login/">Вход<span class="sr-only">(current)</span></a>
                     </li>
-                {% endfor %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/registration/">Регистрация<span class="sr-only">(current)</span></a>
+                    </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/exit/">Выход<span class="sr-only">(current)</span></a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </nav>

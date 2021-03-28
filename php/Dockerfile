@@ -1,4 +1,4 @@
-FROM php:7.3-fpm-alpine
+FROM php:7.4-fpm-alpine
 
 RUN echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
 RUN sed -i 's/dl-cdn/nl/' /etc/apk/repositories

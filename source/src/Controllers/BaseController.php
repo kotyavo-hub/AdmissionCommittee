@@ -10,16 +10,14 @@ use AC\Service\Http\ResponseInterface;
 abstract class BaseController implements iController
 {
     /**
-     * @Inject
      * @var Response
      */
-    private $response;
+    private Response $response;
 
     /**
-     * @Inject
      * @var Request
      */
-    private $request;
+    private Request $request;
 
     /**
      * @param Response $response

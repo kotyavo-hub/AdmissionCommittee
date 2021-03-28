@@ -2,11 +2,17 @@
 
 namespace AC\Service\Http;
 
+use AC\Models\User\DTO\UserDTO;
+use AC\Models\User\User;
+
 class Request implements RequestInterface
 {
     const METHOD = 'REQUEST_METHOD';
     const METHOD_GET = 'GET';
     const METHOD_POST = 'POST';
+
+    const SESSION = 'SESSION';
+
     const URI = 'REQUEST_URI';
     const SERVER_PROTOCOL = 'SERVER_PROTOCOL';
 
@@ -50,6 +56,9 @@ class Request implements RequestInterface
             case static::METHOD_POST:
                 $parameterValue = $this->getParamFromPostVar($parameter);
                 break;
+            case static::SESSION:
+                $parameterValue = $this->getParamFromSessionVar($parameter);
+                break;
             default:
                 $parameterValue = null;
         }
@@ -65,6 +74,29 @@ class Request implements RequestInterface
     {
         return $this->getParamFromVar($parameter, $_GET);
     }
+
+
+    public function getUser()
+    {
+        $user = $this->getParamFromSessionVar('User');
+
+        if ($user instanceof UserDTO) {
+            return new User($user);
+        }
+
+        return null;
+    }
+
+    /**
+     * @param string $parameter
+     * @return null|string
+     */
+    public function getParamFromSessionVar(string $parameter)
+    {
+        session_start();
+        return $this->getParamFromVar($parameter, $_SESSION);
+    }
+
 
     /**
      * @param string $parameter

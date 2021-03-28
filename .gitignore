@@ -3,5 +3,5 @@
 /source/composer.lock
 /source/docker-compose.yml
 /README.md
-/.idea/
+/.idea
 /source/src/Config/Mail/mail.php

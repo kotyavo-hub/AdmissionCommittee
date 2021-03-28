@@ -20,7 +20,9 @@ $router = new Router(
 try {
     $router->dispatchRoute();
 } catch (Exception $ex) {
-    $router->sendErrorResponse($ex->getMessage(), $ex->getCode());
+    var_dump($ex);
+    //$router->sendErrorResponse($ex);
 } catch (Throwable $ex) {
-    $router->sendErrorResponse($ex->getMessage(), 500);
+    var_dump($ex);
+    //$router->sendErrorResponse($ex);
 }

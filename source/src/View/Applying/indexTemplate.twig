@@ -1,0 +1,40 @@
+{% extends "baseTemplate.twig" %}
+
+{% block title %}Подача заявления{% endblock %}
+
+{% block content %}
+    <div class="center-form-block">
+        <div class="center-form-block__inner">
+            <h1 class="text-center">Подача заявления</h1>
+            {% if not status == 1 %}
+                <form action="/applying/" method="POST">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="email">Email*:</label>
+                            <input type="email"
+                                   class="form-control {% if errors.email and data %} is-invalid {% elseif data %} is-valid {% endif %}"
+                                   id="email" name="email"
+                                   aria-describedby="emailHelp"
+                                   placeholder="emailHelp"
+                                   required
+                                    {% if data.email  %} value="{{ data.email }}" {% endif %}
+                            >
+                            {% if errors.email %}
+                                <div class="invalid-feedback">
+                                    {{ errors.email }}
+                                </div>
+                            {% else %}
+                                <small id="emailHelp" class="form-text text-muted">
+                                    Введите свой почтовый ящик, на него придет уникальная ссылка для подачи заявления.
+                                </small>
+                            {% endif %}
+                        </div>
+                    </fieldset>
+                    <button type="submit" class=" btn btn-block btn-primary">Отправить ссылку</button>
+                </form>
+            {% elseif not status == 0 %}
+                <p>Ссылка для дальнейшей подачи заявления отправлена вам на почту.</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
