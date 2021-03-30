@@ -2,12 +2,15 @@
 
 namespace AC\Controllers;
 
+use AC\Config\Dictionaries\Enum\DictionaryEnum;
 use AC\Config\Exceptions\ConfigFileNotFoundException;
 use AC\Config\Exceptions\InvalidConfigException;
 use AC\Controllers\Enum\StatusEnum;
+use AC\Controllers\Exceptions\NotFoundGuidException;
 use AC\Models\Leaver\DAO\LeaverDAO;
 use AC\Models\Leaver\DTO\LeaverDTO;
 use AC\Models\Result\ResultDTO;
+use AC\Service\Dictionaries\DictionaryReader;
 use AC\Service\Http\Request;
 use AC\Service\Http\Response;
 use AC\Service\Leaver\ApplyingService;
@@ -34,7 +37,14 @@ class ApplyingController extends BaseController
      */
     private LeaverDAO $leaverDao;
 
+    /**
+     * @Inject
+     * @var DictionaryReader
+     */
+    private DictionaryReader $dictionaryReader;
+
     protected const indexTemplate = 'Applying/indexTemplate.twig';
+    protected const applyingTemplate = 'Applying/applyingTemplate.twig';
 
     /**
      * @param Response $response
@@ -85,12 +95,48 @@ class ApplyingController extends BaseController
             $this->mailer->sendMail(
                 $leaverDto->email,
                 'Продолжение подачи заявления',
-                "Перейдите по ссылки для продолжения подачи заявления - <a href='http://localhost/applying/$leaverDto->guid'>ссылка</a>"
+                "Перейдите по ссылки для продолжения подачи заявления - <a href='http://localhost/applying/$leaverDto->guid/'>ссылка</a>"
             );
         }
 
         $resultDto = new ResultDTO(StatusEnum::SUCCESS());
 
         $this->getResponse()->display($this::indexTemplate, $resultDto->toArray());
+    }
+
+    /**
+     * @param string|null $guid
+     * @throws NotFoundGuidException
+     */
+    public function applyingGet(?string $guid = null)
+    {
+        if (!$guid) {
+            throw new NotFoundGuidException();
+        }
+
+        $leaver = ($row = $this->leaverDao->getByGuid($guid)) ? new LeaverDTO($row) : null;
+
+        if (!$leaver) {
+            throw new NotFoundGuidException();
+        }
+
+        if ($leaver->email && !$leaver->statusEmail) {
+            $leaver->statusEmail = ($this->leaverDao->updateStatusEmail($leaver->id)) ? 1 : $leaver->statusEmail;
+        }
+
+        $data = [
+            'genders'          => $this->dictionaryReader->read(DictionaryEnum::GENDERS_PATH()),
+            'citizens'         => $this->dictionaryReader->read(DictionaryEnum::CITIZEN_PATH()),
+            'countries'        => $this->dictionaryReader->read(DictionaryEnum::COUNTRIES_PATH()),
+            'identityDocTypes' => $this->dictionaryReader->read(DictionaryEnum::IDENTITY_DOC_TYPES_PATH()),
+            'languages'        => $this->dictionaryReader->read(DictionaryEnum::LANGUAGES_PATH()),
+        ];
+
+        $resultDto = new ResultDTO(
+            StatusEnum::SUCCESS(),
+            $data,
+        );
+
+        $this->getResponse()->display($this::applyingTemplate, $resultDto->toArray());
     }
 }

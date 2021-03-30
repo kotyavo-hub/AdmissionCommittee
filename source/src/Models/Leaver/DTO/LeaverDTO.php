@@ -19,6 +19,8 @@ class LeaverDTO extends DataTransferObject
 
     public ?string $gender;
 
+    public ?string $citizenCode;
+
     public ?string $givingDate;
 
     public ?int $docTypeId;
@@ -29,7 +31,7 @@ class LeaverDTO extends DataTransferObject
 
     public ?string $docDate;
 
-    public ?string $docDist;
+    public ?string $docDistr;
 
     public ?string $docFMSCode;
 
@@ -135,13 +137,14 @@ class LeaverDTO extends DataTransferObject
             'surName' => trim($request->getParamFromPostVar('surName')),
             'name' => trim($request->getParamFromPostVar('name')),
             'middleName' => trim($request->getParamFromPostVar('middleName')),
-            'gender' => trim($request->getParamFromPostVar('name')),
+            'gender' => trim($request->getParamFromPostVar('gender')),
+            'citizenCode' => trim($request->getParamFromPostVar('citizenCode')),
             'givingDate' => trim($request->getParamFromPostVar('givingDate')),
             'docTypeId' => (int)trim($request->getParamFromPostVar('docTypeId')),
             'docSeria' => trim($request->getParamFromPostVar('docSeria')),
             'docNo' => trim($request->getParamFromPostVar('docNo')),
             'docDate' => trim($request->getParamFromPostVar('docDate')),
-            'docDist' => trim($request->getParamFromPostVar('docDist')),
+            'docDistr' => trim($request->getParamFromPostVar('docDistr')),
             'docFMSCode' => trim($request->getParamFromPostVar('docFMSCode')),
             'bornDate' => trim($request->getParamFromPostVar('bornDate')),
             'passportFile' => trim($request->getParamFromPostVar('passportFile')),

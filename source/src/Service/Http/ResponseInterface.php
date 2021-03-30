@@ -25,7 +25,7 @@ interface ResponseInterface
      * @param string $template
      * @param array $data
      */
-    public function display(string $template, array $data);
+    public function display(string $template, array $data = []);
 
     /**
      * @param string $url

@@ -1,0 +1,116 @@
+<div class="form-row">
+    <div class="form-group col-md-4">
+        <label for="schoolTypeCode">Тип образовательной организации:</label>
+        <select class="form-control" id="schoolTypeCode" name="schoolTypeCode" required>
+            <option value="0">Средняя школа</option>
+            {% for kek in data.keks%}
+                <option value="{{kek.Name}}">{{kek.Name}}</option>
+            {% endfor %}
+        </select>
+        <small class="invalid-feedback"></small>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="schoolNumber">Номер образовательной организации*:</label>
+        <input type="text" class="form-control" id="schoolNumber" name="schoolNumber" required>
+        <small class="invalid-feedback"></small>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="graduateYear">Год окончания:</label>
+        <input type="number" min="1900" max="2021" step="1" class="form-control" id="graduateYear" name="graduateYear" value="2021">
+        <small class="invalid-feedback"></small>
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-4">
+        <label for="education">Тип образовательной организации:</label>
+        <select class="form-control" id="education" name="education" required>
+            <option value="0">Средне полное (общее)</option>
+        </select>
+        <small class="invalid-feedback"></small>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="lang">Иностранный язык*:</label>
+        <select class="form-control" id="lang" name="lang" required>
+            {% for lang in data.languages%}
+                <option value="{{lang.ID}}">{{lang.Name}}</option>
+            {% endfor %}
+        </select>
+        <small class="invalid-feedback"></small>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="educDocTypeCode">Тип документа об образовании:</label>
+        <select class="form-control" id="educDocTypeCode" name="educDocTypeCode" required>
+            <option value="0">Атестат</option>
+        </select>
+        <small class="invalid-feedback"></small>
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-4">
+        <label for="educDocSeria">Серия:</label>
+        <input type="text" class="form-control" id="educDocSeria" name="educDocSeria" required>
+        <small class="invalid-feedback"></small>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="educDocNo">Номер:</label>
+        <input type="text" class="form-control" id="educDocNo" name="educDocNo" required>
+        <small class="invalid-feedback"></small>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="educDocDate">Дата выдачи:</label>
+        <input type="date" class="form-control" id="educDocDate" name="educDocDate" required>
+        <small class="invalid-feedback"></small>
+    </div>
+</div>
+<div class="form-group">
+    <label for="educDocDistr">Кем выдан:</label>
+    <input type="text" class="form-control" id="educDocDistr" name="educDocDistr" required>
+    <small class="invalid-feedback"></small>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-4">
+        <label for="supplementNo">Номер приложения:</label>
+        <input type="text" class="form-control" id="supplementNo" name="supplementNo" required>
+        <small class="invalid-feedback"></small>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="supplementSeria">Серия приложения:</label>
+        <input type="text" class="form-control" id="supplementSeria" name="supplementSeria" required>
+        <small class="invalid-feedback"></small>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="sCountry">Страна организации:</label>
+        <select class="form-control" id="sCountry" name="sCountry" required>
+            {% for country in data.countries%}
+                <option value="{{country.Name}}" {% if country.ID == 1 %}selected{% endif %}>{{country.Name}}</option>
+            {% endfor %}
+        </select>
+        <small class="invalid-feedback"></small>
+    </div>
+</div>
+<div class="form-group">
+    <label for="sAddress">Адрес образовательной организации (до населенного пункта):</label>
+    <input type="text" class="form-control" id="sAddress" name="sAddress" required>
+    <small class="invalid-feedback"></small>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-4">
+        <label for="attres3">Кол-во 3-ек:</label>
+        <input type="number" class="form-control" id="attres3" name="attres3" required>
+        <small class="invalid-feedback"></small>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="attres4">Кол-во 4-ок:</label>
+        <input type="number" class="form-control" id="attres4" name="attres4" required>
+        <small class="invalid-feedback"></small>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="attres5">Кол-во 5-ок:</label>
+        <input type="text" class="form-control" id="attres5" name="attres5" required>
+        <small class="invalid-feedback"></small>
+    </div>
+</div>
+<div class="form-group">
+    <label for="educDocFile">Cкан документа:</label>
+    <input type="file" class="form-control-file" id="educDocFile" name="educDocFile">
+</div>

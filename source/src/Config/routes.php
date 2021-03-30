@@ -62,6 +62,12 @@ return [
                     RouteConfigKeys::CONTROLLER_ACTION => 'indexPost'
                 ],
                 [
+                    RouteConfigKeys::ROUTE => '/applying/{guid:\w+}/',
+                    RouteConfigKeys::HTTP_METHOD => Request::METHOD_GET,
+                    RouteConfigKeys::CONTROLLER => ApplyingController::class,
+                    RouteConfigKeys::CONTROLLER_ACTION => 'applyingGet'
+                ],
+                [
                     RouteConfigKeys::ROUTE => '/exit/',
                     RouteConfigKeys::HTTP_METHOD => Request::METHOD_GET,
                     RouteConfigKeys::CONTROLLER => AuthController::class,

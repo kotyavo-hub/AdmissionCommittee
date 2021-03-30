@@ -1,18 +1,22 @@
 body{
 	padding: 0;
 	margin: 0;
-	background:#f4f4f4;
+	background:#white;
 }
 
 .navbar{
 	background: linear-gradient(to bottom, black 0%, transparent 100%);
 }
 
+.navbar__black{
+	background: black;
+}
+
 .nav-link , .navbar-brand{
 	color: white;
 	cursor: pointer;
 }
-.nav-link{
+.nav-link__top{
 	margin-right: 1em !important;
 }
 .nav-link:hover{
@@ -100,4 +104,23 @@ body{
 
 .invalid-feedback {
 	display: block;
+}
+
+#smartwizard > .tab-content .tab-pane {
+	padding: 1rem;
+}
+
+.center-form-block {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url("../img/bg-masthead.jpg"), no-repeat, scroll, center;
+}
+
+.wrapper__applying {
+	margin: 1rem;
+	background: white;
+	margin-top: 5rem;
 }

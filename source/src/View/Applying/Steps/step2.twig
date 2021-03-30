@@ -1,0 +1,134 @@
+<div class="form-row">
+    <div class="form-group col-md-4">
+        <label for="name">Имя*:</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+        <small class="invalid-feedback"></small>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="surName">Фамилия*:</label>
+        <input type="text" class="form-control" id="surName" name="surName" required>
+        <small class="invalid-feedback"></small>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="middleName">Отчество:</label>
+        <input type="text" class="form-control" id="middleName" name="middleName">
+        <small class="invalid-feedback"></small>
+    </div>
+</div>
+<div class="form-group">
+    <label for="gender">Пол:</label>
+    <select class="form-control" id="gender" name="gender" required>
+        {% for gender in data.genders%}
+            <option value="{{gender.Name}}">{{gender.Name}}</option>
+        {% endfor %}
+    </select>
+    <small class="invalid-feedback"></small>
+</div>
+<div class="form-group">
+    <label for="citizenCode">Гражданство:</label>
+    <select class="form-control" id="citizenCode" name="citizenCode" required>
+        {% for citizen in data.citizens%}
+            <option value="{{citizen.ID}}" {% if citizen.ID == 1 %}selected{% endif %}>{{citizen.Name}}</option>
+        {% endfor %}
+    </select>
+    <small class="invalid-feedback"></small>
+</div>
+<div class="form-group">
+    <label for="docTypeId">Тип документа удостоверяющего личность:</label>
+    <select class="form-control" id="docTypeId" name="docTypeId" required>
+        {% for identityDocType in data.identityDocTypes%}
+            <option value="{{identityDocType.ID}}">{{identityDocType.Name}}</option>
+        {% endfor %}
+    </select>
+    <small class="invalid-feedback"></small>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="docSeria">Серия:</label>
+        <input type="text" class="form-control" id="docSeria" name="docSeria" required>
+        <small class="invalid-feedback"></small>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="docNo">Номер:</label>
+        <input type="text" class="form-control" id="docNo" name="docNo" required>
+        <small class="invalid-feedback"></small>
+    </div>
+</div>
+<div class="form-group">
+    <label for="docDistr">Кем выдан:</label>
+    <input type="text" class="form-control" id="docDistr" name="docDistr" required>
+    <small class="invalid-feedback"></small>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="docDate">Дата выдачи:</label>
+        <input type="date" class="form-control" id="docDate" name="docDate" required>
+        <small class="invalid-feedback"></small>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="docFMSCode">Код подразделения:</label>
+        <input type="text" class="form-control" id="docFMSCode" name="docFMSCode" required>
+        <small class="invalid-feedback"></small>
+    </div>
+</div>
+<div class="form-group">
+    <label for="bornDate">Дата рождения:</label>
+    <input type="date" class="form-control" id="bornDate" name="bornDate" required>
+    <small class="invalid-feedback"></small>
+</div>
+<div class="form-group">
+    <label for="mobtel">Мобильный телефон:</label>
+    <input type="text" class="form-control" id="mobtel" name="mobtel" required>
+    <small class="invalid-feedback"></small>
+</div>
+<div class="form-group">
+    <label for="hometel">Домашний телефон или телефон родителя:</label>
+    <input type="text" class="form-control" id="hometel" name="hometel" required>
+    <small class="invalid-feedback"></small>
+</div>
+<div class="form-group">
+    <label for="bCountry">Страна рождения:</label>
+    <select class="form-control" id="bCountry" name="bCountry" required>
+        {% for country in data.countries%}
+            <option value="{{country.Name}}" {% if country.ID == 1 %}selected{% endif %}>{{country.Name}}</option>
+        {% endfor %}
+    </select>
+    <small class="invalid-feedback"></small>
+</div>
+<div class="form-group">
+    <label for="bAddress">Место рождения(как в документе):</label>
+    <input type="text" class="form-control" id="bAddress" name="bAddress" required>
+    <small class="invalid-feedback"></small>
+</div>
+<div class="form-group">
+    <label for="rCountry">Страна где зарегистрирован:</label>
+    <select class="form-control" id="rCountry" name="rCountry" required>
+        {% for country in data.countries%}
+            <option value="{{country.Name}}" {% if country.ID == 1 %}selected{% endif %}>{{country.Name}}</option>
+        {% endfor %}
+    </select>
+    <small class="invalid-feedback"></small>
+</div>
+<div class="form-group">
+    <label for="rAddress">Адрес регистрации:</label>
+    <input type="text" class="form-control" id="rAddress" name="rAddress" required>
+    <small class="invalid-feedback"></small>
+</div>
+<div class="form-group">
+    <label for="fCountry">Страна проживания:</label>
+    <select class="form-control" id="fCountry" name="fCountry" required>
+        {% for country in data.countries%}
+            <option value="{{country.Name}}" {% if country.ID == 1 %}selected{% endif %}>{{country.Name}}</option>
+        {% endfor %}
+    </select>
+    <small class="invalid-feedback"></small>
+</div>
+<div class="form-group">
+    <label for="fAddress">Фактический адрес:</label>
+    <input type="text" class="form-control" id="fAddress" name="fAddress" required>
+    <small class="invalid-feedback"></small>
+</div>
+<div class="form-group">
+    <label for="passportFile">Cкан документа (разворот и страница с регистрацией):</label>
+    <input type="file" class="form-control-file" id="passportFile" name="passportFile">
+</div>

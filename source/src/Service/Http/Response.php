@@ -71,7 +71,7 @@ class Response implements ResponseInterface
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function display(string $template, array $data)
+    public function display(string $template, array $data = [])
     {
         $data['menu'] = $this->getMenuData();
         $this->twig->display($template, $data);

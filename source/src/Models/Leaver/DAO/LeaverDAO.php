@@ -1,4 +1,5 @@
 <?php
+
 namespace AC\Models\Leaver\DAO;
 
 use AC\Models\DataAccessObject;
@@ -30,12 +31,20 @@ class LeaverDAO extends DataAccessObject
         );
     }
 
-    public function updateConfirmEmail(string $emailHash): int
+    public function updateStatusEmail(int $id): int
     {
         return $this->getDB()->update(
             $this::table,
-            ['confirmEmail' => 1],
-            ['emailHash' => $emailHash]
+            ['statusEmail' => 1],
+            ['id' => $id]
+        );
+    }
+
+    public function getByGuid(string $guid)
+    {
+        return $this->getDB()->row(
+            'SELECT * FROM onlineLeaver WHERE guid = ?',
+            $guid
         );
     }
 }

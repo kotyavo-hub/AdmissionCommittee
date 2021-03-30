@@ -18,7 +18,9 @@
     "ext-pdo": "*",
     "doctrine/annotations": "^1.12",
     "ext-json": "*",
-    "spatie/data-transfer-object": "^2.8"
+    "spatie/data-transfer-object": "^2.8",
+    "ext-xmlreader": "*",
+    "ext-simplexml": "*"
   },
   "autoload": {
     "psr-4": {
