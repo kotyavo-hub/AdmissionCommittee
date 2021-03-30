@@ -1,0 +1,79 @@
+{% extends "baseTemplate.twig" %}
+
+{% block navbarClass %}navbar__black{% endblock %}
+{% block title %}Подача заявления{% endblock %}
+{% block css %}
+    <!-- CSS -->
+    <link href="../../../assets/js/lib/smartwizard/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../../assets/js/lib/smartwizard/dist/css/smart_wizard.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../../assets/js/lib/smartwizard/dist/css/smart_wizard_arrows.min.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper__applying">
+        <h1 class="text-center">Подача заявления</h1>
+        <form id="applyingForm" action="/applying/f52981260b3c0ebba1a06af896e81c00/" method="POST">
+            <div id="smartwizard">
+                <ul class="nav">
+                    <li>
+                        <a class="nav-link" href="#step-1">Уровень образования</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-2">Личные данные</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-3">Образование</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-4">Дополнительная информация</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-5">Приемущества</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-6">Предметы</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-7">Направления</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-8">Завершение</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="step-1" class="tab-pane" role="tabpanel">
+                        {% include 'Applying/Steps/step1.twig' %}
+                    </div>
+                    <div id="step-2" class="tab-pane" role="tabpanel">
+                        {% include 'Applying/Steps/step2.twig' %}
+                    </div>
+                    <div id="step-3" class="tab-pane" role="tabpanel">
+                        {% include 'Applying/Steps/step3.twig' %}
+                    </div>
+                    <div id="step-4" class="tab-pane" role="tabpanel">
+                        Step content
+                    </div>
+                    <div id="step-5" class="tab-pane" role="tabpanel">
+                        Step content
+                    </div>
+                    <div id="step-6" class="tab-pane" role="tabpanel">
+                        Step content
+                    </div>
+                    <div id="step-7" class="tab-pane" role="tabpanel">
+                        Step content
+                    </div>
+                    <div id="step-8" class="tab-pane" role="tabpanel">
+                        Step content
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="../../../assets/js/lib/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="../../../assets/js/lib/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="../../../assets/js/lib/smartwizard/dist/js/jquery.smartWizard.js" type="text/javascript"></script>
+    <script src="../../../assets/js/applying.js" type="text/javascript"></script>
+{% endblock %}
