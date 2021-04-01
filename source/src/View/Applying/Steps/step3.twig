@@ -4,7 +4,7 @@
         <select class="form-control" id="schoolTypeCode" name="schoolTypeCode" required>
             <option value="0">Средняя школа</option>
             {% for kek in data.keks%}
-                <option value="{{kek.Name}}">{{kek.Name}}</option>
+                <option value="{{kek.name}}">{{kek.name}}</option>
             {% endfor %}
         </select>
         <small class="invalid-feedback"></small>
@@ -32,7 +32,7 @@
         <label for="lang">Иностранный язык*:</label>
         <select class="form-control" id="lang" name="lang" required>
             {% for lang in data.languages%}
-                <option value="{{lang.ID}}">{{lang.Name}}</option>
+                <option value="{{lang.id}}">{{lang.name}}</option>
             {% endfor %}
         </select>
         <small class="invalid-feedback"></small>
@@ -82,7 +82,7 @@
         <label for="sCountry">Страна организации:</label>
         <select class="form-control" id="sCountry" name="sCountry" required>
             {% for country in data.countries%}
-                <option value="{{country.Name}}" {% if country.ID == 1 %}selected{% endif %}>{{country.Name}}</option>
+                <option value="{{country.name}}" {% if country.id == 1 %}selected{% endif %}>{{country.name}}</option>
             {% endfor %}
         </select>
         <small class="invalid-feedback"></small>

@@ -1,0 +1,27 @@
+<div class="form-group">
+    <label for="priorityVUZ">Приоритет нашего университета:</label>
+    <input type="number" min="1" max="5" step="1" class="form-control" id="priorityVUZ" name="priorityVUZ" value="1">
+    <small class="invalid-feedback"></small>
+</div>
+<div class="form-group">
+    <label for="countVUZ">Кол-во универистетов в которые поданы заявления:</label>
+    <input type="number" min="1" max="5" step="1" class="form-control" id="countVUZ" name="countVUZ" value="1">
+    <small class="invalid-feedback"></small>
+</div>
+<div class="form-group">
+    <label for="needHostel">Нужда в общежитии:</label>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="needHostel" name="needHostel" value="1">
+        <label class="form-check-label" for="needHostel">Нуждаюсь в общежитии</label>
+    </div>
+</div>
+<div class="form-group">
+    <label for="prestart">Довузовская подготовка:</label>
+    <select class="form-control" id="prestart" name="prestart" required>
+        <option value="" selected>Нет</option>
+        {% for prestart in data.prestarts%}
+            <option value="{{prestart.id}}">{{prestart.name}}</option>
+        {% endfor %}
+    </select>
+    <small class="invalid-feedback"></small>
+</div>

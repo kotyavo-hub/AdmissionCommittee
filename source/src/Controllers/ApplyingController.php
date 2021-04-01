@@ -2,15 +2,15 @@
 
 namespace AC\Controllers;
 
-use AC\Config\Dictionaries\Enum\DictionaryEnum;
 use AC\Config\Exceptions\ConfigFileNotFoundException;
 use AC\Config\Exceptions\InvalidConfigException;
 use AC\Controllers\Enum\StatusEnum;
 use AC\Controllers\Exceptions\NotFoundGuidException;
+use AC\Models\Dictionary\DAO\DictionaryDAO;
+use AC\Models\Dictionary\Enum\DictionaryTableEnum;
 use AC\Models\Leaver\DAO\LeaverDAO;
 use AC\Models\Leaver\DTO\LeaverDTO;
 use AC\Models\Result\ResultDTO;
-use AC\Service\Dictionaries\DictionaryReader;
 use AC\Service\Http\Request;
 use AC\Service\Http\Response;
 use AC\Service\Leaver\ApplyingService;
@@ -39,9 +39,9 @@ class ApplyingController extends BaseController
 
     /**
      * @Inject
-     * @var DictionaryReader
+     * @var DictionaryDAO
      */
-    private DictionaryReader $dictionaryReader;
+    private DictionaryDAO $dictionaryDao;
 
     protected const indexTemplate = 'Applying/indexTemplate.twig';
     protected const applyingTemplate = 'Applying/applyingTemplate.twig';
@@ -66,7 +66,7 @@ class ApplyingController extends BaseController
      * @throws InvalidConfigException
      * @throws Exception
      */
-    public function indexPost(?string $guid = null)
+    public function indexPost()
     {
         $leaverDto = LeaverDTO::fromRequest($this->getRequest());
 
@@ -125,11 +125,13 @@ class ApplyingController extends BaseController
         }
 
         $data = [
-            'genders'          => $this->dictionaryReader->read(DictionaryEnum::GENDERS_PATH()),
-            'citizens'         => $this->dictionaryReader->read(DictionaryEnum::CITIZEN_PATH()),
-            'countries'        => $this->dictionaryReader->read(DictionaryEnum::COUNTRIES_PATH()),
-            'identityDocTypes' => $this->dictionaryReader->read(DictionaryEnum::IDENTITY_DOC_TYPES_PATH()),
-            'languages'        => $this->dictionaryReader->read(DictionaryEnum::LANGUAGES_PATH()),
+            'genders'          => $this->dictionaryDao->getAll(DictionaryTableEnum::GENDERS()),
+            'citizens'         => $this->dictionaryDao->getAll(DictionaryTableEnum::CITIZEN()),
+            'countries'        => $this->dictionaryDao->getAll(DictionaryTableEnum::COUNTRIES()),
+            'identityDocTypes' => $this->dictionaryDao->getAll(DictionaryTableEnum::IDENTITY_DOC_TYPES()),
+            'languages'        => $this->dictionaryDao->getAll(DictionaryTableEnum::LANGUAGES()),
+            'prestarts'        => $this->dictionaryDao->getAll(DictionaryTableEnum::PRESTARTS()),
+            'exams'            => $this->dictionaryDao->getAll(DictionaryTableEnum::EXAMS())
         ];
 
         $resultDto = new ResultDTO(

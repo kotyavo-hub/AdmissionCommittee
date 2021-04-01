@@ -19,7 +19,7 @@
     <label for="gender">Пол:</label>
     <select class="form-control" id="gender" name="gender" required>
         {% for gender in data.genders%}
-            <option value="{{gender.Name}}">{{gender.Name}}</option>
+            <option value="{{gender.name}}">{{gender.name}}</option>
         {% endfor %}
     </select>
     <small class="invalid-feedback"></small>
@@ -28,7 +28,7 @@
     <label for="citizenCode">Гражданство:</label>
     <select class="form-control" id="citizenCode" name="citizenCode" required>
         {% for citizen in data.citizens%}
-            <option value="{{citizen.ID}}" {% if citizen.ID == 1 %}selected{% endif %}>{{citizen.Name}}</option>
+            <option value="{{citizen.id}}" {% if citizen.id == 1 %}selected{% endif %}>{{citizen.name}}</option>
         {% endfor %}
     </select>
     <small class="invalid-feedback"></small>
@@ -37,7 +37,7 @@
     <label for="docTypeId">Тип документа удостоверяющего личность:</label>
     <select class="form-control" id="docTypeId" name="docTypeId" required>
         {% for identityDocType in data.identityDocTypes%}
-            <option value="{{identityDocType.ID}}">{{identityDocType.Name}}</option>
+            <option value="{{identityDocType.id}}">{{identityDocType.name}}</option>
         {% endfor %}
     </select>
     <small class="invalid-feedback"></small>
@@ -90,7 +90,7 @@
     <label for="bCountry">Страна рождения:</label>
     <select class="form-control" id="bCountry" name="bCountry" required>
         {% for country in data.countries%}
-            <option value="{{country.Name}}" {% if country.ID == 1 %}selected{% endif %}>{{country.Name}}</option>
+            <option value="{{country.name}}" {% if country.id == 1 %}selected{% endif %}>{{country.name}}</option>
         {% endfor %}
     </select>
     <small class="invalid-feedback"></small>
@@ -104,7 +104,7 @@
     <label for="rCountry">Страна где зарегистрирован:</label>
     <select class="form-control" id="rCountry" name="rCountry" required>
         {% for country in data.countries%}
-            <option value="{{country.Name}}" {% if country.ID == 1 %}selected{% endif %}>{{country.Name}}</option>
+            <option value="{{country.name}}" {% if country.id == 1 %}selected{% endif %}>{{country.name}}</option>
         {% endfor %}
     </select>
     <small class="invalid-feedback"></small>
@@ -118,7 +118,7 @@
     <label for="fCountry">Страна проживания:</label>
     <select class="form-control" id="fCountry" name="fCountry" required>
         {% for country in data.countries%}
-            <option value="{{country.Name}}" {% if country.ID == 1 %}selected{% endif %}>{{country.Name}}</option>
+            <option value="{{country.name}}" {% if country.id == 1 %}selected{% endif %}>{{country.name}}</option>
         {% endfor %}
     </select>
     <small class="invalid-feedback"></small>
