@@ -125,6 +125,7 @@ class ApplyingController extends BaseController
         }
 
         $data = [
+            'leaver'           => $leaver->toArray(),
             'genders'          => $this->dictionaryDao->getAll(DictionaryTableEnum::GENDERS()),
             'citizens'         => $this->dictionaryDao->getAll(DictionaryTableEnum::CITIZEN()),
             'countries'        => $this->dictionaryDao->getAll(DictionaryTableEnum::COUNTRIES()),
@@ -138,7 +139,27 @@ class ApplyingController extends BaseController
             StatusEnum::SUCCESS(),
             $data,
         );
-
         $this->getResponse()->display($this::applyingTemplate, $resultDto->toArray());
+    }
+
+    /**
+     * @param string|null $guid
+     * @throws NotFoundGuidException
+     */
+    public function applyingPost(?string $guid = null)
+    {
+        if (!$guid) {
+            throw new NotFoundGuidException();
+        }
+
+        $leaver = LeaverDTO::fromRequest($this->getRequest());
+
+        if (!$leaver) {
+            throw new NotFoundGuidException();
+        }
+
+        echo '<pre>';
+        var_dump($leaver->exams);
+        echo '</pre>';
     }
 }

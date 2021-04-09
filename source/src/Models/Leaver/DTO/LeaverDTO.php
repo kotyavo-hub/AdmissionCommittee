@@ -2,6 +2,7 @@
 
 namespace AC\Models\Leaver\DTO;
 
+use AC\Models\Leaver\Exam\DTO\LeaverExamDTOCollection;
 use AC\Service\Http\Request;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -129,8 +130,24 @@ class LeaverDTO extends DataTransferObject
 
     public ?int $statusComplete;
 
+    public ?LeaverExamDTOCollection $exams;
+
+    public ?int $urov;
+
     public static function fromRequest(Request $request): self
     {
+        $examsInputArrayParams = [
+            'examId' => FILTER_VALIDATE_INT,
+            'result' => [
+                'filter' => FILTER_VALIDATE_INT,
+                'options' => ['default' => 0]
+            ],
+            'passingLeaverTests' => [
+                'filter' => FILTER_VALIDATE_INT,
+                'options' => ['default' => 0]
+            ]
+        ];
+
         return new self([
             'id' => (int)trim($request->getParamFromPostVar('id')),
             'guid' => trim($request->getParamFromPostVar('guid')),
@@ -192,7 +209,11 @@ class LeaverDTO extends DataTransferObject
             'comDocFile' => trim($request->getParamFromPostVar('comDocFile')),
             'comDocFileSize' => (double)trim($request->getParamFromPostVar('comDocFileSize')),
             'statusEmail' => (int)trim($request->getParamFromPostVar('statusEmail')),
-            'statusComplete' => (int)trim($request->getParamFromPostVar('statusComplete'))
+            'statusComplete' => (int)trim($request->getParamFromPostVar('statusComplete')),
+            'exams' => array_map(function ($value) use ($examsInputArrayParams) {
+                return filter_var_array($value, $examsInputArrayParams);
+            }, $request->getParamFromPostVar('exams')),
+            'urov' => (int)trim($request->getParamFromPostVar('urov')),
         ]);
     }
 }

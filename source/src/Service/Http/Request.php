@@ -100,7 +100,7 @@ class Request implements RequestInterface
 
     /**
      * @param string $parameter
-     * @return null|string
+     * @return null|string|array
      */
     public function getParamFromPostVar(string $parameter)
     {
@@ -110,7 +110,7 @@ class Request implements RequestInterface
     /**
      * @param string $parameter
      * @param array $var
-     * @return string|null
+     * @return string|null|array
      */
     public function getParamFromVar(string $parameter, array $var)
     {

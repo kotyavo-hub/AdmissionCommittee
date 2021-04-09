@@ -124,3 +124,7 @@ body{
 	background: white;
 	margin-top: 5rem;
 }
+
+.contest-table {
+	text-align: center;
+}

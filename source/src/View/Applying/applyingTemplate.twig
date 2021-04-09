@@ -1,4 +1,5 @@
 {% extends "baseTemplate.twig" %}
+{% set leaver = data.leaver %}
 
 {% block navbarClass %}navbar__black{% endblock %}
 {% block title %}Подача заявления{% endblock %}
@@ -12,7 +13,7 @@
 {% block content %}
     <div class="wrapper__applying">
         <h1 class="text-center">Подача заявления</h1>
-        <form id="applyingForm" action="/applying/f52981260b3c0ebba1a06af896e81c00/" method="POST">
+        <form id="applyingForm" action="/applying/{{ leaver.guid }}/" method="POST">
             <div id="smartwizard">
                 <ul class="nav">
                     <li>
@@ -60,7 +61,7 @@
                         {% include 'Applying/Steps/step6.twig' %}
                     </div>
                     <div id="step-7" class="tab-pane" role="tabpanel">
-                        Step content
+                        {% include 'Applying/Steps/step7.twig' %}
                     </div>
                     <div id="step-8" class="tab-pane" role="tabpanel">
                         Step content
@@ -72,6 +73,7 @@
 {% endblock %}
 
 {% block scripts %}
+    <script src="../../../assets/js/lib/lodash/lodash.js" type="text/javascript"></script>
     <script src="../../../assets/js/lib/jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="../../../assets/js/lib/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
     <script src="../../../assets/js/lib/smartwizard/dist/js/jquery.smartWizard.js" type="text/javascript"></script>
