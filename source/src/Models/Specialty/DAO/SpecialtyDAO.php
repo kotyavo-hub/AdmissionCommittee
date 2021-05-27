@@ -7,11 +7,19 @@ use AC\Models\Leaver\DTO\LeaverDTO;
 use ParagonIE\EasyDB\EasyStatement;
 use ParagonIE\EasyDB\Exception\MustBeNonEmpty;
 
+/**
+ * Класс DAO для работы с таблицей contests
+ *
+ * Class SpecialtyDAO
+ * @package AC\Models\Specialty\DAO
+ */
 class SpecialtyDAO extends DataAccessObject
 {
     protected const CONTESTS_TABLE = 'contests';
 
     /**
+     * Функция возвращает подходящие абитуриенту специальности
+     *
      * @param LeaverDTO $leaverDto
      * @return array
      * @throws MustBeNonEmpty

@@ -13,6 +13,12 @@ use AC\Service\Http\Request;
 use AC\Service\Http\Response;
 use ParagonIE\EasyDB\Exception\MustBeNonEmpty;
 
+/**
+ * API Контроллер для работы с конкурсами
+ *
+ * Class ContestController
+ * @package AC\Controllers\API
+ */
 class ContestController extends BaseController
 {
     /**
@@ -37,6 +43,9 @@ class ContestController extends BaseController
     }
 
     /**
+     * Action-функция
+     * Возвращает json доступных конкурсов
+     *
      * @throws MustBeNonEmpty
      */
     public function getAvailableByLeaverAndSpeciality(): void
@@ -56,6 +65,12 @@ class ContestController extends BaseController
         $this->getResponse()->toJson($result->toArray());
     }
 
+    /**
+     * Вспомогательная функция для слияния массивов конкурсов и факультетов
+     *
+     * @param array $contestList
+     * @param array $facultyList
+     */
     protected function mergeFacultyToContestList(array &$contestList, array $facultyList): void
     {
         foreach ($contestList as $contestKey => $contest) {

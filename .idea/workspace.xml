@@ -16,47 +16,99 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cd3d094-4ee6-4b67-bb92-1b92a54310e8" name="Default Changelist" comment="добавил .idea">
-      <change afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Config/Mail/MailConfig.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Config/Mail/MailConfigKeys.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Config/Mail/mail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Config/Validation/ValidationConfig.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Config/Validation/ValidationConfigKeys.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Config/Validation/validation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Config/container.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Config/database.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Enum/ResponseEnum.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Enum/StatusEnum.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Interfaces/iController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Interfaces/iPageController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Page/AuthPageController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Page/BasePageController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Page/IndexPageController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Page/RegistrationPageController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Controllers/User/UserController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Models/DataAccessObject.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Models/User/UserDao.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Service/Mail/Mailer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/View/authTemplate.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/View/baseTemplate.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/View/confirmEmailTemplate.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/View/indexTemplate.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/View/registrationTemplate.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="9cd3d094-4ee6-4b67-bb92-1b92a54310e8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/source/assets/js/applying/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Config/Menu/Enum/MenuConfigFilesEnum.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Config/Menu/Enum/MenuConfigKeys.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Config/Menu/Files/headerMenu.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Config/Menu/MenuConfig.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Controllers/DocumentController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Exceptions/NotFoundDocumentException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Exceptions/NotFoundIdException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Exceptions/NotFoundLeaverException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Controllers/PersonalController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Models/File/DAO/FileDAO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Models/File/DTO/FileDTO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/DTO/LeaverDTOCollection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/Exam/DAO/ExamDao.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/IndividAchiev/DAO/IndividAchievDAO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/IndividAchiev/DTO/IndividAchievDTO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/IndividAchiev/DTO/IndividAchievDTOCollection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/PreemRight/DAO/PreemRightDAO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/PreemRight/DTO/PreemRightDTO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/PreemRight/DTO/PreemRightDTOCollection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/SpecRight/DAO/SpecRightDAO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/SpecRight/DTO/SpecRightDTO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/SpecRight/DTO/SpecRightDTOCollection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/Specials/DAO/SpecialsDao.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/Specials/DTO/SpecialsDTO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/Specials/DTO/SpecialsDTOCollection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Service/Http/Enum/HttpCodeEnum.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Service/Leaver/LeaverService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/Service/Menu/MenuGenerator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/View/Applying/Steps/step8.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/View/Applying/applyingFinalTemplate.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/View/Personal/personalAllTemplate.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/src/View/Personal/personalTemplate.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/php/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/source/assets/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/assets/js/applying.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/assets/js/applying/classes/ContestsTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/source/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Config/RouteConfigKeys.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Config/RouteConfigKeys.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Config/Validation/ValidationConfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Config/Validation/ValidationConfig.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Config/Validation/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Config/Validation/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Config/container.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Config/container.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Config/database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/src/Config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Config/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Controllers/API/ContestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/API/ContestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Controllers/API/Exceptions/NotFoundRequiredUrovOrExamsParamsException.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/API/Exceptions/NotFoundRequiredUrovOrExamsParamsException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Controllers/API/SpecialityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/API/SpecialityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Controllers/ApplyingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/ApplyingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/src/Controllers/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/BaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Controllers/Page/IndexController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Core/route.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Controllers/Enum/ResultEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/Enum/ResultEnum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Controllers/Enum/StatusEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/Enum/StatusEnum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Controllers/Exceptions/NotFoundEmailHashException.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/Exceptions/NotFoundEmailHashException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Controllers/Exceptions/NotFoundGuidException.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/Exceptions/NotFoundGuidException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/IndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Controllers/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Models/Contest/DAO/ContestDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Contest/DAO/ContestDAO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Models/Contest/DTO/ContestDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Contest/DTO/ContestDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Models/DataAccessObject.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/DataAccessObject.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Models/Dictionary/DAO/DictionaryDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Dictionary/DAO/DictionaryDAO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Models/Dictionary/Enum/DictionaryTableEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Dictionary/Enum/DictionaryTableEnum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Models/Faculty/DAO/FacultyDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Faculty/DAO/FacultyDAO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Models/Faculty/DTO/FacultyDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Faculty/DTO/FacultyDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Models/Leaver/DAO/LeaverDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Leaver/DAO/LeaverDAO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Models/Leaver/DTO/LeaverDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Leaver/DTO/LeaverDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Models/Leaver/Exam/DTO/LeaverExamDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Leaver/Exam/DTO/LeaverExamDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Models/Leaver/Exam/DTO/LeaverExamDTOCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Leaver/Exam/DTO/LeaverExamDTOCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Models/Result/ResultDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Result/ResultDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Models/Specialty/DAO/SpecialtyDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Specialty/DAO/SpecialtyDAO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Models/Specialty/DTO/SpecialtyDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Specialty/DTO/SpecialtyDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Models/User/DAO/UserDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/User/DAO/UserDAO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Models/User/DTO/UserDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/User/DTO/UserDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Models/User/DTO/UserPostDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/User/DTO/UserPostDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Models/User/Enum/RoleEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/User/Enum/UserRoleEnum.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/src/Service/Http/Request.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/Http/Request.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Service/Http/RequestInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/Http/RequestInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Service/Http/Response.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/Http/Response.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Service/Http/ResponseInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/Http/ResponseInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/src/Service/Http/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/Http/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Service/Leaver/ApplyingService.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/Leaver/ApplyingService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Service/Mail/Mailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/Mail/Mailer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Service/User/UserManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/User/UserManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Service/User/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/User/UserService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/View/Applying/Steps/step1.twig" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/View/Applying/Steps/step1.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/View/Applying/Steps/step2.twig" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/View/Applying/Steps/step2.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/View/Applying/Steps/step3.twig" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/View/Applying/Steps/step3.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/View/Applying/Steps/step4.twig" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/View/Applying/Steps/step4.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/View/Applying/Steps/step5.twig" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/View/Applying/Steps/step5.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/View/Applying/Steps/step6.twig" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/View/Applying/Steps/step6.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/View/Applying/applyingTemplate.twig" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/View/Applying/applyingTemplate.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/View/baseTemplate.twig" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/View/baseTemplate.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/src/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/bootstrap.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,6 +123,11 @@
     </execution>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="29041" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -92,6 +149,11 @@
       <path value="$PROJECT_DIR$/source/vendor/phpmailer/phpmailer" />
       <path value="$PROJECT_DIR$/source/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/source/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/source/vendor/spatie/data-transfer-object" />
+      <path value="$PROJECT_DIR$/source/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/source/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/source/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/source/vendor/twig/intl-extra" />
     </include_path>
   </component>
   <component name="ProjectId" id="1pORnTGxfu5f4yFm19oZIi2877D" />
@@ -104,7 +166,7 @@
     <property name="DatabaseDriversLRU" value="mariadb&#10;mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../new.etudesite.ru" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/source/src/Models/Contest/DTO" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -112,23 +174,33 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/source/src/Config/Mail" />
-      <recent name="$PROJECT_DIR$/source/src/Controllers" />
-      <recent name="$PROJECT_DIR$/source/src/Controllers/Page" />
-      <recent name="$PROJECT_DIR$/source/assets" />
-      <recent name="$PROJECT_DIR$/source" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/source/src/Controllers" />
-      <recent name="$PROJECT_DIR$/source/src" />
+      <recent name="$PROJECT_DIR$/source/src/Models/Contest/DTO" />
+      <recent name="$PROJECT_DIR$/source/src/Models/Leaver/IndividAchiev/DAO" />
+      <recent name="$PROJECT_DIR$/source/src/Models/Leaver/PreemRight/DAO" />
+      <recent name="$PROJECT_DIR$/source/src/Controllers/Exceptions" />
+      <recent name="$PROJECT_DIR$/source/src/Models/Leaver" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/src/View/Personal" />
+      <recent name="$PROJECT_DIR$/source/src/Models/Leaver/SpecRight/DTO" />
+      <recent name="$PROJECT_DIR$/source/src/Models/Leaver/PreemRight/DTO" />
+      <recent name="$PROJECT_DIR$/source/src/Models/Leaver/IndividAchiev/DTO" />
+      <recent name="$PROJECT_DIR$/source/src/Config/Menu/Files" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.php/Dockerfile">
+  <component name="RunManager" selected="DockDockBuild.generate-phpDoc">
+    <configuration name="generate-phpDoc" type="DockDockBuildRunConfiguration" factoryName="DockDockBuild" temporary="true">
+      <dockDockBuild makefileFilePath="$PROJECT_DIR$/makefile" dockerfileDir="$PROJECT_DIR$/docker" dockerImageUrl="" isDockerImage="" isDockerfile="" target="generate-phpDoc" envScriptPath="" arguments="">
+        <envs />
+      </dockDockBuild>
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="DockDockBuildRunConfiguration" factoryName="DockDockBuild" temporary="true">
       <dockDockBuild makefileFilePath="$PROJECT_DIR$/makefile" dockerfileDir="$PROJECT_DIR$/docker" dockerImageUrl="" isDockerImage="" isDockerfile="" target="start" envScriptPath="" arguments="">
         <envs />
@@ -145,6 +217,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="DockDockBuild.generate-phpDoc" />
+        <item itemvalue="Docker.php/Dockerfile" />
+        <item itemvalue="DockDockBuild.start" />
         <item itemvalue="Docker.php/Dockerfile" />
         <item itemvalue="DockDockBuild.start" />
       </list>
@@ -168,7 +243,60 @@
       <workItem from="1615745688094" duration="57000" />
       <workItem from="1615745807060" duration="710000" />
       <workItem from="1615746634901" duration="2202000" />
-      <workItem from="1615749024420" duration="16208000" />
+      <workItem from="1615749024420" duration="16728000" />
+      <workItem from="1615833587877" duration="8660000" />
+      <workItem from="1616019417067" duration="19841000" />
+      <workItem from="1616173204060" duration="9099000" />
+      <workItem from="1616289810388" duration="7347000" />
+      <workItem from="1616541654240" duration="14318000" />
+      <workItem from="1616588473853" duration="26000" />
+      <workItem from="1616874029152" duration="5280000" />
+      <workItem from="1616970476485" duration="2815000" />
+      <workItem from="1617052222804" duration="15200000" />
+      <workItem from="1617122264485" duration="154000" />
+      <workItem from="1617125340237" duration="15284000" />
+      <workItem from="1617225119089" duration="12544000" />
+      <workItem from="1617277293914" duration="111000" />
+      <workItem from="1617506936229" duration="618000" />
+      <workItem from="1617543277683" duration="36191000" />
+      <workItem from="1617739385706" duration="21264000" />
+      <workItem from="1617786275887" duration="66000" />
+      <workItem from="1617829632789" duration="21080000" />
+      <workItem from="1617915409873" duration="17317000" />
+      <workItem from="1617985869725" duration="334000" />
+      <workItem from="1617989775751" duration="2207000" />
+      <workItem from="1617997207638" duration="3057000" />
+      <workItem from="1618095086048" duration="2382000" />
+      <workItem from="1618097617498" duration="642000" />
+      <workItem from="1618103300372" duration="188000" />
+      <workItem from="1618109735287" duration="936000" />
+      <workItem from="1618114820451" duration="15445000" />
+      <workItem from="1618194456499" duration="2200000" />
+      <workItem from="1618307356430" duration="1220000" />
+      <workItem from="1619881691565" duration="7388000" />
+      <workItem from="1619970293061" duration="8376000" />
+      <workItem from="1619996759860" duration="7539000" />
+      <workItem from="1620067312252" duration="570000" />
+      <workItem from="1620502479101" duration="1891000" />
+      <workItem from="1620504999344" duration="1338000" />
+      <workItem from="1620521067866" duration="27734000" />
+      <workItem from="1620722505628" duration="72000" />
+      <workItem from="1621041476622" duration="2011000" />
+      <workItem from="1621050832476" duration="2690000" />
+      <workItem from="1621115217167" duration="6765000" />
+      <workItem from="1621131674479" duration="1304000" />
+      <workItem from="1621521721211" duration="206000" />
+      <workItem from="1621530819469" duration="19670000" />
+      <workItem from="1621768158037" duration="1449000" />
+      <workItem from="1621776615998" duration="14564000" />
+      <workItem from="1621845753048" duration="470000" />
+      <workItem from="1621855779970" duration="5020000" />
+      <workItem from="1621862153766" duration="864000" />
+      <workItem from="1621866095299" duration="599000" />
+      <workItem from="1621888411618" duration="11983000" />
+      <workItem from="1621946919259" duration="65000" />
+      <workItem from="1621974611046" duration="12589000" />
+      <workItem from="1622033584962" duration="46586000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1615123820376</created>
@@ -184,11 +312,63 @@
       <option name="project" value="LOCAL" />
       <updated>1615124118977</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Настройка конфигов, добавление pageController, UserDao.php, Router fix, валидация формы регистрации, битва за PDO с php образом, и многое другое в нашем увлекательном зоопарке.">
+      <created>1615765792006</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1615765792006</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Добавил регистрацию и начальную подачу заявления.">
+      <created>1616962617848</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1616962617848</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Добавил файлы которых не было под версионным контролем, сверстал 3 шага на странице подачи заявления, добавление библеотек jquery, jquery.smartWizard, jquery.validation, jquery.mask">
+      <created>1617143415952</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1617143415952</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Вернул шаблон страницы подачи заявления под версионный контроль">
+      <created>1617143531049</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1617143531049</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Поскольку перенес словари в таблицу, удалил релизацию через xml, добавил 4-6 шаги в подаче заявления.">
+      <created>1617237211631</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1617237211632</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Тонна измений">
+      <created>1617986194782</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1617986194782</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -215,67 +395,78 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="init" />
     <MESSAGE value="добавил .idea в исключения" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавил .idea в исключения" />
+    <MESSAGE value="Настройка конфигов, добавление pageController, UserDao.php, Router fix, валидация формы регистрации, битва за PDO с php образом, и многое другое в нашем увлекательном зоопарке." />
+    <MESSAGE value="Добавил регистрацию и начальную подачу заявления." />
+    <MESSAGE value="Добавил файлы которых не было под версионным контролем, сверстал 3 шага на странице подачи заявления, добавление библеотек jquery, jquery.smartWizard, jquery.validation, jquery.mask" />
+    <MESSAGE value="Вернул шаблон страницы подачи заявления под версионный контроль" />
+    <MESSAGE value="Поскольку перенес словари в таблицу, удалил релизацию через xml, добавил 4-6 шаги в подаче заявления." />
+    <MESSAGE value="Тонна измений" />
+    <option name="LAST_COMMIT_MESSAGE" value="Тонна измений" />
   </component>
   <component name="WindowStateProjectService">
     <state x="332" y="407" key="#SQL_Dialects" timestamp="1615689103894">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="332" y="407" key="#SQL_Dialects/0.0.1920.1080@0.0.1920.1080" timestamp="1615689103894" />
-    <state x="929" y="202" width="800" height="647" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615748657016">
+    <state x="620" y="178" width="1071" height="654" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1621857925872">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="929" y="202" width="800" height="647" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615748657016" />
-    <state x="678" y="325" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1615685627880">
+    <state x="620" y="178" width="1071" height="654" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1621857925872" />
+    <state x="678" y="325" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1622080858119">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="678" y="325" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1615685627880" />
-    <state x="773" y="273" key="#com.intellij.ide.util.MemberChooser" timestamp="1615702149756">
+    <state x="678" y="325" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1622080858119" />
+    <state x="773" y="273" key="#com.intellij.ide.util.MemberChooser" timestamp="1621840517336">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="773" y="273" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1615702149756" />
-    <state x="577" y="0" width="766" height="1061" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1615692239779">
+    <state x="773" y="273" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1621840517336" />
+    <state x="577" y="0" width="670" height="879" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1621894660332">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="577" y="0" width="766" height="1061" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615692239779" />
-    <state x="698" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1615751194915">
+    <state x="577" y="0" width="670" height="879" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1621894660332" />
+    <state x="728" y="377" key="#com.intellij.tools.ToolEditorDialog" timestamp="1619889367978">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="698" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615751194915" />
-    <state x="919" y="135" key="CommitChangelistDialog2" timestamp="1615124118837">
+    <state x="728" y="377" key="#com.intellij.tools.ToolEditorDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1619889367978" />
+    <state x="698" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1622070208744">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="919" y="135" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1615124118837" />
+    <state x="698" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1622070208744" />
+    <state x="573" y="115" key="CommitChangelistDialog2" timestamp="1621974689340">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="573" y="115" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1621974689340" />
     <state x="637" y="418" key="ComposerInitDialogKey" timestamp="1615054349746">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="637" y="418" key="ComposerInitDialogKey/0.0.1920.1080@0.0.1920.1080" timestamp="1615054349746" />
-    <state x="121" y="77" key="DiffContextDialog" timestamp="1615124092334">
+    <state x="121" y="77" width="1536" height="864" key="DiffContextDialog" timestamp="1620603581474">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="121" y="77" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615124092334" />
-    <state x="748" y="267" key="FileChooserDialogImpl" timestamp="1615749104162">
+    <state x="121" y="77" width="1536" height="864" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1620603581474" />
+    <state x="748" y="267" key="FileChooserDialogImpl" timestamp="1617917166953">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="748" y="267" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1615749104162" />
-    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1615739940567">
+    <state x="748" y="267" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1617917166953" />
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1619890215615">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1615739940567" />
-    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1615739940561">
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1619890215615" />
+    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1619890215611">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1615739940561" />
-    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1615739940553">
+    <state width="1874" height="275" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1619890215611" />
+    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1619890215607">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1615739940553" />
-    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1615739940564">
+    <state width="1874" height="275" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1619890215607" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1619890215613">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1615739940564" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1619890215613" />
     <state width="235" height="500" key="HiddenNamespacesPopup" timestamp="1615053974044">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -288,33 +479,45 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="782" y="480" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615685650115" />
-    <state x="734" y="230" key="RollbackChangesDialog" timestamp="1615731258205">
+    <state x="734" y="230" key="RollbackChangesDialog" timestamp="1620603583054">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="734" y="230" key="RollbackChangesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615731258205" />
-    <state x="461" y="181" key="SettingsEditor" timestamp="1615746829657">
+    <state x="734" y="230" key="RollbackChangesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1620603583054" />
+    <state x="121" y="202" key="SettingsEditor" timestamp="1621785368130">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="461" y="181" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1615746829657" />
-    <state x="560" y="259" key="Vcs.Push.Dialog.v2" timestamp="1615123828850">
+    <state x="121" y="202" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1621785368130" />
+    <state x="560" y="259" key="Vcs.Push.Dialog.v2" timestamp="1617237219183">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="560" y="259" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1615123828850" />
-    <state x="664" y="140" width="592" height="783" key="find.popup" timestamp="1615753415810">
+    <state x="560" y="259" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1617237219183" />
+    <state x="820" y="182" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1617053943283">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="664" y="140" width="592" height="783" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1615753415810" />
+    <state x="820" y="182" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1617053943283" />
+    <state x="100" y="123" width="1720" height="817" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1616036895758">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="100" y="123" width="1720" height="817" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1616036895758" />
+    <state x="664" y="140" width="592" height="522" key="find.popup" timestamp="1622079120759">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="664" y="140" width="592" height="522" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1622079120759" />
     <state x="769" y="435" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1615123661897">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="769" y="435" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615123661897" />
-    <state x="623" y="254" width="672" height="678" key="search.everywhere.popup" timestamp="1615692706805">
+    <state x="624" y="250" key="run.anything.popup" timestamp="1622078929812">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="254" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1615692706805" />
-    <state x="690" y="437" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1615739439459">
+    <state x="624" y="250" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1622078929812" />
+    <state x="623" y="254" width="672" height="678" key="search.everywhere.popup" timestamp="1622066997443">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="690" y="437" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615739439459" />
+    <state x="623" y="254" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1622066997443" />
+    <state x="690" y="437" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1619973431844">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="690" y="437" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1619973431844" />
   </component>
 </project>

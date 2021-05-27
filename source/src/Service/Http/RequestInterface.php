@@ -2,6 +2,13 @@
 
 namespace AC\Service\Http;
 
+/**
+ * Интерфейс для класса Request
+ *
+ * @see Request
+ * Interface RequestInterface
+ * @package AC\Service\Http
+ */
 interface RequestInterface
 {
     /**

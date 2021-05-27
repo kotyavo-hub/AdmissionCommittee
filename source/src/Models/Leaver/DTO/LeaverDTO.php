@@ -2,10 +2,22 @@
 
 namespace AC\Models\Leaver\DTO;
 
+use AC\Models\Contest\DTO\ContestDTOCollection;
 use AC\Models\Leaver\Exam\DTO\LeaverExamDTOCollection;
+use AC\Models\File\DTO\FileDTO;
+use AC\Models\Leaver\IndividAchiev\DTO\IndividAchievDTOCollection;
+use AC\Models\Leaver\PreemRight\DTO\PreemRightDTOCollection;
+use AC\Models\Leaver\Specials\DTO\SpecialsDTOCollection;
+use AC\Models\Leaver\SpecRight\DTO\SpecRightDTOCollection;
 use AC\Service\Http\Request;
 use Spatie\DataTransferObject\DataTransferObject;
 
+/**
+ * Класс DTO для работы с данными заявлений
+ *
+ * Class LeaverDTO
+ * @package AC\Models\Leaver\DTO
+ */
 class LeaverDTO extends DataTransferObject
 {
     public ?int $id;
@@ -38,9 +50,9 @@ class LeaverDTO extends DataTransferObject
 
     public ?string $bornDate;
 
-    public ?string $passportFile;
+    public ?int $passportFileId;
 
-    public ?float $passportFileSize;
+    public ?FileDTO $passportFile;
 
     public ?string $bCountry;
 
@@ -64,7 +76,7 @@ class LeaverDTO extends DataTransferObject
 
     public ?string $schoolNumber;
 
-    public ?string $graduateYear;
+    public ?int $graduateYear;
 
     public ?string $education;
 
@@ -80,12 +92,6 @@ class LeaverDTO extends DataTransferObject
 
     public ?string $educDocDistr;
 
-    public ?int $educDocSelf;
-
-    public ?int $educDocOriginal;
-
-    public ?string $educDocOriginalDate;
-
     public ?string $supplementNo;
 
     public ?string $supplementSeria;
@@ -100,9 +106,9 @@ class LeaverDTO extends DataTransferObject
 
     public ?int $attres5;
 
-    public ?string $educDocFile;
+    public ?int $educDocFileId;
 
-    public ?float $educDocFileSize;
+    public ?FileDTO $educDocFile;
 
     public ?int $priorityVUZ;
 
@@ -112,28 +118,34 @@ class LeaverDTO extends DataTransferObject
 
     public ?string $prestart;
 
-    public ?string $comDocType;
-
-    public ?string $comDocSeria;
-
-    public ?string $comDocNo;
-
-    public ?string $comDocDate;
-
-    public ?string $comDocDistr;
-
-    public ?string $comDocFile;
-
-    public ?float $comDocFileSize;
-
     public ?int $statusEmail;
 
     public ?int $statusComplete;
 
     public ?LeaverExamDTOCollection $exams;
 
+    public ?SpecRightDTOCollection $specRights;
+
+    public ?PreemRightDTOCollection $preemRights;
+
+    public ?IndividAchievDTOCollection $individAchievs;
+
     public ?int $urov;
 
+    public ?int $useSpecRight;
+
+    public ?int $correctInfoFileId;
+
+    public ?FileDTO $correctInfoFile;
+
+    public ?SpecialsDTOCollection $specials;
+
+    /**
+     * Функция для получения данных из Request
+     *
+     * @param Request $request
+     * @return static
+     */
     public static function fromRequest(Request $request): self
     {
         $examsInputArrayParams = [
@@ -143,6 +155,66 @@ class LeaverDTO extends DataTransferObject
                 'options' => ['default' => 0]
             ],
             'passingLeaverTests' => [
+                'filter' => FILTER_VALIDATE_INT,
+                'options' => ['default' => 0]
+            ]
+        ];
+
+        $preemRightsInputArrayParam = [
+            'docType' => FILTER_VALIDATE_INT,
+            'docSeria' => FILTER_VALIDATE_INT,
+            'docNumber' => FILTER_VALIDATE_INT,
+            'docDate' => FILTER_SANITIZE_STRING,
+            'docOrganization' => FILTER_SANITIZE_STRING,
+        ];
+
+        $specialsRightsInputArrayParam = [
+            'idContest' => FILTER_VALIDATE_INT,
+            'planInternalCommerce' => [
+                'filter' => FILTER_VALIDATE_INT,
+                'options' => ['default' => 0]
+            ],
+            'planExternalCommerce' => [
+                'filter' => FILTER_VALIDATE_INT,
+                'options' => ['default' => 0]
+            ],
+            'planIECommerce' => [
+                'filter' => FILTER_VALIDATE_INT,
+                'options' => ['default' => 0]
+            ],
+            'planInternalQuotas' => [
+                'filter' => FILTER_VALIDATE_INT,
+                'options' => ['default' => 0]
+            ],
+            'planExternalQuotas' => [
+                'filter' => FILTER_VALIDATE_INT,
+                'options' => ['default' => 0]
+            ],
+            'planIEQuotas' => [
+                'filter' => FILTER_VALIDATE_INT,
+                'options' => ['default' => 0]
+            ],
+            'planInternalTarget' => [
+                'filter' => FILTER_VALIDATE_INT,
+                'options' => ['default' => 0]
+            ],
+            'planExternalTarget' => [
+                'filter' => FILTER_VALIDATE_INT,
+                'options' => ['default' => 0]
+            ],
+            'planIETarget' => [
+                'filter' => FILTER_VALIDATE_INT,
+                'options' => ['default' => 0]
+            ],
+            'planInternal' => [
+                'filter' => FILTER_VALIDATE_INT,
+                'options' => ['default' => 0]
+            ],
+            'planExternal' => [
+                'filter' => FILTER_VALIDATE_INT,
+                'options' => ['default' => 0]
+            ],
+            'planIE' => [
                 'filter' => FILTER_VALIDATE_INT,
                 'options' => ['default' => 0]
             ]
@@ -164,8 +236,8 @@ class LeaverDTO extends DataTransferObject
             'docDistr' => trim($request->getParamFromPostVar('docDistr')),
             'docFMSCode' => trim($request->getParamFromPostVar('docFMSCode')),
             'bornDate' => trim($request->getParamFromPostVar('bornDate')),
-            'passportFile' => trim($request->getParamFromPostVar('passportFile')),
-            'passportFileSize' => (double)trim($request->getParamFromPostVar('passportFileSize')),
+            'passportFile' => ($passportFile = $request->getFileFromPostVar('passportFile'))
+                ? FileDTO::fromRequestFile($passportFile) : null,
             'bCountry' => trim($request->getParamFromPostVar('bCountry')),
             'bAddress' => trim($request->getParamFromPostVar('bAddress')),
             'rCountry' => trim($request->getParamFromPostVar('rCountry')),
@@ -177,7 +249,7 @@ class LeaverDTO extends DataTransferObject
             'email' => trim($request->getParamFromPostVar('email')),
             'schoolTypeCode' => trim($request->getParamFromPostVar('schoolTypeCode')),
             'schoolNumber' => trim($request->getParamFromPostVar('schoolNumber')),
-            'graduateYear' => trim($request->getParamFromPostVar('graduateYear')),
+            'graduateYear' => (int)trim($request->getParamFromPostVar('graduateYear')),
             'education' => trim($request->getParamFromPostVar('education')),
             'lang' => trim($request->getParamFromPostVar('lang')),
             'educDocTypeCode' => (int)trim($request->getParamFromPostVar('educDocTypeCode')),
@@ -185,9 +257,6 @@ class LeaverDTO extends DataTransferObject
             'educDocNo' => trim($request->getParamFromPostVar('educDocNo')),
             'educDocDate' => trim($request->getParamFromPostVar('educDocDate')),
             'educDocDistr' => trim($request->getParamFromPostVar('educDocDistr')),
-            'educDocSelf' => (int)trim($request->getParamFromPostVar('educDocSelf')),
-            'educDocOriginal' => (int)trim($request->getParamFromPostVar('educDocOriginal')),
-            'educDocOriginalDate' => trim($request->getParamFromPostVar('educDocOriginalDate')),
             'supplementNo' => trim($request->getParamFromPostVar('supplementNo')),
             'supplementSeria' => trim($request->getParamFromPostVar('supplementSeria')),
             'sCountry' => trim($request->getParamFromPostVar('sCountry')),
@@ -195,25 +264,80 @@ class LeaverDTO extends DataTransferObject
             'attres3' => (int)trim($request->getParamFromPostVar('attres3')),
             'attres4' => (int)trim($request->getParamFromPostVar('attres4')),
             'attres5' => (int)trim($request->getParamFromPostVar('attres5')),
-            'educDocFile' => trim($request->getParamFromPostVar('educDocFile')),
-            'educDocFileSize' => (double)trim($request->getParamFromPostVar('educDocFileSize')),
+            'educDocFile' => ($passportFile = $request->getFileFromPostVar('educDocFile'))
+                ? FileDTO::fromRequestFile($passportFile) : null,
             'priorityVUZ' => (int)trim($request->getParamFromPostVar('priorityVUZ')),
             'countVUZ' => (int)trim($request->getParamFromPostVar('countVUZ')),
             'needHostel' => (int)trim($request->getParamFromPostVar('needHostel')),
             'prestart' => trim($request->getParamFromPostVar('prestart')),
-            'comDocType' => trim($request->getParamFromPostVar('comDocType')),
-            'comDocSeria' => trim($request->getParamFromPostVar('comDocSeria')),
-            'comDocNo' => trim($request->getParamFromPostVar('comDocNo')),
-            'comDocDate' => trim($request->getParamFromPostVar('comDocDate')),
-            'comDocDistr' => trim($request->getParamFromPostVar('comDocDistr')),
-            'comDocFile' => trim($request->getParamFromPostVar('comDocFile')),
-            'comDocFileSize' => (double)trim($request->getParamFromPostVar('comDocFileSize')),
             'statusEmail' => (int)trim($request->getParamFromPostVar('statusEmail')),
             'statusComplete' => (int)trim($request->getParamFromPostVar('statusComplete')),
-            'exams' => array_map(function ($value) use ($examsInputArrayParams) {
-                return filter_var_array($value, $examsInputArrayParams);
-            }, $request->getParamFromPostVar('exams')),
+            'exams' => ($exam = $request->getParamFromPostVar('exams'))
+                ? array_map(function ($value) use ($examsInputArrayParams) {
+                    return filter_var_array($value, $examsInputArrayParams);
+                  }, $exam)
+                : null,
+            'correctInfoFile' => ($correctInfoFile = $request->getFileFromPostVar('correctInfoFile'))
+                ? FileDTO::fromRequestFile($correctInfoFile) : null,
             'urov' => (int)trim($request->getParamFromPostVar('urov')),
+            'useSpecRight' => (int)trim($request->getParamFromPostVar('useSpecRight')),
+            'specRights' => (
+                ($specRights = $request->getParamFromPostVar('specRights')) &&
+                (bool)$request->getParamFromPostVar('toggleSpecRights')
+            ) ? SpecRightDTOCollection::create(self::mergePostFiles(
+                'specRights',
+                'document',
+                $specRights,
+                $request->getFileFromPostVar('specRights')
+            ))
+            : null,
+            'preemRights' => (
+                ($preemRights = $request->getParamFromPostVar('preemRights')) &&
+                (bool)$request->getParamFromPostVar('togglePreemRights')
+            ) ? PreemRightDTOCollection::create(self::mergePostFiles(
+                    'preemRights',
+                    'document',
+                    array_map(function ($value) use ($preemRightsInputArrayParam) {
+                        return filter_var_array($value, $preemRightsInputArrayParam, false);
+                    }, $preemRights),
+                    $request->getFileFromPostVar('preemRights')
+                ))
+            : null,
+            'individAchievs' => (
+                ($individAchievs = $request->getParamFromPostVar('individAchievs')) &&
+                (bool)$request->getParamFromPostVar('toggleIndividAchievs')
+            ) ? IndividAchievDTOCollection::create(self::mergePostFiles(
+                'individAchievs',
+                'document',
+                array_map(function ($value) use ($preemRightsInputArrayParam) {
+                    return filter_var_array($value, $preemRightsInputArrayParam, false);
+                }, $individAchievs),
+                $request->getFileFromPostVar('individAchievs')
+            )) : null,
+            'specials' => (
+                ($specials = $request->getParamFromPostVar('specials'))
+            ) ? SpecialsDTOCollection::create(self::mergePostFiles(
+                'specials',
+                'targetDocFile',
+                array_map(function ($value) use ($specialsRightsInputArrayParam) {
+                    return filter_var_array($value, $specialsRightsInputArrayParam, false);
+                }, $specials),
+                $request->getFileFromPostVar('specials')
+            )) : null,
         ]);
+    }
+
+    protected static function mergePostFiles(string $name, string $fileKey, ?array $post, ?array $files)
+    {
+        if (!$post) {
+            return null;
+        }
+
+        foreach ($post as $key => $item) {
+            $post[$key][$fileKey] = ($file = $files[$key][$fileKey])
+                ? FileDTO::fromRequestFile($file) : null;
+        }
+
+        return $post;
     }
 }

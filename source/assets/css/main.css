@@ -128,3 +128,51 @@ body{
 .contest-table {
 	text-align: center;
 }
+
+.file-drop-area {
+	position: relative;
+	display: flex;
+	align-items: center;
+	max-width: 100%;
+	padding: 25px;
+	border: 1px dashed rgba(0, 0, 0, 0.4);
+	border-radius: 3px;
+	transition: 0.2s
+}
+
+.file-drop-area.is-invalid {
+	border: 1px dashed #dc3545;
+	color: #dc3545;
+}
+
+.file-drop-area.is-valid {
+	border: 1px dashed #28a745;
+	color: #28a745;
+}
+
+.choose-file-button {
+	flex-shrink: 0;
+	background-color: rgba(255, 255, 255, 0.04);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+	padding: 8px 15px;
+	margin-right: 10px;
+	font-size: 12px;
+	text-transform: uppercase
+}
+
+.file-message {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis
+}
+
+.file-input {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	cursor: pointer;
+	opacity: 0
+}

@@ -19,7 +19,12 @@
       <path value="$PROJECT_DIR$/source/vendor/phpmailer/phpmailer" />
       <path value="$PROJECT_DIR$/source/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/source/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/source/vendor/spatie/data-transfer-object" />
+      <path value="$PROJECT_DIR$/source/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/source/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/source/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/source/vendor/twig/intl-extra" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />
 </project>

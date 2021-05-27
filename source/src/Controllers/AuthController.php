@@ -11,8 +11,14 @@ use AC\Models\User\DTO\UserDTO;
 use AC\Models\User\DTO\UserPostDTO;
 use AC\Service\Http\Request;
 use AC\Service\Http\Response;
+use AC\Service\User\UserManager;
 use AC\Service\User\UserService;
 
+/**
+ * Контроллер для авторизации
+ * Class AuthController
+ * @package AC\Controllers
+ */
 class AuthController extends BaseController
 {
     /**
@@ -27,6 +33,12 @@ class AuthController extends BaseController
      */
     private UserService $userService;
 
+    /**
+     * @Inject
+     * @var UserManager;
+     */
+    private UserManager $userManager;
+
     protected const authTemplate = 'authTemplate.twig';
 
     /**
@@ -37,6 +49,7 @@ class AuthController extends BaseController
     {
         parent::__construct($response, $request);
     }
+
 
     public function loginGet()
     {
@@ -53,12 +66,6 @@ class AuthController extends BaseController
     {
         $this->redirectAuthUser();
 
-        $user = $this->getRequest()->getUser();
-
-        if ($user && $user->checkAuth()){
-            $this->getResponse()->redirect('/');
-        }
-
         $postDto    = UserPostDTO::fromRequest($this->getRequest());
 
         $validation = $this->userService->validateAuthUserPost($postDto);
@@ -69,13 +76,13 @@ class AuthController extends BaseController
             $errors = $validation->errors()->firstOfAll();
         }
 
-        $user = $this->userDao->getByLogin($postDto->login);
+        $userRes = $this->userDao->getByLogin($postDto->login);
 
-        if (!$user) {
+        if (!$userRes) {
             $errors['authError'] = 'Ошибка входа. Проверьте логин или пароль.';
+        } else {
+            $userDto = new UserDTO($userRes);
         }
-
-        $userDto = new UserDTO($user);
 
         if (!password_verify($postDto->password, $userDto->hashPassword)) {
             $errors['authError'] = 'Ошибка входа. Проверьте логин или пароль.';
@@ -100,9 +107,11 @@ class AuthController extends BaseController
 
     protected function redirectAuthUser()
     {
-        $user = $this->getRequest()->getUser();
+        $user = $this->userManager->getUserFromRequest(
+            $this->getRequest()
+        );
 
-        if ($user && $user->checkAuth()){
+        if ($user && $this->userManager->checkAuth($user)){
             $this->getResponse()->redirect('/');
         }
     }

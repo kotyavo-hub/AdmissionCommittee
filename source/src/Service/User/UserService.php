@@ -14,7 +14,12 @@ use Rakit\Validation\RuleQuashException;
 use Rakit\Validation\Validation;
 use Rakit\Validation\Validator;
 
-
+/**
+ * Сервис для валидации данных регистрации/авторизации пользователя
+ *
+ * Class UserService
+ * @package AC\Service\User
+ */
 class UserService
 {
     /**

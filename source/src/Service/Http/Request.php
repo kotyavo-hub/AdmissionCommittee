@@ -5,12 +5,19 @@ namespace AC\Service\Http;
 use AC\Models\User\DTO\UserDTO;
 use AC\Models\User\User;
 
+/**
+ * Сервис-обертка над глобальными массивами
+ *
+ * Class Request
+ * @package AC\Service\Http
+ */
 class Request implements RequestInterface
 {
     const METHOD = 'REQUEST_METHOD';
     const METHOD_GET = 'GET';
     const METHOD_POST = 'POST';
 
+    const FILES = 'FILES';
     const SESSION = 'SESSION';
 
     const URI = 'REQUEST_URI';
@@ -59,6 +66,8 @@ class Request implements RequestInterface
             case static::SESSION:
                 $parameterValue = $this->getParamFromSessionVar($parameter);
                 break;
+            case static::FILES:
+                $parameterValue = $this->getFileFromPostVar($parameter);
             default:
                 $parameterValue = null;
         }
@@ -75,13 +84,15 @@ class Request implements RequestInterface
         return $this->getParamFromVar($parameter, $_GET);
     }
 
-
+    /**
+     * @return UserDTO|null
+     */
     public function getUser()
     {
         $user = $this->getParamFromSessionVar('User');
 
         if ($user instanceof UserDTO) {
-            return new User($user);
+            return $user;
         }
 
         return null;
@@ -105,6 +116,15 @@ class Request implements RequestInterface
     public function getParamFromPostVar(string $parameter)
     {
         return $this->getParamFromVar($parameter, $_POST);
+    }
+
+    /**
+     * @param string $parameter
+     * @return array|string|null
+     */
+    public function getFileFromPostVar(string $parameter)
+    {
+        return $this->getParamFromVar($parameter, $_FILES);
     }
 
     /**

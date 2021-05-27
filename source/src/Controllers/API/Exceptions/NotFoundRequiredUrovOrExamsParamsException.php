@@ -5,6 +5,10 @@ namespace AC\Controllers\API\Exceptions;
 use Exception;
 use Throwable;
 
+/**
+ * Class NotFoundRequiredUrovOrExamsParamsException
+ * @package AC\Controllers\API\Exceptions
+ */
 final class NotFoundRequiredUrovOrExamsParamsException extends Exception
 {
     const MESSAGE = 'urov or exams parameter not found';

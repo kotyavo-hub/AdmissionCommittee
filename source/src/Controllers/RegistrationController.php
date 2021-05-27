@@ -12,10 +12,17 @@ use AC\Models\User\DTO\UserPostDTO;
 use AC\Service\Http\Request;
 use AC\Service\Http\Response;
 use AC\Service\Mail\Mailer;
+use AC\Service\User\UserManager;
 use AC\Service\User\UserService;
 use PHPMailer\PHPMailer\Exception;
 use Rakit\Validation\RuleQuashException;
 
+/**
+ * Контроллер регистрации
+ *
+ * Class RegistrationController
+ * @package AC\Controllers
+ */
 class RegistrationController extends BaseController
 {
     /**
@@ -29,6 +36,12 @@ class RegistrationController extends BaseController
      * @var UserService
      */
     private UserService $userService;
+
+    /**
+     * @Inject
+     * @var UserManager;
+     */
+    private UserManager $userManager;
 
     /**
      * @Inject
@@ -48,12 +61,21 @@ class RegistrationController extends BaseController
         parent::__construct($response, $request);
     }
 
+    /**
+     * Action-функция
+     * Генерирует index страницу
+     */
     public function registrationGet()
     {
+        $this->redirectAuthUser();
+
         $this->getResponse()->display($this::registrationTemplate, []);
     }
 
     /**
+     * Action-функция
+     * Обрабатывает отправленные данные пользователя и генерирует страницу ответа
+     *
      * @throws ConfigFileNotFoundException
      * @throws Exception
      * @throws InvalidConfigException
@@ -61,6 +83,8 @@ class RegistrationController extends BaseController
      */
     public function registrationPost()
     {
+        $this->redirectAuthUser();
+
         $postDto = UserPostDTO::fromRequest($this->getRequest());
 
         $validation = $this->userService->validateRegistrationUserPost($postDto);
@@ -97,8 +121,16 @@ class RegistrationController extends BaseController
         $this->getResponse()->display($this::confirmEmailTemplate, $resultDto->toArray());
     }
 
-    public function confirmEmailGet($emailHash = null)
+    /**
+     * Action-функция
+     * Обновляет статус email и генерирует страницу ответа
+     *
+     * @param string|null $emailHash
+     */
+    public function confirmEmailGet(string $emailHash = null)
     {
+        $this->redirectAuthUser();
+
         if (!$emailHash) {
             return;
         }
@@ -111,5 +143,16 @@ class RegistrationController extends BaseController
         );
 
         $this->getResponse()->display($this::confirmEmailTemplate, $resultDto->toArray());
+    }
+
+    protected function redirectAuthUser()
+    {
+        $user = $this->userManager->getUserFromRequest(
+            $this->getRequest()
+        );
+
+        if ($user && $this->userManager->checkAuth($user)){
+            $this->getResponse()->redirect('/');
+        }
     }
 }

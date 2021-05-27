@@ -5,6 +5,10 @@ namespace AC\Controllers\Exceptions;
 use Exception;
 use Throwable;
 
+/**ъ
+ * Class NotFoundGuidException
+ * @package AC\Controllers\Exceptions
+ */
 final class NotFoundGuidException extends Exception
 {
     const MESSAGE = 'Guid parameter not found';

@@ -8,9 +8,18 @@ use ParagonIE\EasyDB\EasyDB;
 use ParagonIE\EasyDB\Factory;
 use PDO;
 
+/**
+ * Класс обертка для дальнейшего наследоавания DTO классами
+ *
+ * Class DataAccessObject
+ * @package AC\Models
+ */
 abstract class DataAccessObject
 {
-    private $db_connection;
+    /**
+     * @var ?EasyDB $db_connection
+     */
+    private ?EasyDB $db_connection;
 
     public function __construct(?EasyDB $db_connection = null)
     {
@@ -22,6 +31,10 @@ abstract class DataAccessObject
         }
     }
 
+    /**
+     * Функция получения объекта для работы с БД
+     * @return EasyDB
+     */
     final protected function getDB(): EasyDB
     {
         return $this->db_connection;

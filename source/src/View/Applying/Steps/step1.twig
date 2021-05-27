@@ -2,21 +2,43 @@
 <input type="hidden" name="guid" value="{{ leaver.guid }}">
 <input type="hidden" name="email" value="{{ leaver.email }}">
 <input type="hidden" name="statusEmail" value="{{ leaver.statusEmail }}">
-<div class="form-check">
-    <input class="form-check-input" type="radio" name="urov" id="urovCheck1" value="62">
-    <label class="form-check-label" for="urovCheck1">
-        Бакалавриат
-    </label>
-</div>
-<div class="form-check">
-    <input class="form-check-input" type="radio" name="urov" id="urovCheck2" value="68">
-    <label class="form-check-label" for="urovCheck2">
-        Магистратура
-    </label>
-</div>
-<div class="form-check disabled">
-    <input class="form-check-input" type="radio" name="yrov" id="urovCheck3" value="70">
-    <label class="form-check-label" for="urovCheck3">
-        Асперантура
-    </label>
+<input type="hidden" name="givingDate" value="{{ leaver.givingDate }}">
+
+<div class="form-group">
+    <div class="form-check">
+        <input class="form-check-input"
+               type="radio"
+               name="urov"
+               id="urovCheck1"
+               value="62"
+               {% if leaver.urov == 62 %} checked {% endif %}
+        >
+        <label class="form-check-label" for="urovCheck1">
+            Бакалавриат
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input"
+               type="radio"
+               name="urov"
+               id="urovCheck2"
+               value="68"
+               {% if leaver.urov == 68 %} checked {% endif %}
+        >
+        <label class="form-check-label" for="urovCheck2">
+            Магистратура
+        </label>
+    </div>
+    <div class="form-check disabled">
+        <input class="form-check-input"
+               type="radio" name="urov"
+               id="urovCheck3"
+               value="70"
+               {% if leaver.urov == 70 %} checked {% endif %}
+        >
+        <label class="form-check-label" for="urovCheck3">
+            Асперантура
+        </label>
+    </div>
+    <div class="invalid-feedback"></div>
 </div>

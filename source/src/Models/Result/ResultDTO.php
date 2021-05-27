@@ -7,6 +7,12 @@ use AC\Controllers\Enum\StatusEnum;
 use AC\Service\Http\Request;
 use Spatie\DataTransferObject\DataTransferObject;
 
+/**
+ * Класс DTO для работы с данными ответа сервера
+ *
+ * Class ResultDTO
+ * @package AC\Models\Result
+ */
 class ResultDTO extends DataTransferObject
 {
     public int $status;

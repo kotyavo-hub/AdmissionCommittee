@@ -11,6 +11,9 @@ class ValidationConfig extends Config
     const CONFIG_NAME = 'Validation';
     const CONFIG_FILE_NAME = 'validation.php';
 
+    /**
+     * @var array $config
+     */
     private $config;
 
     /**

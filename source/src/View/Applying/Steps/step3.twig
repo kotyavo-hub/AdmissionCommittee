@@ -1,7 +1,7 @@
 <div class="form-row">
     <div class="form-group col-md-4">
         <label for="schoolTypeCode">Тип образовательной организации:</label>
-        <select class="form-control" id="schoolTypeCode" name="schoolTypeCode" required>
+        <select class="form-control" id="schoolTypeCode" name="schoolTypeCode">
             <option value="0">Средняя школа</option>
             {% for kek in data.keks%}
                 <option value="{{kek.name}}">{{kek.name}}</option>
@@ -11,26 +11,39 @@
     </div>
     <div class="form-group col-md-4">
         <label for="schoolNumber">Номер образовательной организации*:</label>
-        <input type="text" class="form-control" id="schoolNumber" name="schoolNumber" required>
+        <input type="text"
+               class="form-control"
+               id="schoolNumber"
+               name="schoolNumber"
+               value="{{ leaver.schoolNumber }}"
+        >
         <small class="invalid-feedback"></small>
     </div>
     <div class="form-group col-md-4">
         <label for="graduateYear">Год окончания:</label>
-        <input type="number" min="1900" max="2021" step="1" class="form-control" id="graduateYear" name="graduateYear" value="2021">
+        <input type="number"
+               min="1900"
+               max="2021"
+               step="1"
+               class="form-control"
+               id="graduateYear"
+               name="graduateYear"
+               value="{{ (leaver.graduateYear) ?: '2021' }}"
+        >
         <small class="invalid-feedback"></small>
     </div>
 </div>
 <div class="form-row">
     <div class="form-group col-md-4">
         <label for="education">Тип образовательной организации:</label>
-        <select class="form-control" id="education" name="education" required>
+        <select class="form-control" id="education" name="education">
             <option value="0">Средне полное (общее)</option>
         </select>
         <small class="invalid-feedback"></small>
     </div>
     <div class="form-group col-md-4">
         <label for="lang">Иностранный язык*:</label>
-        <select class="form-control" id="lang" name="lang" required>
+        <select class="form-control" id="lang" name="lang">
             {% for lang in data.languages%}
                 <option value="{{lang.id}}">{{lang.name}}</option>
             {% endfor %}
@@ -39,7 +52,7 @@
     </div>
     <div class="form-group col-md-4">
         <label for="educDocTypeCode">Тип документа об образовании:</label>
-        <select class="form-control" id="educDocTypeCode" name="educDocTypeCode" required>
+        <select class="form-control" id="educDocTypeCode" name="educDocTypeCode">
             <option value="0">Атестат</option>
         </select>
         <small class="invalid-feedback"></small>
@@ -48,39 +61,69 @@
 <div class="form-row">
     <div class="form-group col-md-4">
         <label for="educDocSeria">Серия:</label>
-        <input type="text" class="form-control" id="educDocSeria" name="educDocSeria" required>
+        <input type="text"
+               class="form-control"
+               id="educDocSeria"
+               name="educDocSeria"
+               value="{{ leaver.educDocSeria }}"
+        >
         <small class="invalid-feedback"></small>
     </div>
     <div class="form-group col-md-4">
         <label for="educDocNo">Номер:</label>
-        <input type="text" class="form-control" id="educDocNo" name="educDocNo" required>
+        <input type="text"
+               class="form-control"
+               id="educDocNo"
+               name="educDocNo"
+               value="{{ leaver.educDocNo }}"
+        >
         <small class="invalid-feedback"></small>
     </div>
     <div class="form-group col-md-4">
         <label for="educDocDate">Дата выдачи:</label>
-        <input type="date" class="form-control" id="educDocDate" name="educDocDate" required>
+        <input type="date"
+               class="form-control"
+               id="educDocDate"
+               name="educDocDate"
+               value="{{ leaver.educDocDate }}"
+        >
         <small class="invalid-feedback"></small>
     </div>
 </div>
-<div class="form-group">
-    <label for="educDocDistr">Кем выдан:</label>
-    <input type="text" class="form-control" id="educDocDistr" name="educDocDistr" required>
-    <small class="invalid-feedback"></small>
-</div>
+    <div class="form-group">
+        <label for="educDocDistr">Кем выдан:</label>
+        <input type="text"
+               class="form-control"
+               id="educDocDistr"
+               name="educDocDistr"
+               value="{{ leaver.educDocDistr }}"
+        >
+        <small class="invalid-feedback"></small>
+    </div>
 <div class="form-row">
     <div class="form-group col-md-4">
         <label for="supplementNo">Номер приложения:</label>
-        <input type="text" class="form-control" id="supplementNo" name="supplementNo" required>
+        <input type="text"
+               class="form-control"
+               id="supplementNo"
+               name="supplementNo"
+               value="{{ leaver.supplementNo }}"
+        >
         <small class="invalid-feedback"></small>
     </div>
     <div class="form-group col-md-4">
         <label for="supplementSeria">Серия приложения:</label>
-        <input type="text" class="form-control" id="supplementSeria" name="supplementSeria" required>
+        <input type="text"
+               class="form-control"
+               id="supplementSeria"
+               name="supplementSeria"
+               value="{{ leaver.supplementSeria }}"
+        >
         <small class="invalid-feedback"></small>
     </div>
     <div class="form-group col-md-4">
         <label for="sCountry">Страна организации:</label>
-        <select class="form-control" id="sCountry" name="sCountry" required>
+        <select class="form-control" id="sCountry" name="sCountry">
             {% for country in data.countries%}
                 <option value="{{country.name}}" {% if country.id == 1 %}selected{% endif %}>{{country.name}}</option>
             {% endfor %}
@@ -90,27 +133,60 @@
 </div>
 <div class="form-group">
     <label for="sAddress">Адрес образовательной организации (до населенного пункта):</label>
-    <input type="text" class="form-control" id="sAddress" name="sAddress" required>
+    <input type="text"
+           class="form-control"
+           id="sAddress"
+           name="sAddress"
+           value="{{ leaver.sAddress }}"
+    >
     <small class="invalid-feedback"></small>
 </div>
 <div class="form-row">
     <div class="form-group col-md-4">
         <label for="attres3">Кол-во 3-ек:</label>
-        <input type="number" class="form-control" id="attres3" name="attres3" required>
+        <input type="number"
+               min="0"
+               class="form-control"
+               id="attres3"
+               name="attres3"
+               value="{{ leaver.attres3 }}"
+        >
         <small class="invalid-feedback"></small>
     </div>
     <div class="form-group col-md-4">
         <label for="attres4">Кол-во 4-ок:</label>
-        <input type="number" class="form-control" id="attres4" name="attres4" required>
+        <input type="number"
+               min="0"
+               class="form-control"
+               id="attres4"
+               name="attres4"
+               value="{{ leaver.attres4 }}"
+        >
         <small class="invalid-feedback"></small>
     </div>
     <div class="form-group col-md-4">
         <label for="attres5">Кол-во 5-ок:</label>
-        <input type="text" class="form-control" id="attres5" name="attres5" required>
+        <input type="text"
+               min="0"
+               class="form-control"
+               id="attres5"
+               name="attres5"
+               value="{{ leaver.attres5 }}"
+        >
         <small class="invalid-feedback"></small>
     </div>
 </div>
-<div class="form-group">
+<div class="form-group files" {% if leaver.educDocFile %} data-validation="ignore" {% endif %}>
     <label for="educDocFile">Cкан документа:</label>
-    <input type="file" class="form-control-file" id="educDocFile" name="educDocFile">
+    <div class="file-drop-area">
+        <span class="choose-file-button">Выберите файл (в формате ".pdf")</span>
+        <span class="file-message">или перетащите его в это поле</span>
+        <input type="file" class="file-input" id="educDocFile" name="educDocFile" accept="application/pdf">
+    </div>
+    {% if leaver.educDocFile %}
+        <a href="/document/{{ leaver.educDocFile.id }}/">
+            Загруженный документ: {{ leaver.educDocFile.name }}
+        </a>
+    {% endif %}
+    <div class="invalid-feedback"></div>
 </div>

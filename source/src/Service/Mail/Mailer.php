@@ -8,6 +8,12 @@ use AC\Config\Mail\MailConfigKeys;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
+/**
+ * Сервис-обертка для PHPMailer
+ *
+ * Class Mailer
+ * @package AC\Service\Mail
+ */
 class Mailer extends PHPMailer
 {
     /**

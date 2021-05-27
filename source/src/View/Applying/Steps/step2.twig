@@ -1,12 +1,24 @@
+<h2>Личные данные</h2>
+
 <div class="form-row">
     <div class="form-group col-md-4">
         <label for="name">Имя*:</label>
-        <input type="text" class="form-control" id="name" name="name" required>
+        <input type="text"
+               class="form-control"
+               id="name"
+               name="name"
+               value="{{ leaver.name }}"
+        >
         <small class="invalid-feedback"></small>
     </div>
     <div class="form-group col-md-4">
         <label for="surName">Фамилия*:</label>
-        <input type="text" class="form-control" id="surName" name="surName" required>
+        <input type="text"
+               class="form-control"
+               id="surName"
+               name="surName"
+               value="{{ leaver.surName }}"
+        >
         <small class="invalid-feedback"></small>
     </div>
     <div class="form-group col-md-4">
@@ -15,120 +27,207 @@
         <small class="invalid-feedback"></small>
     </div>
 </div>
+
 <div class="form-group">
     <label for="gender">Пол:</label>
-    <select class="form-control" id="gender" name="gender" required>
+    <select class="form-control" id="gender" name="gender">
         {% for gender in data.genders%}
             <option value="{{gender.name}}">{{gender.name}}</option>
         {% endfor %}
     </select>
     <small class="invalid-feedback"></small>
 </div>
+
+<h2>Паспортные данные</h2>
+
 <div class="form-group">
     <label for="citizenCode">Гражданство:</label>
-    <select class="form-control" id="citizenCode" name="citizenCode" required>
+    <select class="form-control" id="citizenCode" name="citizenCode">
         {% for citizen in data.citizens%}
             <option value="{{citizen.id}}" {% if citizen.id == 1 %}selected{% endif %}>{{citizen.name}}</option>
         {% endfor %}
     </select>
     <small class="invalid-feedback"></small>
 </div>
+
 <div class="form-group">
     <label for="docTypeId">Тип документа удостоверяющего личность:</label>
-    <select class="form-control" id="docTypeId" name="docTypeId" required>
+    <select class="form-control" id="docTypeId" name="docTypeId">
         {% for identityDocType in data.identityDocTypes%}
             <option value="{{identityDocType.id}}">{{identityDocType.name}}</option>
         {% endfor %}
     </select>
     <small class="invalid-feedback"></small>
 </div>
+
 <div class="form-row">
     <div class="form-group col-md-6">
         <label for="docSeria">Серия:</label>
-        <input type="text" class="form-control" id="docSeria" name="docSeria" required>
+        <input type="text"
+               class="form-control"
+               id="docSeria"
+               name="docSeria"
+               value="{{ leaver.docSeria }}"
+        >
         <small class="invalid-feedback"></small>
     </div>
     <div class="form-group col-md-6">
         <label for="docNo">Номер:</label>
-        <input type="text" class="form-control" id="docNo" name="docNo" required>
+        <input type="text"
+               class="form-control"
+               id="docNo"
+               name="docNo"
+               value="{{ leaver.docNo }}"
+        >
         <small class="invalid-feedback"></small>
     </div>
 </div>
+
 <div class="form-group">
     <label for="docDistr">Кем выдан:</label>
-    <input type="text" class="form-control" id="docDistr" name="docDistr" required>
+    <input type="text"
+           class="form-control"
+           id="docDistr"
+           name="docDistr"
+           value="{{ leaver.docDistr }}"
+    >
     <small class="invalid-feedback"></small>
 </div>
+
 <div class="form-row">
     <div class="form-group col-md-6">
         <label for="docDate">Дата выдачи:</label>
-        <input type="date" class="form-control" id="docDate" name="docDate" required>
+        <input type="date"
+               class="form-control"
+               id="docDate"
+               name="docDate"
+               value="{{ leaver.docDate }}"
+        >
         <small class="invalid-feedback"></small>
     </div>
     <div class="form-group col-md-6">
         <label for="docFMSCode">Код подразделения:</label>
-        <input type="text" class="form-control" id="docFMSCode" name="docFMSCode" required>
+        <input type="text"
+               class="form-control"
+               id="docFMSCode"
+               name="docFMSCode"
+               value="{{ leaver.docFMSCode }}"
+        >
         <small class="invalid-feedback"></small>
     </div>
 </div>
+
 <div class="form-group">
     <label for="bornDate">Дата рождения:</label>
-    <input type="date" class="form-control" id="bornDate" name="bornDate" required>
+    <input type="date"
+           class="form-control"
+           id="bornDate"
+           name="bornDate"
+           value="{{ leaver.bornDate }}"
+    >
     <small class="invalid-feedback"></small>
 </div>
+
 <div class="form-group">
     <label for="mobtel">Мобильный телефон:</label>
-    <input type="text" class="form-control" id="mobtel" name="mobtel" required>
+    <input type="text"
+           class="form-control"
+           id="mobtel"
+           name="mobtel"
+           placeholder="(999) 999-99-99"
+           data-mask="(999) 999-99-99"
+           value="{{ leaver.mobtel }}"
+    >
     <small class="invalid-feedback"></small>
 </div>
+
 <div class="form-group">
     <label for="hometel">Домашний телефон или телефон родителя:</label>
-    <input type="text" class="form-control" id="hometel" name="hometel" required>
+    <input type="text"
+           class="form-control"
+           id="hometel"
+           name="hometel"
+           placeholder="(999) 999-99-99"
+           data-mask="(999) 999-99-99"
+           value="{{ leaver.hometel }}"
+    >
     <small class="invalid-feedback"></small>
 </div>
+
 <div class="form-group">
     <label for="bCountry">Страна рождения:</label>
-    <select class="form-control" id="bCountry" name="bCountry" required>
+    <select class="form-control" id="bCountry" name="bCountry">
         {% for country in data.countries%}
             <option value="{{country.name}}" {% if country.id == 1 %}selected{% endif %}>{{country.name}}</option>
         {% endfor %}
     </select>
     <small class="invalid-feedback"></small>
 </div>
+
 <div class="form-group">
     <label for="bAddress">Место рождения(как в документе):</label>
-    <input type="text" class="form-control" id="bAddress" name="bAddress" required>
+    <input type="text"
+           class="form-control"
+           id="bAddress"
+           name="bAddress"
+           value="{{ leaver.bAddress }}"
+    >
     <small class="invalid-feedback"></small>
 </div>
+
 <div class="form-group">
     <label for="rCountry">Страна где зарегистрирован:</label>
-    <select class="form-control" id="rCountry" name="rCountry" required>
+    <select class="form-control" id="rCountry" name="rCountry">
         {% for country in data.countries%}
             <option value="{{country.name}}" {% if country.id == 1 %}selected{% endif %}>{{country.name}}</option>
         {% endfor %}
     </select>
     <small class="invalid-feedback"></small>
 </div>
+
 <div class="form-group">
     <label for="rAddress">Адрес регистрации:</label>
-    <input type="text" class="form-control" id="rAddress" name="rAddress" required>
+    <input type="text"
+           class="form-control"
+           id="rAddress"
+           name="rAddress"
+           value="{{ leaver.rAddress }}"
+    >
     <small class="invalid-feedback"></small>
 </div>
+
 <div class="form-group">
     <label for="fCountry">Страна проживания:</label>
-    <select class="form-control" id="fCountry" name="fCountry" required>
+    <select class="form-control" id="fCountry" name="fCountry">
         {% for country in data.countries%}
             <option value="{{country.name}}" {% if country.id == 1 %}selected{% endif %}>{{country.name}}</option>
         {% endfor %}
     </select>
     <small class="invalid-feedback"></small>
 </div>
+
 <div class="form-group">
     <label for="fAddress">Фактический адрес:</label>
-    <input type="text" class="form-control" id="fAddress" name="fAddress" required>
+    <input type="text"
+           class="form-control"
+           id="fAddress"
+           name="fAddress"
+           value="{{ leaver.fAddress }}"
+    >
     <small class="invalid-feedback"></small>
 </div>
-<div class="form-group">
+
+<div class="form-group files" {% if leaver.passportFile %} data-validation="ignore" {% endif %}>
     <label for="passportFile">Cкан документа (разворот и страница с регистрацией):</label>
-    <input type="file" class="form-control-file" id="passportFile" name="passportFile">
+    <div class="file-drop-area">
+        <span class="choose-file-button">Выберите файл (в формате ".pdf")</span>
+        <span class="file-message">или перетащите его в это поле</span>
+        <input type="file" class="file-input" id="passportFile" name="passportFile" accept="application/pdf">
+    </div>
+    {% if leaver.passportFile %}
+        <a href="/document/{{ leaver.passportFile.id }}/">
+            Загруженный документ: {{ leaver.passportFile.name }}
+        </a>
+    {% endif %}
+    <div class="invalid-feedback"></div>
 </div>

@@ -17,12 +17,44 @@ $router = new Router(
     $container
 );
 
+function rRestructuringFilesArray(
+    &$arrayForFill, $currentKey, $currentMixedValue, $fileDescriptionParam
+) {
+    if (is_array($currentMixedValue)) {
+        foreach ($currentMixedValue as $nameKey => $mixedValue) {
+            rRestructuringFilesArray($arrayForFill[$currentKey],
+                $nameKey,
+                $mixedValue,
+                $fileDescriptionParam);
+        }
+    } else {
+        $arrayForFill[$currentKey][$fileDescriptionParam] = $currentMixedValue;
+    }
+}
+
+$arrayForFill = array();
+
+foreach ($_FILES as $firstNameKey => $arFileDescriptions) {
+    foreach ($arFileDescriptions as $fileDescriptionParam => $mixedValue) {
+        rRestructuringFilesArray($arrayForFill,
+            $firstNameKey,
+            $_FILES[$firstNameKey][$fileDescriptionParam],
+            $fileDescriptionParam);
+    }
+}
+
+$_FILES = $arrayForFill;
+
 try {
     $router->dispatchRoute();
 } catch (Exception $ex) {
-    var_dump($ex);
+    echo '<pre>';
+    var_dump($ex->getMessage().'|'.$ex->getFile().'|'.$ex->getLine());
+    echo '</pre>';
     //$router->sendErrorResponse($ex);
 } catch (Throwable $ex) {
-    var_dump($ex);
+    echo '<pre>';
+    var_dump($ex->getMessage().'|'.$ex->getFile().'|'.$ex->getLine());
+    echo '</pre>';
     //$router->sendErrorResponse($ex);
 }

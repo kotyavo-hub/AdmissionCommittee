@@ -13,6 +13,12 @@ use AC\Service\Http\Request;
 use AC\Service\Http\Response;
 use ParagonIE\EasyDB\Exception\MustBeNonEmpty;
 
+/**
+ * API Контроллер для работы со специальностями
+ *
+ * Class ContestController
+ * @package AC\Controllers\API
+ */
 class SpecialityController extends BaseController
 {
     /**
@@ -31,6 +37,9 @@ class SpecialityController extends BaseController
     }
 
     /**
+     * Action-функция
+     * Возвращает json доступных специальностей
+     *
      * @throws MustBeNonEmpty
      */
     public function getSpecialtiesAvailableByLeaver()

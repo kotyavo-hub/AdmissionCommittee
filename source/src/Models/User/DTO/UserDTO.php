@@ -4,6 +4,12 @@ namespace AC\Models\User\DTO;
 
 use Spatie\DataTransferObject\DataTransferObject;
 
+/**
+ * Класс DTO для получения и хранения данных пользователя из Request
+ *
+ * Class UserDTO
+ * @package AC\Models\User\DTO
+ */
 class UserDTO extends DataTransferObject
 {
     /** @var int|null */
@@ -26,6 +32,9 @@ class UserDTO extends DataTransferObject
 
     /** @var null|int */
     public ?int $confirmEmail;
+
+    /** @var int|null */
+    public ?int $entityId;
 
     public static function fromUserPostDto(UserPostDTO $userPostDTO): self
     {

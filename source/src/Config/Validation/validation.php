@@ -3,6 +3,18 @@
 namespace AC\Config\Validation;
 
 return [
+    ValidationConfigKeys::AUTHENTICATION()->getKey() => [
+        ValidationConfigKeys::RULES_KEY => [
+            'login' => 'required|min:2',
+            'password' => 'required|min:6',
+        ],
+        ValidationConfigKeys::MESSAGES_KEY => [
+            'login:required' => 'Не заполненно обязательное поле "Логин".',
+            'login:min' => 'Минимальная длинна логина 2 символа.',
+            'password:required' => 'Не заполненно обязательное поле "Пароль".',
+            'password:min' => 'Минимальная длинна пароля 6 символов.',
+        ]
+    ],
     ValidationConfigKeys::REGISTRATION()->getKey() => [
         ValidationConfigKeys::RULES_KEY => [
             'login' => 'required|uniqueLogin|min:2',

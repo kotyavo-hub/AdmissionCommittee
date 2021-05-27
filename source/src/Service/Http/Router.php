@@ -10,6 +10,12 @@ use Exception;
 use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
 
+/**
+ * Сервис для работы с роутером
+ *
+ * Class Router
+ * @package AC\Service\Http
+ */
 class Router
 {
     const HANDLER_DELIMITER = '@';

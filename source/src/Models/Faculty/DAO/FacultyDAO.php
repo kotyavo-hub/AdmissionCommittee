@@ -4,15 +4,22 @@ namespace AC\Models\Faculty\DAO;
 
 use AC\Models\Contest\DTO\ContestDTO;
 use AC\Models\DataAccessObject;
-use AC\Models\Leaver\DTO\LeaverDTO;
 use ParagonIE\EasyDB\EasyStatement;
 use ParagonIE\EasyDB\Exception\MustBeNonEmpty;
 
+/**
+ * Класс DAO для работы с таблицей факультетов
+ *
+ * Class FacultyDAO
+ * @package AC\Models\Faculty\DAO
+ */
 class FacultyDAO extends DataAccessObject
 {
     protected const TABLE = 'faculty';
 
     /**
+     * Функция для получения записей по массиву id
+     *
      * @param array $ids
      * @return array
      * @throws MustBeNonEmpty
@@ -27,6 +34,12 @@ class FacultyDAO extends DataAccessObject
         return $this->getDB()->safeQuery($sql, $statement->values());
     }
 
+    /**
+     * Функция получения записи по конкурсу
+     *
+     * @param ContestDTO $contestDto
+     * @return array
+     */
     public function getByContest(ContestDTO $contestDto): array
     {
         $statement = EasyStatement::open()->with('id = ?', $contestDto->facultyCode);

@@ -17,7 +17,7 @@
 </div>
 <div class="form-group">
     <label for="prestart">Довузовская подготовка:</label>
-    <select class="form-control" id="prestart" name="prestart" required>
+    <select class="form-control" id="prestart" name="prestart">
         <option value="" selected>Нет</option>
         {% for prestart in data.prestarts%}
             <option value="{{prestart.id}}">{{prestart.name}}</option>

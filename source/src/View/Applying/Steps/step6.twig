@@ -1,4 +1,26 @@
 <div id="examInputsGroups">
+    <div class="form-row exam_inputs_group_template" style="display: none" data-validation="ignore">
+        <div class="form-group col-md-4">
+            <label>Выбор предмета:</label>
+            <select class="form-control" data-name="exams[0][examId]" required>
+                {% for exam in data.exams%}
+                    <option value="{{exam.id}}">{{exam.name}}</option>
+                {% endfor %}
+            </select>
+            <small class="invalid-feedback"></small>
+        </div>
+        <div class="form-group col-md-4">
+            <label>Кол-во баллов (не обязательно):</label>
+            <input type="number" min="0" max="100" step="1" class="form-control" data-name="exams[0][result]">
+            <small class="invalid-feedback"></small>
+        </div>
+        <div class="form-group col-md-4">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" data-name="exams[0][passingLeaverTests]" value="1">
+                <label class="form-check-label">Буду сдавать вступительные экзамены</label>
+            </div>
+        </div>
+    </div>
     <div class="form-row exam_inputs_group">
         <div class="form-group col-md-4">
             <label>Выбор предмета:</label>

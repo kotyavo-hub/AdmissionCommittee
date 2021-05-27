@@ -7,6 +7,12 @@ use AC\Service\Http\Request;
 use AC\Service\Http\Response;
 use AC\Service\Http\ResponseInterface;
 
+/**
+ * Базовый класс для работы с контроллера
+ *
+ * Class BaseController
+ * @package AC\Controllers
+ */
 abstract class BaseController implements iController
 {
     /**
@@ -30,6 +36,7 @@ abstract class BaseController implements iController
     }
 
     /**
+     * Функция возвращает Response класс
      * @return ResponseInterface
      */
     protected function getResponse(): ResponseInterface
@@ -38,6 +45,7 @@ abstract class BaseController implements iController
     }
 
     /**
+     * Функция возвращает Request класс
      * @return Request
      */
     protected function getRequest(): Request

@@ -1,0 +1,197 @@
+{% extends "../baseTemplate.twig" %}
+
+{% set leaver = data.leaver %}
+
+{% block title %}Личное дело №{{ leaver.id }}{% endblock %}
+
+{% block navbarClass %}navbar__black{% endblock %}
+
+{% block content %}
+    <div class="wrapper__applying">
+            <h1 class="text-center">Личное дело №{{ leaver.id }}</h1>
+
+            <address>
+                <strong>Фио</strong><br>
+                <span>{{ leaver.surName }} {{ leaver.name }} {{ leaver.middleName }}</span><br>
+                <span>Пол: {{ leaver.gender }}</span><br>
+                <span>Email: </span><a href="mailto:{{ leaver.email }}">{{ leaver.email }}</a><br>
+                <span>Мобильный: {{ leaver.mobtel }}</span><br>
+                <span>Домашний: {{ leaver.hometel }}</span><br>
+            </address>
+            <details>
+                <summary><b>Документ подтверждающий личность</b></summary>
+                <p>
+                    <span>Тип документа: {{ data.identityDocTypes[leaver.citizenCode]['name'] }}</span><br>
+                    <span>Серия: {{ leaver.docSeria }} Номер: {{ leaver.docNo }}</span><br>
+                    <span>Дата выдачи: {{ leaver.givingDate|date("d.m.Y", "Europe/Paris") }}</span><br>
+                    <span>Выдан: {{ leaver.docDistr }}</span><br>
+                    <span>Номер отделения: {{ leaver.docFMSCode }}</span><br>
+                    <span>Гражданство: {{ data.citizens[leaver.citizenCode]['name'] }}</span><br>
+                    <address>
+                        <span>Регистрации</span><br>
+                        <span>Страна: {{ leaver.rCountry }}</span><br>
+                        <span>Адрес: {{ leaver.rAddress }}</span><br>
+                    </address>
+                    <address>
+                        <span>Фактическое проживание</span><br>
+                        <span>Страна: {{ leaver.fCountry }}</span><br>
+                        <span>Адрес: {{ leaver.fAddress }}</span><br>
+                    </address>
+                    <address>
+                        <span>Рождение</span><br>
+                        <span>Страна: {{ data.countries[leaver.sCountry]['name'] }}</span><br>
+                        <span>Адрес: {{ data.countries[leaver.sAddress]['name'] }}</span><br>
+                    </address>
+                    <a href="/document/{{ leaver.passportFileId }}/">
+                        Загруженный документ: {{ leaver.passportFile.name }}
+                    </a><br>
+                </p>
+            </details>
+            <details>
+                <summary><b>Образование</b></summary>
+                <p>
+                    <span>Тип образовательной организации: Средняя школа</span><br>
+                    <span>Номер учереждения: {{ leaver.schoolNumber }}</span><br>
+                    <span>Образование: Общее</span><br>
+                    <span>Год окончания: {{ leaver.graduateYear }}</span><br>
+                    <span>Иностранный язык: {{ data.lang[leaver.lang]['name'] }}</span><br>
+                    <span>Тип документа об образовании: Атестат</span><br>
+                    <span>Серия: {{ leaver.educDocSeria }}</span><br>
+                    <span>Номер: {{ leaver.educDocNo }}</span><br>Кем выдан:
+                    <span>Дата выдачи: {{ leaver.educDocDate|date("d.m.Y", "Europe/Paris") }}</span><br>
+                    <span>Кем выдан: {{ leaver.educDocDistr }}</span><br>
+                    <span>Серия приложения: {{ leaver.supplementSeria }}</span><br>
+                    <span>Номер приложения: {{ leaver.supplementNo }}</span><br>
+                    <address>
+                        <span>Организация</span><br>
+                        <span>Название: {{ leaver.educDocDistr }}</span><br>
+                        <span>Страна: {{ leaver.sCountry }}</span><br>
+                        <span>Адрес: {{ leaver.sCountry }}</span><br>
+                    </address>
+                    <span>Оценки:</span><br>
+                    <span>5: {{ leaver.attres5 }} 4: {{ leaver.attres4 }} 3: {{ leaver.attres3 }}</span><br>
+                    <a href="/document/{{ leaver.educDocFileId }}/">
+                        Загруженный документ: {{ leaver.educDocFile.name }}
+                    </a><br>
+                </p>
+            </details>
+            <details>
+                <summary><b>Дополнительная информация</b></summary>
+                <p>
+                    <span>Приоритет нашего университета: {{ leaver.priorityVUZ }}</span><br>
+                    <span>Кол-во универистетов в которые поданы заявления: {{ leaver.countVUZ }}</span><br>
+                    <span>Нужда в общежитии: {% if leaver.needHostel %} Да {% else %} Нет {% endif %}</span><br>
+                    <span>Довузовская подготовка: {{ data.prestarts[leaver.prestart]['name'] }}</span><br>
+                </p>
+            </details>
+            {% if leaver.specRights or leaver.preemRights or leaver.individAchievs %}
+                <details>
+                    <summary><b>Приемущества</b></summary>
+                    <p>
+                        {% if leaver.specRights %}<strong>Особые права</strong><br>{% endif %}
+                        {% for specRight in leaver.specRights %}
+                            <span>Тип: {{ data.specRightsTypes[specRight.docType]['name'] }} </span><br>
+                            <span>
+                                Файл: <a href="/document/{{ specRight.document.id }}/">
+                                    Загруженный документ: {{ specRight.document.name }}
+                                </a>
+                            </span><br>
+                            <br>
+                        {% endfor %}
+                        {% if leaver.preemRights %}<strong>Приемущественные права</strong><br>{% endif %}
+                        {% for preemRight in leaver.preemRights %}
+                            <span>Тип: {{ data.preemRightsTypes[preemRight.docType]['name'] }} </span><br>
+                            <span>Cерия: {{ preemRight.docSeria }} </span><br>
+                            <span>Номер: {{ preemRight.docNumber }} </span><br>
+                            <span>Дата выдачи: {{ preemRight.docDate | date("d.m.Y", "Europe/Paris") }} </span><br>
+                            <span>
+                                Файл: <a href="/document/{{ preemRight.document.id }}/">
+                                    Загруженный документ: {{ preemRight.document.name }}
+                                </a>
+                            </span><br>
+                            <br>
+                        {% endfor %}
+                        {% if leaver.individAchievs %}<strong>Индивидуальные достижения</strong><br>{% endif %}
+                        {% for individAchiev in leaver.individAchievs %}
+                            <span>Тип: {{ data.individAchievsTypes[individAchiev.docType]['name'] }} </span><br>
+                            <span>Cерия: {{ individAchiev.docSeria }} </span><br>
+                            <span>Номер: {{ individAchiev.docNumber }} </span><br>
+                            <span>Дата выдачи: {{ individAchiev.docDate | date("d.m.Y", "Europe/Paris") }} </span><br>
+                            <span>
+                                Файл: <a href="/document/{{ individAchiev.document.id }}/">
+                                    Загруженный документ: {{ individAchiev.document.name }}
+                                </a>
+                            </span><br>
+                            <br>
+                        {% endfor %}
+                    </p>
+                </details>
+            {% endif %}
+            {% if leaver.exams %}
+                <details>
+                    <summary><b>Экзамены</b></summary>
+                    <p>
+                        {% for exam in leaver.exams %}
+                            <span>Экзамен: {{ data.exams[exam.examId]['name'] }} </span><br>
+                            <span>Баллы: {{ exam.result }}</span><br>
+                            <span>Сдача вступительных: {% if exam.passingLeaverTests %} Да {% else %} Нет {% endif %}</span><br>
+                            <br>
+                        {% endfor %}
+                    </p>
+                </details>
+            {% endif %}
+            {% if leaver.specials %}
+                <details>
+                    <summary><b>Конкурсы</b></summary>
+                    <p>
+                        {% for special in leaver.specials %}
+                            <span>Направление: {{ special.contest.speciality }} </span><br>
+                            <span>Профиль: {{ special.contest.speciality }} </span><br>
+                            <span>Код OKCO: {{ special.contest.codeOKCO }} </span><br><br>
+                            {% if special.planInternalCommerce %}
+                                <span>Заявление на коммерческую основу очной формы обучения: Да </span><br>
+                            {% endif %}
+                            {% if special.planExternalCommerce %}
+                                <span>Заявление на коммерческую основу заочной формы обучения: Да </span><br>
+                            {% endif %}
+                            {% if special.planIECommerce %}
+                                <span>Заявление на коммерческую основу очно-заочной формы обучения: Да </span><br>
+                            {% endif %}
+                            {% if special.planInternalQuotas %}
+                                <span>Заявление на места по квоте лиц, имеющих особое право, очной формы обучения: Да </span><br>
+                            {% endif %}
+                            {% if special.planExternalQuotas %}
+                                <span>Заявление на места по квоте лиц, имеющих особое право, заочной формы обучения : Да </span><br>
+                            {% endif %}
+                            {% if special.planIEQuotas %}
+                                <span>Заявление на места по квоте лиц, имеющих особое право, очно-заочной формы обучения: Да </span><br>
+                            {% endif %}
+                            {% if special.planInternalTarget %}
+                                <span>Заявление на целевые места на очную форму обучения: Да </span><br>
+                            {% endif %}
+                            {% if special.planExternalTarget %}
+                                <span>Заявление на целевые места на заочную форму обучения: Да </span><br>
+                            {% endif %}
+                            {% if special.planIETarget %}
+                                <span>Заявление на целевые места на очно-заочную форму обучения: Да </span><br>
+                            {% endif %}
+                            {% if special.planInternal %}
+                                <span>Заявление на основные бюджетные места (общий конкурс) на очную форму обучения: Да </span><br>
+                            {% endif %}
+                            {% if special.planExternal %}
+                                <span>Заявление на основные бюджетные места (общий конкурс) на заочную форму обучения: Да </span><br>
+                            {% endif %}
+                            {% if special.planIE %}
+                                <span>Заявление на основные бюджетные места (общий конкурс) на очно-заочную форму обучения: Да </span><br>
+                            {% endif %}
+                            <span>
+                                <a href="/document/{{ special.targetDocFile.id }}/">
+                                    Загруженный документ: {{ special.targetDocFile.name }}
+                                </a>
+                            </span><br>
+                        {% endfor %}
+                    </p>
+                </details>
+            {% endif %}
+    </div>
+{% endblock %}

@@ -1,24 +1,19 @@
-/** Сброс шагов при перезагрузке страницы */
-window.location.hash = '';
-
 /**
- *
- * @param options {{
- *     tableId: (string),
- *     resultTableId: (string),
- *     rootElement: (*|jQuery.fn.init|jQuery|HTMLElement),
- *     specialityInput: (*|jQuery.fn.init|jQuery|HTMLElement)
- * }}
+ * @param options {{rootElement: (*|jQuery.fn.init|jQuery|HTMLElement), tableId: string, specialityInput: (*|jQuery.fn.init|jQuery|HTMLElement)}}
  * @constructor
  */
 const ContestTable = function (options) {
 
     /**
+     * id таблицы
+     *
      * @type {string}
      */
     const tableId = (options.tableId) ? '#' + options.tableId : '#contestTable';
 
     /**
+     * id результирующей таблицы
+     *
      * @type {string}
      */
     const resultTableId = (options.resultTableId)
@@ -26,56 +21,155 @@ const ContestTable = function (options) {
         : '#contestResultTable';
 
     /**
+     * id родительского элемента
+     *
      * @type {*|jQuery.fn.init|jQuery|HTMLElement}
      */
     const rootElement = options.rootElement;
 
     /**
+     * id select'а в котором хранится информация о выбранном направлении
+     *
      * @type {*|jQuery.fn.init|jQuery|HTMLElement}
      */
     const specialityInput = options.specialityInput;
 
     /**
+     * id блока для полей файлов с документами целевых конкуров
+     *
+     * @type {string}
+     */
+    const targetDocBlockId = (options.targetDocBlockId)
+        ? '#' + options.targetDocBlockId
+        : '#targetDocBlock';
+
+    /**
+     * Enum для хранения имен конкурсов
+     *
+     * @type {{
+     *      internal: string,
+     *      external: string,
+     *      ieCommerce: string,
+     *      ieTarget: string,
+     *      internalCommerce: string,
+     *      externalCommerce: string,
+     *      externalTarget: string,
+     *      ie: string,
+     *      internalTarget: string
+     *  }}
+     */
+    const contestsPlanEnum = {
+        internalCommerce: 'planInternalCommerce',
+        externalCommerce: 'planExternalCommerce',
+        ieCommerce: 'planIECommerce',
+        internalTarget: 'planInternalTarget',
+        externalTarget: 'planExternalTarget',
+        ieTarget: 'planIETarget',
+        internal: 'planInternal',
+        external: 'planExternal',
+        ie: 'planIE'
+    };
+
+    /**
+     * Выбранные конкурсы
+     *
      * @type {*[]}
      */
     this.selectedContests = [];
 
     /**
+     * Все конкурсы
+     *
      * @type {*[]}
      */
     this.contests = [];
 
     /**
+     * Элемент таблицы
+     *
      * @type {*|jQuery.fn.init|jQuery|HTMLElement}
      */
     this.table = null;
 
     /**
+     * Элемент результирующей таблицы
+     *
      * @type {*|jQuery.fn.init|jQuery|HTMLElement}
      */
     this.resultTable = null;
 
+    /**
+     * Элемент блока документов целевых конкурсов
+     *
+     * @type {*|jQuery.fn.init|jQuery|HTMLElement}
+     */
+    this.targetDocBlock = null;
+
+    /**
+     * Функция для инициализации объекта
+     */
     const init = () => {
-        this.table = ($(tableId).length) ? $(tableId) : createTable(rootElement, tableId);
+        this.table = ($(tableId).length)
+            ? $(tableId)
+            : createTable(
+                rootElement,
+                tableId,
+                $(
+                    '<h2></h2>',
+                    {
+                        class: 'text-center',
+                        text: 'Выбор направления'
+                    }
+                )
+            );
+
         this.resultTable = ($(resultTableId).length)
             ? $(resultTableId)
             : createTable(
                 rootElement,
                 resultTableId,
                 $(
-                    '<caption></caption>',
+                    '<h2></h2>',
                     {
+                        class: 'text-center',
                         text: 'Выбранные направления'
                     }
                 )
             );
+
+        this.targetDocBlock = ($(targetDocBlockId).length)
+            ? $(targetDocBlockId)
+            : createTargetDocBlock(rootElement, targetDocBlockId)
     }
+
+    /**
+     * Создание блока полей документов целевых конкурсов
+     *
+     * @param rootElement
+     * @param targetDocBlockId
+     * @returns {*|jQuery}
+     */
+    const createTargetDocBlock = (rootElement, targetDocBlockId) => $(
+        '<div></div>',
+        {
+            id: targetDocBlockId,
+            class: 'form-group'
+        }
+    ).appendTo(rootElement);
 
     $(specialityInput).change(() => this.updateContests());
 
+    /**
+     * Сеттер для конкурсов
+     *
+     * @param {array} contests
+     * @return {*}
+     */
     const setContests = contests => this.contests = contests;
 
     /**
+     * Функция для создания каркаса таблицы
+     *
      * @param {*|jQuery.fn.init|jQuery|HTMLElement} rootElement
      * @param {string} tableId
      * @param {*|jQuery.fn.init|jQuery|HTMLElement} captionElement
@@ -102,12 +196,34 @@ const ContestTable = function (options) {
 
         tableElement.append(tHead, $('<tbody></tbody>'));
 
-        tableElement.css('display', 'none');
-
         return tableElement.appendTo(rootElement);
     }
 
     /**
+     * Функция проверяет превышает ли кол-во выбранных конкурсов 3
+     *
+     * @param codeOKCO
+     * @returns {boolean}
+     */
+    const checkOKCOLimit = (codeOKCO) => {
+        if (!this.selectedContests.length)
+            return false;
+
+        let okcoCountList = [];
+
+        this.selectedContests.forEach(selectedContest => {
+            if (okcoCountList[selectedContest.codeOKCO])
+                okcoCountList[selectedContest.codeOKCO]++;
+            else
+                okcoCountList[selectedContest.codeOKCO] = 1;
+        })
+
+        return okcoCountList[codeOKCO] === 3;
+    }
+
+    /**
+     * Функция добавляет конкурс в выбранные
+     *
      * @param {*|jQuery.fn.init|jQuery|HTMLElement} contestInput
      */
     const addSelectedContests = contestInput => {
@@ -116,14 +232,24 @@ const ContestTable = function (options) {
 
         const contest = contestInput.data().contest;
 
-        const duplicateContests = this.selectedContests.some(selectedContest => {
+        if (!contestInput.find('input:checkbox:checked').length) {
+            alert('Выберите хотя бы один конкурс.')
+            return;
+        }
+
+        const isDuplicateContests = this.selectedContests.some(selectedContest => {
             return _.isEqual(
                 _.omit(selectedContest, ['checkedInputs']), contest
             );
         });
 
-        if (duplicateContests) {
+        if (isDuplicateContests) {
             alert('Данный конкурс уже есть среди выбранных, сначала удалите его.')
+            return;
+        }
+
+        if (checkOKCOLimit(contest.codeOKCO)) {
+            alert('Выбранно максимальное количество специальностей из данного направления.');
             return;
         }
 
@@ -142,6 +268,8 @@ const ContestTable = function (options) {
     };
 
     /**
+     * Функция удаляет выбранные конкурсы
+     *
      * @param {*|jQuery.fn.init|jQuery|HTMLElement} contestInput
      */
     const deleteSelectedContests = contestInput => {
@@ -158,13 +286,16 @@ const ContestTable = function (options) {
     }
 
     /**
+     * Функция для генерации td в таблице
+     *
      * @param options{{
      *      contestPlan: (number),
      *      contestNoReception: (number),
      *      contestPlanInterval: (float),
-     *      contestPriceForeign: (float)
+     *      contestPrice: (float),
+     *      contestPriceForeign: (float),
      *      checkName: (string),
-     *      checkValue: (boolean)
+     *      checkValue: (boolean),
      *      typeText: (string),
      *      isResultTd: (boolean)
      * }}
@@ -190,15 +321,16 @@ const ContestTable = function (options) {
 
         const checkbox = (options.isResultTd)
             ? $('<input/>', {
-                type: 'checkbox', 
+                type: 'checkbox',
                 name: options.checkName,
-                checked: (options.checkValue) ? 'checked' : '',
-                disabled: 'disabled'
-              })
+                checked: (options.checkValue) ? 'checked' : null,
+                value: 1,
+                readonly: 'readonly'
+            })
             : $('<input/>', {
                 type: 'checkbox',
                 'data-name': options.checkName
-              });
+            });
 
         return {
             type: $('<td></td>', {text: options.typeText}),
@@ -207,6 +339,8 @@ const ContestTable = function (options) {
     }
 
     /**
+     * Функция генерирует текст для ячейки конкурса в таблице
+     *
      * @param plan {number|string}
      * @param period {float|string}
      * @param price {float|string}
@@ -225,6 +359,32 @@ const ContestTable = function (options) {
     }
 
     /**
+     * Функция проверяет, выбранн ли определенный конкурс
+     *
+     * @param {string} plan
+     * @param {array} selectedContests
+     * @return {boolean}
+     */
+    const isCheckedContest = (plan, selectedContests) => selectedContests.indexOf(plan) !== -1;
+
+    /**
+     * Функция генерирует имя для полей выбранного направления
+     *
+     * @param {string} name
+     * @param {string|number} contestCount
+     * @return {string}
+     */
+    const generateResultInputName = (name, contestCount) => `specials[${contestCount}][${name}]`;
+
+    /**
+     * Сброс выбраных полей ввода
+     */
+    this.resetValue = () => {
+        this.selectedContests = [];
+        updateTableContests(true);
+    }
+
+    /**
      * Функция генерирует новый tbody и заменяет старый
      * @param resultFlag {boolean}
      */
@@ -239,12 +399,20 @@ const ContestTable = function (options) {
             ? this.selectedContests
             : this.contests;
 
+        const targetPlanList = [
+            contestsPlanEnum.internalTarget,
+            contestsPlanEnum.externalTarget,
+            contestsPlanEnum.ieTarget
+        ];
+
         if (!contests) {
             table.find('tbody').first().replaceWith(tbody);
             table.css('display', 'none');
         }
 
-        contests.forEach(contest => {
+        const targetInputs = [];
+
+        contests.forEach((contest, contestIndex) => {
 
             const trHeadValue = $('<tr></tr>');
             trHeadValue.append($('<td></td>', {text: contest.speciality, colspan: 3}));
@@ -254,6 +422,16 @@ const ContestTable = function (options) {
             const trType = $('<tr></tr>');
             const trValue = $('<tr></tr>').data('contest', contest);
 
+            if (resultFlag)
+                trValue.append($('<input>', {
+                    type: 'hidden',
+                    name: generateResultInputName(
+                        'idContest',
+                        contestIndex
+                    ),
+                    value: contest.id
+                }));
+
             /** Вывод коммерческих конкурсов */
             const internalCommerce = generateContestTds({
                 isResultTd : resultFlag,
@@ -262,8 +440,14 @@ const ContestTable = function (options) {
                 contestPlanInterval: contest.planInternalCommerce,
                 contestPrice: contest.priceInternal,
                 contestPriceForeign: contest.priceInternalForeign,
-                checkName: 'planInternalCommerce',
-                checkValue: true,
+                checkName: (resultFlag) ? generateResultInputName(
+                    contestsPlanEnum.internalCommerce,
+                    contestIndex
+                ) : contestsPlanEnum.internalCommerce,
+                checkValue: (resultFlag) ? isCheckedContest(
+                    contestsPlanEnum.internalCommerce,
+                    contest.checkedInputs
+                ) : false,
                 typeText: 'Комм. Очная'
             });
 
@@ -274,8 +458,14 @@ const ContestTable = function (options) {
                 contestPlanInterval: contest.periodExternalYears,
                 contestPrice: contest.priceExternal,
                 contestPriceForeign: null,
-                checkName: 'planExternalCommerce',
-                checkValue: true,
+                checkName: (resultFlag) ? generateResultInputName(
+                    contestsPlanEnum.externalCommerce,
+                    contestIndex
+                ) : contestsPlanEnum.externalCommerce,
+                checkValue: (resultFlag) ? isCheckedContest(
+                    contestsPlanEnum.externalCommerce,
+                    contest.checkedInputs
+                ) : false,
                 typeText: 'Комм. Заочная'
             });
 
@@ -287,8 +477,14 @@ const ContestTable = function (options) {
                 contestPlanInterval: contest.periodIEYears,
                 contestPrice: contest.priceIE,
                 contestPriceForeign: contest.priceIEForeign,
-                checkName: 'planIECommerce',
-                checkValue: true,
+                checkName: (resultFlag) ? generateResultInputName(
+                    contestsPlanEnum.ieCommerce,
+                    contestIndex
+                ) : contestsPlanEnum.ieCommerce,
+                checkValue: (resultFlag) ? isCheckedContest(
+                    contestsPlanEnum.ieCommerce,
+                    contest.checkedInputs
+                ) : false,
                 typeText: 'Комм. Очно-заочная'
             });
 
@@ -300,8 +496,14 @@ const ContestTable = function (options) {
                 contestPlanInterval: contest.periodInternalTarget,
                 contestPrice: null,
                 contestPriceForeign: null,
-                checkName: 'planInternalTarget',
-                checkValue: true,
+                checkName: (resultFlag) ? generateResultInputName(
+                    contestsPlanEnum.internalTarget,
+                    contestIndex
+                ) : contestsPlanEnum.internalTarget,
+                checkValue: (resultFlag) ? isCheckedContest(
+                    contestsPlanEnum.internalTarget,
+                    contest.checkedInputs
+                ) : false,
                 typeText: 'Целевое очное'
             });
 
@@ -312,8 +514,14 @@ const ContestTable = function (options) {
                 contestPlanInterval: contest.periodExternalYears,
                 contestPrice: null,
                 contestPriceForeign: null,
-                checkName: 'planExternalTarget',
-                checkValue: true,
+                checkName: (resultFlag) ? generateResultInputName(
+                    contestsPlanEnum.externalTarget,
+                    contestIndex
+                ) : contestsPlanEnum.externalTarget,
+                checkValue: (resultFlag) ? isCheckedContest(
+                    contestsPlanEnum.externalTarget,
+                    contest.checkedInputs
+                ) : false,
                 typeText: 'Целевое заочное'
             });
 
@@ -324,8 +532,14 @@ const ContestTable = function (options) {
                 contestPlanInterval: contest.periodIEYears,
                 contestPrice: null,
                 contestPriceForeign: null,
-                checkName: 'planIETarget',
-                checkValue: true,
+                checkName: (resultFlag) ? generateResultInputName(
+                    contestsPlanEnum.ieTarget,
+                    contestIndex
+                ) : contestsPlanEnum.ieTarget,
+                checkValue: (resultFlag) ? isCheckedContest(
+                    contestsPlanEnum.ieTarget,
+                    contest.checkedInputs
+                ) : false,
                 typeText: 'Целевое очно-заочное'
             });
 
@@ -337,8 +551,14 @@ const ContestTable = function (options) {
                 contestPlanInterval: contest.periodInternalYears,
                 contestPrice: null,
                 contestPriceForeign: null,
-                checkName: 'planInternal',
-                checkValue: true,
+                checkName: (resultFlag) ? generateResultInputName(
+                    contestsPlanEnum.internal,
+                    contestIndex
+                ) : contestsPlanEnum.internal,
+                checkValue: (resultFlag) ? isCheckedContest(
+                    contestsPlanEnum.internal,
+                    contest.checkedInputs
+                ) : false,
                 typeText: 'Общее очное'
             });
 
@@ -349,8 +569,14 @@ const ContestTable = function (options) {
                 contestPlanInterval: contest.periodExternalYears,
                 contestPrice: null,
                 contestPriceForeign: null,
-                checkName: 'planExternal',
-                checkValue: true,
+                checkName: (resultFlag) ? generateResultInputName(
+                    contestsPlanEnum.external,
+                    contestIndex
+                ) : contestsPlanEnum.external,
+                checkValue: (resultFlag) ? isCheckedContest(
+                    contestsPlanEnum.external,
+                    contest.checkedInputs
+                ) : false,
                 typeText: 'Общее заочное'
             });
 
@@ -361,15 +587,22 @@ const ContestTable = function (options) {
                 contestPlanInterval: contest.periodIEYears,
                 contestPrice: null,
                 contestPriceForeign: null,
-                checkName: 'planIE',
-                checkValue: true,
+                checkName: (resultFlag) ? generateResultInputName(
+                    contestsPlanEnum.ie,
+                    contestIndex
+                ) : contestsPlanEnum.ie,
+                checkValue: (resultFlag) ? isCheckedContest(
+                    contestsPlanEnum.ie,
+                    contest.checkedInputs
+                ) : false,
                 typeText: 'Общее очно-заочное'
             });
 
             const button = $(
                 '<button></button>',
                 {
-                    class: 'btn btn-primary btn-sm',
+                    class: 'btn btn-sm' + (resultFlag)
+                        ? 'btn-danger' : 'btn-primary',
                     text: (resultFlag) ? 'Удалить' : 'Добавить',
                     type: 'button'
                 }
@@ -412,15 +645,51 @@ const ContestTable = function (options) {
             tbody.append(
                 trHeadValue,
                 trType,
-                trValue,
-                $('<tr></tr>')
+                trValue
             );
+
+            if (resultFlag && contest.checkedInputs.length) {
+                targetInputs.push(generateResultInputName('targetDocFile', contestIndex));
+            }
         });
 
+        if (resultFlag)
+            updateTargetDocBlock(targetInputs);
+
         table.find('tbody').first().replaceWith(tbody);
-        table.css('display', 'table');
     }
 
+    /**
+     * Функция обновляет инпуты для файлов документов целевого обучения
+     *
+     * @param targetInputsNames {string[]}
+     */
+    const updateTargetDocBlock = (targetInputsNames = []) => {
+        this.targetDocBlock.empty();
+
+        if (targetInputsNames.length) {
+            targetInputsNames.forEach(inputName => {
+                const docLabel =  $(
+                    '<label></label>',
+                    {text: 'Скан документа для целевого направления:'}
+                );
+                const docInput = $(
+                    '<input>',
+                    {
+                        type: 'file',
+                        class: 'form-control-file',
+                        name: inputName
+                    }
+                );
+
+                this.targetDocBlock.append(docLabel, docInput);
+            });
+        }
+    };
+
+    /**
+     * Функция делает ajax запрос для получения данныхданных о доступных конкурсах
+     */
     this.updateContests = () => {
         const formData = $('#applyingForm').serializeArray();
         formData.push({
@@ -443,187 +712,21 @@ const ContestTable = function (options) {
                     setContests(result.data);
                     updateTableContests()
                 }
-                console.log(result);
             }
         });
     };
 
+    /**
+     * @deprecated
+     * Функция для отладки объекта (позволяет быстро перейти к таблице конкурсов).
+     */
     this.goToStep = () => {
         $('#urovCheck1').prop('checked', true);
-        $('[name="exams[0][examId]"] option[value=2]').prop('selected', true);
-        $('[name="exams[1][examId]"] option[value=1]').prop('selected', true);
-        $('[name="exams[2][examId]"] option[value=9]').prop('selected', true);
+        $('[name="exams[0][examId]"] option[value="2"]').prop('selected', true);
+        $('[name="exams[1][examId]"] option[value="1"]').prop('selected', true);
+        $('[name="exams[2][examId]"] option[value="9"]').prop('selected', true);
         $('#smartwizard').smartWizard("goToStep", 6);
-        this.updateContests();
     }
-
-    this.test = () => {
-        console.log(specialityInput.val(), specialityInput.text())
-    };
 
     init();
 }
-
-const cloneInputGroup = (groupSelector, containerSelector, autoIncArrayInputs = false) => {
-    const cloneGroup = $(groupSelector).first().clone();
-    const groupsCount = $(containerSelector).find(groupSelector).length;
-
-    if (autoIncArrayInputs === true) {
-        cloneGroup.find('input, select').each(function (){
-            console.log($(this).attr('name').replace(/.+?\[[^\]]*\]/, 'exams['+(groupsCount)+']'));
-            $(this).attr('name', $(this).attr('name').replace(/.+?\[[^\]]*\]/, 'exams['+(groupsCount)+']'));
-        })
-    }
-
-    cloneGroup.find('input').val('');
-    cloneGroup.appendTo(containerSelector);
-}
-
-const removeInputGroup = (containerSelector, groupSelector, minCount = 1) => {
-    const inputGroups = $(containerSelector).find(groupSelector);
-    if (inputGroups.length > minCount) {
-        inputGroups.last().remove();
-    }
-}
-
-const updateSelect = (selector, data, indexKey, valueKey) => {
-    const select = $(selector);
-    select.empty();
-    if (!data.length)
-        return false;
-    data.forEach(item => {
-        select.append($("<option></option>", {value: item[indexKey], text: item[valueKey]}));
-    });
-    return true;
-}
-
-window.getFromData = () => {
-    const fd = new FormData(document.forms.applyingForm);
-    for(let [name, value] of fd) {
-        console.log(`${name} = ${value}`);
-    }
-};
-
-window.getSpecialityList = (successCallback) => {
-    const form = $('#applyingForm');
-    $.ajax({
-        async: false,
-        url: '/apiV1/speciality/specialties_available_by_leaver/',
-        method: 'post',
-        dataType: 'html',
-        data: form.serialize(),
-        success: function(result){
-            result = JSON.parse(result);
-            if (successCallback)
-                successCallback(result);
-            else
-                console.log(result);
-        }
-    });
-};
-
-window.updateTest = () => {
-    window.getSpecialityList(function (result) {
-        updateSelect('#specialitySelect', result.data, 'specialityCode', 'speciality')
-    });
-};
-
-$(document).ready(function(){
-    /** События добавления и удаления полей специального права */
-    $('#toggleSpecRights').change(function () {
-        const displayStyle = ($(this).is(':checked')) ? 'block' : 'none';
-        $('#specRightsBlock').css('display', displayStyle);
-    })
-
-    $('#addSpecRightsInputButton').click(function () {
-        cloneInputGroup('.spec_rights_inputs', '#specRightsInputsGroups')
-    })
-
-    $('#removeSpecRightsInputButton').click(function () {
-        removeInputGroup('#specRightsInputsGroups', '.spec_rights_inputs')
-    })
-
-    /** События добавления и удаления полей приемущественного права */
-    $('#togglePreemRights').change(function () {
-        const displayStyle = ($(this).is(':checked')) ? 'block' : 'none';
-        $('#preemRightsBlock').css('display', displayStyle);
-    })
-
-    $('#addPreemRightsInputButton').click(function () {
-        cloneInputGroup('.preem_rights_input_group', '#preemRightsInputsGroups')
-    })
-
-    $('#removePreemRightsInputButton').click(function () {
-        removeInputGroup('#preemRightsInputsGroups', '.preem_rights_input_group')
-    })
-
-    /** События добавления и удаления полей индвидуальных достижений */
-    $('#toggleIndividAchievs').change(function () {
-        const displayStyle = ($(this).is(':checked')) ? 'block' : 'none';
-        $('#individAchievsBlock').css('display', displayStyle);
-    })
-
-    $('#addIndividAchievsInputButton').click(function () {
-        cloneInputGroup('.individ_achievs_input_group', '#individAchievsInputsGroups')
-    })
-
-    $('#removeIndividAchievsInputButton').click(function () {
-        removeInputGroup('#individAchievsInputsGroups', '.individ_achievs_input_group')
-    })
-
-    /** События добавления и удаления полей экзамена */
-    $('#addExamInputsGroupButton').click(function () {
-        cloneInputGroup('.exam_inputs_group', '#examInputsGroups', true)
-    })
-
-    $('#removeExamInputsGroupButton').click(function () {
-        removeInputGroup('#examInputsGroups', '.exam_inputs_group', 3)
-    })
-
-    /** Инициализация таблицы выбора направления */
-    const contestTable = new ContestTable({
-        rootElement: $('#rootContestTable'),
-        specialityInput: $('#specialitySelect'),
-        tableId: 'contestTable'
-    });
-    window.testTable = contestTable;
-
-    /** Инициализация smartWizard */
-    let errorSteps = [];
-    const smartWizard = $('#smartwizard');
-
-    smartWizard.smartWizard({
-        autoAdjustHeight: false,
-        enableFinishButton: true,
-        lang: { next: 'Далее', previous: 'Назад', finish: 'Отправить заявление'},
-        toolbarSettings: {
-            toolbarExtraButtons: [
-                $('<button></button>').text('Finish')
-                    .addClass('btn btn-info')
-                    .on('click', function(){
-                        document.forms.applyingForm.submit();
-                    })
-            ]
-        },
-    })
-
-    /** Инициализация 7 шага **/
-    smartWizard.on("showStep", function(e, anchorObject, stepIndex, stepDirection) {
-        const stepHash = anchorObject[0].hash
-        if (stepHash === '#step-7') {
-            window.getSpecialityList(function (result) {
-                const feedbackText = (result.data.length) ? '' : 'Не найденно подходящих направлений';
-                const contestsBlockDisplay = (result.data.length) ? 'block' : 'none';
-                $('.main_help_block').text(feedbackText);
-                $('.contests_block').css('display', contestsBlockDisplay);
-                updateSelect('#specialitySelect', result.data, 'specialityCode', 'speciality')
-            });
-        }
-    });
-
-    // smartWizard.on("showStep", function(e, anchorObject, stepIndex, stepDirection) {
-    //     smartWizard.smartWizard("setOptions", {
-    //         errorSteps: errorSteps
-    //     });
-    // });
-});

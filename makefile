@@ -13,3 +13,7 @@ docker-start:
 .PHONY: composer-update
 composer-update:
 	docker-compose run --rm composer composer update
+
+.PHONY: generate-phpDoc
+generate-phpDoc:
+	phpDocumentor -d source/src -t source/docs/

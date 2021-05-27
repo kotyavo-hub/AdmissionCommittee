@@ -1,31 +1,82 @@
 <h2>Особое право</h2>
 <div class="form-group">
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="toggleSpecRights" value="1">
+        <input class="form-check-input" type="checkbox" id="toggleSpecRights" name="toggleSpecRights" value="1" {% if leaver.specRights %} checked {% endif %}>
         <label class="form-check-label" for="toggleSpecRights">У меня есть особое право</label>
     </div>
 </div>
-<div id="specRightsBlock" style="display: none">
+<div id="specRightsBlock" style="display: {% if leaver.specRights %} block {% else %} none {% endif %}">
     <div id="specRightsInputsGroups">
-        <div class="form-group spec_rights_inputs">
+        <div class="form-group spec_rights_inputs_template" style="display: none">
             <div class="form-group">
                 <label>Тип особого права:</label>
-                <select class="form-control" name="specRightsTypes[]" required>
-                    <option value="" selected>Я дебил</option>
-                    <option value="">детдом</option>
-                    {% for prestart in data.specRightsTypes%}
-                        <option value="{{specRightsTypes.id}}">{{specRightsTypes.name}}</option>
+                <select class="form-control" data-name="specRights[0][docType]">
+                    {% for specRightsType in data.specRightsTypes%}
+                        <option value="{{ specRightsType.id }}">{{ specRightsType.name }}</option>
                     {% endfor %}
                 </select>
                 <small class="invalid-feedback"></small>
             </div>
-            <div class="form-group">
-                <div class="form-group">
-                    <label>Cкан документа подтверждающего специальное право:</label>
-                    <input type="file" class="form-control-file" name="specRightsFiles">
+            <div class="form-group files">
+                <label>Cкан документа подтверждающего специальное право:</label>
+                <div class="file-drop-area">
+                    <span class="choose-file-button">Выберите файл (в формате ".pdf")</span>
+                    <span class="file-message">или перетащите его в это поле</span>
+                    <input type="file" class="file-input" data-name="specRights[0][document]" accept="application/pdf">
                 </div>
+                <div class="invalid-feedback"></div>
             </div>
         </div>
+        {% if leaver.specRights%}
+            {% for specRight in leaver.specRights %}
+                <div class="form-group spec_rights_inputs">
+                    <div class="form-group">
+                        <label>Тип особого права:</label>
+                        <select class="form-control" name="specRights[{{ loop.index }}][docType]">
+                            {% for specRightsType in data.specRightsTypes%}
+                                <option value="{{ specRightsType.id }}" {% if specRightsType.id == specRight.id %} selected {% endif %}>{{ specRightsType.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <small class="invalid-feedback"></small>
+                    </div>
+                    <div class="form-group files">
+                        <label>Cкан документа подтверждающего специальное право:</label>
+                        <div class="file-drop-area">
+                            <span class="choose-file-button">Выберите файл (в формате ".pdf")</span>
+                            <span class="file-message">или перетащите его в это поле</span>
+                            <input type="file" class="file-input" name="specRights[{{ loop.index }}][document]" accept="application/pdf">
+                        </div>
+                        <div class="invalid-feedback"></div>
+                        {% if specRight.document %}
+                            <a href="/document/{{ specRight.document.id }}/">
+                                Загруженный документ: {{ specRight.document.name }}
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="form-group spec_rights_inputs">
+                <div class="form-group">
+                    <label>Тип особого права:</label>
+                    <select class="form-control" name="specRights[0][docType]">
+                        {% for specRightsType in data.specRightsTypes%}
+                            <option value="{{ specRightsType.id }}">{{ specRightsType.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <small class="invalid-feedback"></small>
+                </div>
+                <div class="form-group files">
+                    <label>Cкан документа подтверждающего специальное право:</label>
+                    <div class="file-drop-area">
+                        <span class="choose-file-button">Выберите файл (в формате ".pdf")</span>
+                        <span class="file-message">или перетащите его в это поле</span>
+                        <input type="file" class="file-input" name="specRights[0][document]" accept="application/pdf">
+                    </div>
+                    <div class="invalid-feedback"></div>
+                </div>
+            </div>
+        {% endif %}
     </div>
     <button id="addSpecRightsInputButton" type="button" class="btn btn-primary">Добавить</button>
     <button id="removeSpecRightsInputButton" type="button" class="btn btn-danger">Удалить</button>
@@ -34,29 +85,127 @@
 <h2>Приемущественное право</h2>
 <div class="form-group">
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="togglePreemRights" value="1">
+        <input class="form-check-input" type="checkbox" id="togglePreemRights" name="togglePreemRights" value="1">
         <label class="form-check-label" for="togglePreemRights">У меня есть приемущественное право</label>
     </div>
 </div>
+{# Доделать вывод блоков #}
 <div id="preemRightsBlock" style="display: none">
     <div id="preemRightsInputsGroups">
-        <div class="form-group preem_rights_input_group">
+        <div class="form-group preem_rights_input_group_template" style="display: none" data-validation="ignore">
             <div class="form-group">
                 <label>Тип приемущественного права:</label>
-                <select class="form-control" name="preemRightsTypes[]" required>
-                    <option value="" selected>Я дебил</option>
-                    <option value="">детдом</option>
-                    {% for prestart in data.preemRightsTypes%}
-                        <option value="{{preemRightsTypes.id}}">{{preemRightsTypes.name}}</option>
+                <select class="form-control" data-name="preemRights[0][docType]">
+                    {% for preemRightsType in data.preemRightsTypes%}
+                        <option value="{{ preemRightsType.id }}">{{ preemRightsType.name }}</option>
                     {% endfor %}
                 </select>
                 <small class="invalid-feedback"></small>
             </div>
-            <div class="form-group">
-                <div class="form-group">
-                    <label>Cкан документа подтверждающего приемущественное право:</label>
-                    <input type="file" class="form-control-file" name="preemRightsFiles">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>Серия:</label>
+                    <input type="text"
+                           class="form-control"
+                           data-name="preemRights[0][docSeria]"
+                           value=""
+                    >
+                    <small class="invalid-feedback"></small>
                 </div>
+                <div class="form-group col-md-4">
+                    <label>Номер:</label>
+                    <input type="text"
+                           class="form-control"
+                           data-name="preemRights[0][docNumber]"
+                           value=""
+                    >
+                    <small class="invalid-feedback"></small>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Дата выдачи:</label>
+                    <input type="date"
+                           class="form-control"
+                           data-name="preemRights[0][docDate]"
+                           value=""
+                    >
+                    <small class="invalid-feedback"></small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Кем выдан:</label>
+                <input type="text"
+                       class="form-control"
+                       data-name="preemRights[0][docOrganization]"
+                       value=""
+                >
+                <small class="invalid-feedback"></small>
+            </div>
+            <div class="form-group files">
+                <label>Cкан документа подтверждающего приемущественное право:</label>
+                <div class="file-drop-area">
+                    <span class="choose-file-button">Выберите файл (в формате ".pdf")</span>
+                    <span class="file-message">или перетащите его в это поле</span>
+                    <input type="file" class="file-input" data-name="preemRights[0][document]" accept="application/pdf">
+                </div>
+                <div class="invalid-feedback"></div>
+            </div>
+        </div>
+        <div class="form-group preem_rights_input_group">
+            <div class="form-group">
+                <label>Тип приемущественного права:</label>
+                <select class="form-control" name="preemRights[0][docType]">
+                    {% for preemRightsType in data.preemRightsTypes%}
+                        <option value="{{ preemRightsType.id }}">{{ preemRightsType.name }}</option>
+                    {% endfor %}
+                </select>
+                <small class="invalid-feedback"></small>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>Серия:</label>
+                    <input type="text"
+                           class="form-control"
+                           name="preemRights[0][docSeria]"
+                           value=""
+                    >
+                    <small class="invalid-feedback"></small>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Номер:</label>
+                    <input type="text"
+                           class="form-control"
+                           name="preemRights[0][docNumber]"
+                           value=""
+                    >
+                    <small class="invalid-feedback"></small>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Дата выдачи:</label>
+                    <input type="date"
+                           class="form-control"
+                           name="preemRights[0][docDate]"
+                           value=""
+                    >
+                    <small class="invalid-feedback"></small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Кем выдан:</label>
+                <input type="text"
+                       class="form-control"
+                       name="preemRights[0][docOrganization]"
+                       value=""
+                >
+                <small class="invalid-feedback"></small>
+            </div>
+            <div class="form-group files">
+                <label>Cкан документа подтверждающего приемущественное право:</label>
+                <div class="file-drop-area">
+                    <span class="choose-file-button">Выберите файл (в формате ".pdf")</span>
+                    <span class="file-message">или перетащите его в это поле</span>
+                    <input type="file" class="file-input" name="preemRights[0][document]" accept="application/pdf">
+                </div>
+                <div class="invalid-feedback"></div>
             </div>
         </div>
     </div>
@@ -67,29 +216,126 @@
 <h2>Индивидуальные достижения</h2>
 <div class="form-group">
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="toggleIndividAchievs" value="1">
+        <input class="form-check-input" type="checkbox" id="toggleIndividAchievs" name="toggleIndividAchievs" value="1">
         <label class="form-check-label" for="toggleIndividAchievs">У меня есть индивидуальные достижения</label>
     </div>
 </div>
 <div id="individAchievsBlock" style="display: none">
     <div id="individAchievsInputsGroups">
-        <div class="form-group individ_achievs_input_group">
+        <div class="form-group individ_achievs_input_group_template" style="display: none" data-validation="ignore">
             <div class="form-group">
                 <label>Тип индивидуального достижения:</label>
-                <select class="form-control" name="individAchievsTypes[]" required>
-                    <option value="" selected>Я дебил</option>
-                    <option value="">детдом</option>
-                    {% for individAchievsType in data.individAchievsTypes%}
-                        <option value="{{individAchievsType.id}}">{{individAchievsType.name}}</option>
+                <select class="form-control" data-name="individAchievs[0][docType]" required>
+                    {% for individAchievsType in data.individAchievsTypes %}
+                        <option value="{{ individAchievsType.id }}">{{ individAchievsType.name }}</option>
                     {% endfor %}
                 </select>
                 <small class="invalid-feedback"></small>
             </div>
-            <div class="form-group">
-                <div class="form-group">
-                    <label>Cкан документа подтверждающего индивидуальное достижение:</label>
-                    <input type="file" class="form-control-file" name="individAchievsFiles">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>Серия:</label>
+                    <input type="text"
+                           class="form-control"
+                           data-name="individAchievs[0][docSeria]"
+                           value=""
+                    >
+                    <small class="invalid-feedback"></small>
                 </div>
+                <div class="form-group col-md-4">
+                    <label>Номер:</label>
+                    <input type="text"
+                           class="form-control"
+                           data-name="individAchievs[0][docNumber]"
+                           value=""
+                    >
+                    <small class="invalid-feedback"></small>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Дата выдачи:</label>
+                    <input type="date"
+                           class="form-control"
+                           data-name="individAchievs[0][docDate]"
+                           value=""
+                    >
+                    <small class="invalid-feedback"></small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Кем выдан:</label>
+                <input type="text"
+                       class="form-control"
+                       data-name="individAchievs[0][docOrganization]"
+                       value=""
+                >
+                <small class="invalid-feedback"></small>
+            </div>
+            <div class="form-group files">
+                <label>Cкан документа подтверждающего приемущественное право:</label>
+                <div class="file-drop-area">
+                    <span class="choose-file-button">Выберите файл (в формате ".pdf")</span>
+                    <span class="file-message">или перетащите его в это поле</span>
+                    <input type="file" class="file-input" data-name="individAchievs[0][document]" accept="application/pdf">
+                </div>
+                <div class="invalid-feedback"></div>
+            </div>
+        </div>
+        <div class="form-group individ_achievs_input_group">
+            <div class="form-group">
+                <label>Тип индивидуального достижения:</label>
+                <select class="form-control" name="individAchievs[0][docType]" required>
+                    {% for individAchievsType in data.individAchievsTypes %}
+                        <option value="{{ individAchievsType.id }}">{{ individAchievsType.name }}</option>
+                    {% endfor %}
+                </select>
+                <small class="invalid-feedback"></small>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>Серия:</label>
+                    <input type="text"
+                           class="form-control"
+                           name="individAchievs[0][docSeria]"
+                           value=""
+                    >
+                    <small class="invalid-feedback"></small>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Номер:</label>
+                    <input type="text"
+                           class="form-control"
+                           name="individAchievs[0][docNumber]"
+                           value=""
+                    >
+                    <small class="invalid-feedback"></small>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Дата выдачи:</label>
+                    <input type="date"
+                           class="form-control"
+                           name="individAchievs[0][docDate]"
+                           value=""
+                    >
+                    <small class="invalid-feedback"></small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Кем выдан:</label>
+                <input type="text"
+                       class="form-control"
+                       name="individAchievs[0][docOrganization]"
+                       value=""
+                >
+                <small class="invalid-feedback"></small>
+            </div>
+            <div class="form-group files">
+                <label>Cкан документа подтверждающего приемущественное право:</label>
+                <div class="file-drop-area">
+                    <span class="choose-file-button">Выберите файл (в формате ".pdf")</span>
+                    <span class="file-message">или перетащите его в это поле</span>
+                    <input type="file" class="file-input" name="individAchievs[0][document]" accept="application/pdf">
+                </div>
+                <div class="invalid-feedback"></div>
             </div>
         </div>
     </div>

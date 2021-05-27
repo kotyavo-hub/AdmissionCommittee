@@ -5,6 +5,10 @@ namespace AC\Controllers\Exceptions;
 use Exception;
 use Throwable;
 
+/**
+ * Class NotFoundEmailHashException
+ * @package AC\Controllers\Exceptions
+ */
 final class NotFoundEmailHashException extends Exception
 {
     const MESSAGE = 'Email hash parameter not found';

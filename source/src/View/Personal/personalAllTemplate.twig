@@ -1,0 +1,21 @@
+{% extends "../baseTemplate.twig" %}
+
+{% set leavers = data.leavers %}
+
+{% block title %}Личные дело №{{ leaver.id }}{% endblock %}
+
+{% block navbarClass %}navbar__black{% endblock %}
+
+{% block content %}
+    <div class="wrapper__applying">
+        <h1 class="text-center">Личные дела</h1>
+        <div class="list-group">
+        {% for leaver in leavers %}
+                <a href="#" class="list-group-item">
+                    {{ leaver.id }} {{ leaver.surName }} {{ leaver.name }} {{ leaver.middleName }}
+                    <span>Email: </span><a href="mailto:{{ leaver.email }}">{{ leaver.email }}</a><br>
+                </a>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}

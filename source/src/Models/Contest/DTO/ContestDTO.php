@@ -5,8 +5,16 @@ namespace AC\Models\Contest\DTO;
 use AC\Models\Faculty\DTO\FacultyDTO;
 use Spatie\DataTransferObject\DataTransferObject;
 
+/**
+ * Класс DTO для работы с данными конкурса
+ *
+ * Class ContestDTO
+ * @package AC\Models\Contest\DTO
+ */
 class ContestDTO extends DataTransferObject
 {
+    public int $id;
+
     public string $codeOKCO;
 
     public int $urov;

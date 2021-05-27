@@ -5,6 +5,12 @@ namespace AC\Models\User\DTO;
 use AC\Service\Http\Request;
 use Spatie\DataTransferObject\DataTransferObject;
 
+/**
+ * Класс DTO для получения и хранения данных из Request
+ *
+ * Class UserPostDTO
+ * @package AC\Models\User\DTO
+ */
 class UserPostDTO extends DataTransferObject
 {
     public string $login;
@@ -17,6 +23,11 @@ class UserPostDTO extends DataTransferObject
 
     public ?int $role;
 
+    /**
+     * Функция для получения данных из Request
+     * @param Request $request
+     * @return static
+     */
     public static function fromRequest(Request $request): self
     {
         return new self([

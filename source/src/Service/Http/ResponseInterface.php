@@ -2,6 +2,15 @@
 
 namespace AC\Service\Http;
 
+use AC\Service\Http\Enum\HttpCodeEnum;
+
+/**
+ * Интерфейс для отправки данных пользователю
+ *
+ * @see Response
+ * Interface ResponseInterface
+ * @package AC\Service\Http
+ */
 interface ResponseInterface
 {
     /**
@@ -37,4 +46,16 @@ interface ResponseInterface
      * @return mixed
      */
     public function destroySession();
+
+    /**
+     * @param string $param
+     * @return void
+     */
+    public function setHeader(string $param): void;
+
+    /**
+     * @param HttpCodeEnum $code
+     * @return void
+     */
+    public function setCode(HttpCodeEnum $code): void;
 }

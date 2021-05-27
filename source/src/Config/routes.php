@@ -6,7 +6,9 @@ use AC\Controllers\API\ContestController;
 use AC\Controllers\API\SpecialityController;
 use AC\Controllers\ApplyingController;
 use AC\Controllers\AuthController;
+use AC\Controllers\DocumentController;
 use AC\Controllers\IndexController;
+use AC\Controllers\PersonalController;
 use AC\Controllers\RegistrationController;
 use AC\Service\Http\Request;
 
@@ -74,6 +76,30 @@ return [
                     RouteConfigKeys::HTTP_METHOD => Request::METHOD_POST,
                     RouteConfigKeys::CONTROLLER => ApplyingController::class,
                     RouteConfigKeys::CONTROLLER_ACTION => 'applyingPost'
+                ],
+                [
+                    RouteConfigKeys::ROUTE => '/document/{id:\d+}/',
+                    RouteConfigKeys::HTTP_METHOD => Request::METHOD_GET,
+                    RouteConfigKeys::CONTROLLER => DocumentController::class,
+                    RouteConfigKeys::CONTROLLER_ACTION => 'documentGet'
+                ],
+                [
+                    RouteConfigKeys::ROUTE => '/personal/{id:\d+}/',
+                    RouteConfigKeys::HTTP_METHOD => Request::METHOD_GET,
+                    RouteConfigKeys::CONTROLLER => PersonalController::class,
+                    RouteConfigKeys::CONTROLLER_ACTION => 'personalGet'
+                ],
+                [
+                    RouteConfigKeys::ROUTE => '/personal/',
+                    RouteConfigKeys::HTTP_METHOD => Request::METHOD_GET,
+                    RouteConfigKeys::CONTROLLER => PersonalController::class,
+                    RouteConfigKeys::CONTROLLER_ACTION => 'personalIndexGet'
+                ],
+                [
+                    RouteConfigKeys::ROUTE => '/personal/all/',
+                    RouteConfigKeys::HTTP_METHOD => Request::METHOD_GET,
+                    RouteConfigKeys::CONTROLLER => PersonalController::class,
+                    RouteConfigKeys::CONTROLLER_ACTION => 'personalAllGet'
                 ],
                 [
                     RouteConfigKeys::ROUTE => '/exit/',
