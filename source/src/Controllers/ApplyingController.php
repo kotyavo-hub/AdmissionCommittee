@@ -224,6 +224,8 @@ class ApplyingController extends BaseController
             throw new NotFoundLeaverException();
         }
 
+        $leaverPostDto->statusComplete = 1;
+
         $this->applyingService->setChildrenDtoLeaverId($leaverPostDto);
 
         $this->applyingService->addLeaverFiles($leaverPostDto);
