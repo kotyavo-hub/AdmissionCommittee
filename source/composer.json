@@ -16,7 +16,7 @@
     "paragonie/easydb": "^2",
     "phpmailer/phpmailer": "6.3.0",
     "ext-pdo": "*",
-    "doctrine/annotations": "1.12.1",
+    "doctrine/annotations": "<=1.12.1",
     "ext-json": "*",
     "spatie/data-transfer-object": "^2.8",
     "ext-xmlreader": "*",

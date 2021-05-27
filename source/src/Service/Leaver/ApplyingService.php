@@ -369,7 +369,9 @@ class ApplyingService
             $dto->specials = ($specialsRes = $this->specialsDao->getByLeaverId($dto->id))
                 ? SpecialsDTOCollection::create($specialsRes)
                 : null;
+            if ($dto->specials === null) return;
             foreach ($dto->specials as $special) {
+
                   $special->contest = ($special->idContest) ?  $this->contestDao->getById($special->idContest) : null;
                   if ($special->contest)
                       $special->contest = $special->contest[0];

@@ -1,4 +1,4 @@
-{% extends "../baseTemplate.twig" %}
+{% extends "baseTemplate.twig" %}
 
 {% set leavers = data.leavers %}
 
@@ -11,9 +11,12 @@
         <h1 class="text-center">Личные дела</h1>
         <div class="list-group">
         {% for leaver in leavers %}
-                <a href="#" class="list-group-item">
-                    {{ leaver.id }} {{ leaver.surName }} {{ leaver.name }} {{ leaver.middleName }}
-                    <span>Email: </span><a href="mailto:{{ leaver.email }}">{{ leaver.email }}</a><br>
+                <a href="/personal/{{ leaver.id }}/" class="list-group-item">
+                    {{ leaver.id }} |
+                    {{ leaver.surName }} {{ leaver.name }} {{ leaver.middleName }} |
+                    {{ leaver.email }} |
+                    Статус заявления:
+                    {% if leaver.statusComplete %} поданно {% else %} незавершено {% endif %}
                 </a>
         {% endfor %}
         </div>

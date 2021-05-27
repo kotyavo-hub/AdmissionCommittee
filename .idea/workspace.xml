@@ -17,99 +17,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cd3d094-4ee6-4b67-bb92-1b92a54310e8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/source/assets/js/applying/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Config/Menu/Enum/MenuConfigFilesEnum.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Config/Menu/Enum/MenuConfigKeys.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Config/Menu/Files/headerMenu.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Config/Menu/MenuConfig.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Controllers/DocumentController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Exceptions/NotFoundDocumentException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Exceptions/NotFoundIdException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Controllers/Exceptions/NotFoundLeaverException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Controllers/PersonalController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Models/File/DAO/FileDAO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Models/File/DTO/FileDTO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/DTO/LeaverDTOCollection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/Exam/DAO/ExamDao.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/IndividAchiev/DAO/IndividAchievDAO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/IndividAchiev/DTO/IndividAchievDTO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/IndividAchiev/DTO/IndividAchievDTOCollection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/PreemRight/DAO/PreemRightDAO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/PreemRight/DTO/PreemRightDTO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/PreemRight/DTO/PreemRightDTOCollection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/SpecRight/DAO/SpecRightDAO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/SpecRight/DTO/SpecRightDTO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/SpecRight/DTO/SpecRightDTOCollection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/Specials/DAO/SpecialsDao.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/Specials/DTO/SpecialsDTO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Models/Leaver/Specials/DTO/SpecialsDTOCollection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Service/Http/Enum/HttpCodeEnum.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Service/Leaver/LeaverService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/Service/Menu/MenuGenerator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/View/Applying/Steps/step8.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/View/Applying/applyingFinalTemplate.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/View/Personal/personalAllTemplate.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/src/View/Personal/personalTemplate.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/source/assets/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/assets/js/applying.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/assets/js/applying/classes/ContestsTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/source/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Config/Validation/ValidationConfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Config/Validation/ValidationConfig.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Config/Validation/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Config/Validation/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Config/container.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Config/container.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Config/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Controllers/API/ContestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/API/ContestController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Controllers/API/Exceptions/NotFoundRequiredUrovOrExamsParamsException.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/API/Exceptions/NotFoundRequiredUrovOrExamsParamsException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Controllers/API/SpecialityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/API/SpecialityController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/src/Controllers/ApplyingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/ApplyingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Controllers/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/BaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Controllers/Enum/ResultEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/Enum/ResultEnum.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Controllers/Enum/StatusEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/Enum/StatusEnum.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Controllers/Exceptions/NotFoundEmailHashException.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/Exceptions/NotFoundEmailHashException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Controllers/Exceptions/NotFoundGuidException.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/Exceptions/NotFoundGuidException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Controllers/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Models/Contest/DAO/ContestDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Contest/DAO/ContestDAO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Models/Contest/DTO/ContestDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Contest/DTO/ContestDTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Models/DataAccessObject.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/DataAccessObject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Models/Dictionary/DAO/DictionaryDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Dictionary/DAO/DictionaryDAO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Models/Dictionary/Enum/DictionaryTableEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Dictionary/Enum/DictionaryTableEnum.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Models/Faculty/DAO/FacultyDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Faculty/DAO/FacultyDAO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Models/Faculty/DTO/FacultyDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Faculty/DTO/FacultyDTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Models/Leaver/DAO/LeaverDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Leaver/DAO/LeaverDAO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Models/Leaver/DTO/LeaverDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Leaver/DTO/LeaverDTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Models/Leaver/Exam/DTO/LeaverExamDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Leaver/Exam/DTO/LeaverExamDTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Models/Leaver/Exam/DTO/LeaverExamDTOCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Leaver/Exam/DTO/LeaverExamDTOCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Models/Result/ResultDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Result/ResultDTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Models/Specialty/DAO/SpecialtyDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Specialty/DAO/SpecialtyDAO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Models/Specialty/DTO/SpecialtyDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/Specialty/DTO/SpecialtyDTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Models/User/DAO/UserDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/User/DAO/UserDAO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Models/User/DTO/UserDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/User/DTO/UserDTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Models/User/DTO/UserPostDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/User/DTO/UserPostDTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Models/User/Enum/RoleEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Models/User/Enum/UserRoleEnum.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Service/Http/Request.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/Http/Request.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Service/Http/RequestInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/Http/RequestInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Service/Http/Response.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/Http/Response.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Service/Http/ResponseInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/Http/ResponseInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Service/Http/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/Http/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/Controllers/PersonalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Controllers/PersonalController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/src/Service/Leaver/ApplyingService.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/Leaver/ApplyingService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Service/Mail/Mailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/Mail/Mailer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Service/User/UserManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/User/UserManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/Service/User/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/Service/User/UserService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/View/Applying/Steps/step1.twig" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/View/Applying/Steps/step1.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/View/Applying/Steps/step2.twig" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/View/Applying/Steps/step2.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/View/Applying/Steps/step3.twig" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/View/Applying/Steps/step3.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/View/Applying/Steps/step4.twig" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/View/Applying/Steps/step4.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/View/Applying/Steps/step5.twig" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/View/Applying/Steps/step5.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/View/Applying/Steps/step6.twig" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/View/Applying/Steps/step6.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/View/Applying/applyingTemplate.twig" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/View/Applying/applyingTemplate.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/View/baseTemplate.twig" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/View/baseTemplate.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/bootstrap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/View/Personal/personalAllTemplate.twig" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/View/Personal/personalAllTemplate.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/View/Personal/personalTemplate.twig" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/View/Personal/personalTemplate.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -296,7 +211,7 @@
       <workItem from="1621888411618" duration="11983000" />
       <workItem from="1621946919259" duration="65000" />
       <workItem from="1621974611046" duration="12589000" />
-      <workItem from="1622033584962" duration="46586000" />
+      <workItem from="1622033584962" duration="49929000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1615123820376</created>
@@ -354,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617986194782</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Тонна измений2">
+      <created>1622082701271</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1622082701271</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,7 +326,8 @@
     <MESSAGE value="Вернул шаблон страницы подачи заявления под версионный контроль" />
     <MESSAGE value="Поскольку перенес словари в таблицу, удалил релизацию через xml, добавил 4-6 шаги в подаче заявления." />
     <MESSAGE value="Тонна измений" />
-    <option name="LAST_COMMIT_MESSAGE" value="Тонна измений" />
+    <MESSAGE value="Тонна измений2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Тонна измений2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="332" y="407" key="#SQL_Dialects" timestamp="1615689103894">
@@ -435,10 +358,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="698" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1622070208744" />
-    <state x="573" y="115" key="CommitChangelistDialog2" timestamp="1621974689340">
+    <state x="573" y="115" key="CommitChangelistDialog2" timestamp="1622082700765">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="573" y="115" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1621974689340" />
+    <state x="573" y="115" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1622082700765" />
     <state x="637" y="418" key="ComposerInitDialogKey" timestamp="1615054349746">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -487,10 +410,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="121" y="202" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1621785368130" />
-    <state x="560" y="259" key="Vcs.Push.Dialog.v2" timestamp="1617237219183">
+    <state x="560" y="259" key="Vcs.Push.Dialog.v2" timestamp="1622082704086">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="560" y="259" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1617237219183" />
+    <state x="560" y="259" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1622082704086" />
     <state x="820" y="182" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1617053943283">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

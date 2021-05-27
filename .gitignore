@@ -1,6 +1,5 @@
 /mysql/data/*
 /source/vendor
-/source/composer.lock
 /README.md
 /.idea/
 /source/src/Config/Mail/mail.php

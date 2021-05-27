@@ -3,13 +3,10 @@
 namespace AC\Controllers;
 
 use AC\Controllers\Enum\StatusEnum;
-use AC\Controllers\Exceptions\NotFoundDocumentException;
 use AC\Controllers\Exceptions\NotFoundIdException;
+use AC\Controllers\Exceptions\NotFoundLeaverException;
 use AC\Models\Dictionary\DAO\DictionaryDAO;
 use AC\Models\Dictionary\Enum\DictionaryTableEnum;
-use AC\Models\File\DAO\FileDAO;
-use AC\Models\File\DTO\FileDTO;
-use AC\Models\Leaver\DTO\LeaverDTO;
 use AC\Models\Result\ResultDTO;
 use AC\Models\User\Enum\UserRoleEnum;
 use AC\Service\Http\Enum\HttpCodeEnum;
@@ -58,7 +55,7 @@ class PersonalController extends BaseController
 
     /**
      * @param string|null $id
-     * @throws NotFoundIdException
+     * @throws NotFoundIdException|NotFoundLeaverException
      */
     public function personalGet(string $id = null)
     {
@@ -79,7 +76,12 @@ class PersonalController extends BaseController
             return;
         }
 
-        $leaver = $this->applyingService->getLeaverAllById($user->entityId);
+        $leaver = $this->applyingService->getLeaverAllById($id);
+
+        if (!$leaver) {
+            $response->setCode(HttpCodeEnum::NOT_FOUND());
+            throw new NotFoundLeaverException();
+        }
 
         if (!($user->role === UserRoleEnum::LEAVER || !($user->entityId == $leaver->id))) {
             $response->setCode(HttpCodeEnum::FORBIDDEN());
@@ -109,7 +111,7 @@ class PersonalController extends BaseController
     }
 
     /**
-     * @throws NotFoundIdException
+     * @throws NotFoundIdException|NotFoundLeaverException
      */
     public function personalIndexGet()
     {
@@ -142,10 +144,8 @@ class PersonalController extends BaseController
             $this->applyingService->getChildrenAndFilesByLeaver($leaver);
         }
 
-        $leaver = $this->applyingService->getLeaverAllById($user->entityId);
-
         $data = [
-            'leavers'              => $leaver->toArray(),
+            'leavers'             => $leavers->toArray(),
             'genders'             => $this->dictionaryDao->getAll(DictionaryTableEnum::GENDERS()),
             'citizens'            => $this->dictionaryDao->getAll(DictionaryTableEnum::CITIZEN()),
             'countries'           => $this->dictionaryDao->getAll(DictionaryTableEnum::COUNTRIES()),

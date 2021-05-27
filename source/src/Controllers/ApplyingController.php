@@ -12,7 +12,6 @@ use AC\Models\Dictionary\Enum\DictionaryTableEnum;
 use AC\Models\File\DAO\FileDAO;
 use AC\Models\Leaver\DAO\LeaverDAO;
 use AC\Models\Leaver\DTO\LeaverDTO;
-use AC\Models\Leaver\SpecRight\DAO\PreemRightDAO;
 use AC\Models\Result\ResultDTO;
 use AC\Models\User\DAO\UserDAO;
 use AC\Models\User\DTO\UserDTO;
