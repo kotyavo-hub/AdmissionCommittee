@@ -6,7 +6,7 @@
     </div>
 </div>
 <div id="specRightsBlock" style="display: {% if leaver.specRights %} block {% else %} none {% endif %}">
-    <div id="specRightsInputsGroups">
+    <div id="specRightsInputsGroups" data-validation="ignore">
         <div class="form-group spec_rights_inputs_template" style="display: none">
             <div class="form-group">
                 <label>Тип особого права:</label>
@@ -91,7 +91,7 @@
 </div>
 {# Доделать вывод блоков #}
 <div id="preemRightsBlock" style="display: none">
-    <div id="preemRightsInputsGroups">
+    <div id="preemRightsInputsGroups" data-validation="ignore">
         <div class="form-group preem_rights_input_group_template" style="display: none" data-validation="ignore">
             <div class="form-group">
                 <label>Тип приемущественного права:</label>
@@ -220,7 +220,7 @@
         <label class="form-check-label" for="toggleIndividAchievs">У меня есть индивидуальные достижения</label>
     </div>
 </div>
-<div id="individAchievsBlock" style="display: none">
+<div id="individAchievsBlock" style="display: none" data-validation="ignore">
     <div id="individAchievsInputsGroups">
         <div class="form-group individ_achievs_input_group_template" style="display: none" data-validation="ignore">
             <div class="form-group">

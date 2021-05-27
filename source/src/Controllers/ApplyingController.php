@@ -132,7 +132,7 @@ class ApplyingController extends BaseController
             $this->mailer->sendMail(
                 $leaverDto->email,
                 'Продолжение подачи заявления',
-                "Перейдите по ссылки для продолжения подачи заявления - <a href='http://localhost/applying/$leaverDto->guid/'>ссылка</a>"
+                "Перейдите по ссылки для продолжения подачи заявления - <a href='http://localhost/applying/". $leaverDto->guid ."/'>ссылка</a>"
             );
         }
 
@@ -174,6 +174,8 @@ class ApplyingController extends BaseController
         if ($leaver->email && !$leaver->statusEmail) {
             $leaver->statusEmail = ($this->leaverDao->updateStatusEmail($leaver->id)) ? 1 : $leaver->statusEmail;
         }
+
+        $leaver->givingDate = date('d.m.Y');
 
         $data = [
             'leaver'              => $leaver->toArray(),
