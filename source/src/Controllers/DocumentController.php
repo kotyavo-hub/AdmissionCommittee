@@ -64,16 +64,17 @@ class DocumentController extends BaseController
 
         $document = new FileDTO($documentRes);
 
-        if (
-            !($this->userManager->checkUserPermission($user, UserRoleEnum::INSPECTOR())) ||
-            !($this->userManager->checkUserPermission($user, UserRoleEnum::LEAVER()) && $user->entityId != $document->leaverId)
-        )
-        {
-            $response->setCode(HttpCodeEnum::FORBIDDEN());
-        }
+//        if (
+//            !($this->userManager->checkUserPermission($user, UserRoleEnum::INSPECTOR())) ||
+//            !($this->userManager->checkUserPermission($user, UserRoleEnum::LEAVER()) && $user->entityId != $document->leaverId)
+//        )
+//        {
+//            $response->setCode(HttpCodeEnum::FORBIDDEN());
+//        }
 
-        $response->setHeader('Content-Type:' . $document->type);
-        $response->setHeader('Content-Disposition: attachment; filename="' . $document->name . '"');
-        $response->renderString($document->content);
+        header("Content-length: $document->size");
+        header("Content-type: $document->type");
+        //$response->setHeader('Content-Disposition: attachment; filename="' . $document->name . '"');
+        echo $document->content;
     }
 }
